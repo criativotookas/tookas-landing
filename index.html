@@ -255,21 +255,22 @@
 
   /* ---------- reserve form ---------- */
   .reserve{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow); padding:32px; }
-  .reserve-grid{ display:grid; gap:28px; grid-template-columns:1fr; }
-  @media(min-width:820px){ .reserve-grid{ grid-template-columns:1fr 1.15fr; align-items:start; } }
+  .reserve-grid{ display:grid; gap:28px; grid-template-columns:minmax(0,1fr); }
+  @media(min-width:820px){ .reserve-grid{ grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); align-items:start; } }
 
-  .field{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
+  .field{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; min-width:0; }
   .field label{ font-size:.82rem; font-weight:600; color:var(--ink-soft); }
   .field input, .field select{
     font-family:"Public Sans", sans-serif; font-size:.98rem; color:var(--ink);
     background:var(--paper); border:1px solid var(--line); border-radius:10px;
     padding:11px 13px; outline:none;
+    width:100%; min-width:0;
     transition: border-color .15s ease, box-shadow .15s ease;
   }
   .field input:focus-visible, .field select:focus-visible{
     border-color:var(--teal); box-shadow:0 0 0 3px color-mix(in srgb, var(--teal) 22%, transparent);
   }
-  .field-row{ display:grid; gap:14px; grid-template-columns:1fr 1fr; }
+  .field-row{ display:grid; gap:14px; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
 
   .visit-note{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-md); padding:18px; display:flex; flex-direction:column; gap:12px; }
   .visit-note .line{ display:flex; justify-content:space-between; gap:10px; font-size:.92rem; }
