@@ -92,10 +92,24 @@ function initFormHandler() {
     const followers = document.getElementById('appFollowers').value;
     const tier = document.getElementById('appTier').value;
     const city = document.getElementById('appCity').value.trim();
+    const whatsapp = (document.getElementById('appWhatsapp') || {}).value ? document.getElementById('appWhatsapp').value.trim() : '';
+    const email = (document.getElementById('appEmail') || {}).value ? document.getElementById('appEmail').value.trim() : '';
     const contractAccepted = document.getElementById('appContractCheck') ? document.getElementById('appContractCheck').checked : true;
 
     if (!name || !instagram) {
       showToast('Por favor, preencha seu Nome e Instagram!', 'error');
+      return;
+    }
+
+    // WhatsApp e e-mail existem para a Tookas conseguir te achar mesmo que voce
+    // nao conclua o envio no WhatsApp la embaixo.
+    if (!whatsapp || whatsapp.replace(/\D/g, '').length < 10) {
+      showToast('Informe seu WhatsApp com DDD. Ex: (47) 99999-9999', 'error');
+      return;
+    }
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      showToast('Informe um e-mail válido para receber o retorno.', 'error');
       return;
     }
 
@@ -117,6 +131,8 @@ function initFormHandler() {
         token: 'tks-insc-40eea636d5929f3600982d82',
         nome: name,
         instagram: instagram,
+        whatsapp: whatsapp,
+        email: email,
         seguidores: followers,
         plano: tier,
         cidade: city || 'Nao informada',
@@ -131,7 +147,7 @@ function initFormHandler() {
       .catch(err => console.error('[inscricao] falhou o aviso por e-mail:', err));
 
     // 2. Format WhatsApp Direct Message
-    const message = `Olá! Quero me tornar um Afiliado Tookas.\n\n*Dados de Cadastro:*\n- Nome: ${name}\n- Instagram: @${instagram.replace('@', '')}\n- Seguidores: ${followers}\n- Plano Pretendido: ${tier}\n- Cidade: ${city || 'Não informada'}\n- Contrato Aceito: Sim (Aceito no site)`;
+    const message = `Olá! Quero me tornar um Afiliado Tookas.\n\n*Dados de Cadastro:*\n- Nome: ${name}\n- Instagram: @${instagram.replace('@', '')}\n- WhatsApp: ${whatsapp}\n- E-mail: ${email}\n- Seguidores: ${followers}\n- Plano Pretendido: ${tier}\n- Cidade: ${city || 'Não informada'}\n- Contrato Aceito: Sim (Aceito no site)`;
 
     const encodedMsg = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/554792415457?text=${encodedMsg}`;
