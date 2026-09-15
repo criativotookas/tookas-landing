@@ -104,23 +104,31 @@ function initFormHandler() {
       return;
     }
 
-    // 1. Dispatch background email notification to criativo.tookas@gmail.com
-    fetch('https://formspree.io/f/criativo.tookas@gmail.com', {
+    // 1. Registra a inscricao no Sistema Interno, que manda por e-mail para
+    //    criativo.tookas@gmail.com e mkt@tookas.com.br (Resend).
+    //    Antes isto ia para formspree.io/f/criativo.tookas@gmail.com, que
+    //    responde 404 FORM_NOT_FOUND - endpoint legado, nunca configurado.
+    //    O WhatsApp abaixo acontece de qualquer jeito: ele e o caminho
+    //    principal da inscricao, e nao pode depender deste aviso.
+    fetch('https://sistema.aitookas.com.br/api/inscricao-criador', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        token: 'tks-insc-40eea636d5929f3600982d82',
         nome: name,
         instagram: instagram,
         seguidores: followers,
         plano: tier,
-        cidade: city || 'Não informada',
-        contrato_aceito: 'Sim (Aceite Digital no Site)',
-        destino_email: 'criativo.tookas@gmail.com'
+        cidade: city || 'Nao informada',
+        contrato_aceito: 'Sim (Aceite Digital no Site)'
       })
-    }).catch(err => console.log('Envio por e-mail em segundo plano:', err));
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(dados => console.log('[inscricao] aviso por e-mail enviado', dados))
+      .catch(err => console.error('[inscricao] falhou o aviso por e-mail:', err));
 
     // 2. Format WhatsApp Direct Message
     const message = `Olá! Quero me tornar um Afiliado Tookas.\n\n*Dados de Cadastro:*\n- Nome: ${name}\n- Instagram: @${instagram.replace('@', '')}\n- Seguidores: ${followers}\n- Plano Pretendido: ${tier}\n- Cidade: ${city || 'Não informada'}\n- Contrato Aceito: Sim (Aceito no site)`;
