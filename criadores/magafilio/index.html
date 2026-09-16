@@ -4,24 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TOOKAS — Como se cadastrar na Magafilio | Programa de Criadores</title>
-  <meta name="description" content="Passo a passo para criar sua conta na Magafilio e pegar o seu link exclusivo Tookas — é por ele que suas vendas e a sua comissão são registradas.">
+  <meta name="description" content="Passo a passo para criar sua conta na Magafilio e gerar o seu link exclusivo Tookas — é por ele que suas vendas e a sua comissão de 10% são registradas.">
 
-  <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico?v=6.4">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.png?v=6.4">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png?v=6.4">
+  <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico?v=6.5">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.png?v=6.5">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png?v=6.5">
 
   <meta property="og:title" content="Como se cadastrar na Magafilio — Tookas">
-  <meta property="og:description" content="Seu link exclusivo Tookas em 4 passos. Grátis, sem CNPJ.">
+  <meta property="og:description" content="Seu link exclusivo Tookas em 5 passos. Grátis, sem CNPJ.">
   <meta property="og:image" content="../assets/images/tookas_logo.png">
   <meta property="og:type" content="article">
 
-  <link rel="stylesheet" href="../css/design-system.css?v=6.4">
-  <link rel="stylesheet" href="../css/styles.css?v=6.4">
+  <link rel="stylesheet" href="../css/design-system.css?v=6.5">
+  <link rel="stylesheet" href="../css/styles.css?v=6.5">
 
   <style>
     /* Só o que é específico do tutorial. O resto vem do design system da landing. */
-    .tuto-hero { padding: 120px 0 40px; text-align: center; }
-    .tuto-steps { display: grid; gap: 20px; margin-top: 32px; }
+    .tuto-hero { padding: 120px 0 30px; text-align: center; }
+    .tuto-antes {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: var(--radius-md); padding: 22px 26px; margin: 26px auto 0; max-width: 760px;
+      text-align: left;
+    }
+    .tuto-antes h2 {
+      font-family: var(--font-heading); font-size: 18px; letter-spacing: .5px;
+      color: var(--text-primary); margin: 0 0 12px;
+    }
+    .tuto-antes ul { margin: 0; padding-left: 20px; color: var(--text-secondary); line-height: 1.9; }
+    .tuto-antes strong { color: var(--text-primary); }
+
+    .tuto-steps { display: grid; gap: 20px; margin-top: 30px; }
     .tuto-step {
       background: var(--bg-card); border: 1px solid var(--border-color);
       border-radius: var(--radius-md); padding: 24px; display: grid;
@@ -46,11 +58,21 @@
       padding: 5px 14px; font-size: 13px; font-weight: 600;
     }
     .tuto-aviso {
-      border-left: 3px solid var(--accent-volt); background: var(--bg-card);
-      padding: 16px 20px; border-radius: var(--radius-sm); margin: 14px 0 0;
+      border-left: 3px solid var(--accent-volt); background: rgba(226,255,0,.04);
+      padding: 14px 18px; border-radius: var(--radius-sm); margin: 14px 0 0;
       color: var(--text-secondary); font-size: 15px; line-height: 1.6;
     }
     .tuto-aviso strong { color: var(--text-primary); }
+    .tuto-numeros {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px; margin-top: 16px;
+    }
+    .tuto-numero {
+      background: rgba(255,255,255,.03); border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm); padding: 14px; text-align: center;
+    }
+    .tuto-numero b { display: block; font-family: var(--font-heading); font-size: 20px; color: var(--accent-volt); }
+    .tuto-numero span { font-size: 13px; color: var(--text-muted); }
     .tuto-cta { text-align: center; margin: 40px 0 10px; }
     .tuto-faq { margin-top: 20px; display: grid; gap: 14px; }
     .tuto-faq details {
@@ -65,7 +87,7 @@
     .tuto-voltar { display: inline-block; margin-top: 10px; color: var(--text-muted); }
     @media (max-width: 640px) {
       .tuto-step { grid-template-columns: 1fr; gap: 12px; }
-      .tuto-hero { padding: 100px 0 24px; }
+      .tuto-hero { padding: 100px 0 20px; }
     }
   </style>
 </head>
@@ -92,57 +114,75 @@
         que vem do seu conteúdo. Sem esse cadastro, a sua comissão não tem como ser contada.
         É grátis, leva poucos minutos e <strong>não precisa de CNPJ</strong>.
       </p>
+
+      <div class="tuto-antes">
+        <h2>ANTES DE COMEÇAR, TENHA EM MÃOS</h2>
+        <ul>
+          <li><strong>CPF</strong> e nome completo</li>
+          <li><strong>Número do PIS</strong> e data de nascimento <em>(pedidos na hora do pagamento)</em></li>
+          <li><strong>Dados bancários</strong>: banco, agência, conta e se é poupança ou corrente</li>
+          <li>O <strong>@ do seu Instagram</strong></li>
+          <li>O mesmo <strong>e-mail e WhatsApp</strong> que você usou na inscrição com a gente</li>
+        </ul>
+      </div>
     </div>
   </header>
 
   <!-- PASSOS -->
-  <section class="section" style="padding-top: 10px;">
+  <section class="section" style="padding-top: 6px;">
     <div class="container">
       <div class="tuto-steps">
 
         <article class="tuto-step">
           <div class="tuto-num">1</div>
           <div>
-            <h3>ABRA A PÁGINA DE CADASTRO</h3>
+            <h3>CRIE O ACESSO</h3>
             <p>
               Entre em <a href="https://magafilio.com.br/afiliado/login/solicitacao" target="_blank" rel="noopener" class="text-volt">magafilio.com.br</a>
-              e clique em <strong>Cadastre-se</strong>. Na tela que abrir, confira se está na aba
-              <strong>Afiliado</strong> — a aba “Anunciante” é para lojas, não é a sua.
+              e clique em <strong>Cadastre-se</strong>. Confira se está na aba <strong>Afiliado</strong> —
+              a aba “Anunciante” é para lojas, não é a sua. Na tela <em>“Crie sua conta”</em>:
             </p>
+            <ul class="tuto-fields">
+              <li>E-mail</li>
+              <li>Telefone (WhatsApp)</li>
+              <li>Senha</li>
+              <li>Confirme a senha</li>
+            </ul>
+            <p style="margin-top:12px;">Marque <strong>“Não sou um robô”</strong> e clique em <strong>Continuar</strong>.</p>
+            <div class="tuto-aviso">
+              Use o <strong>mesmo e-mail e o mesmo WhatsApp</strong> que você passou pra gente na
+              inscrição. É assim que a gente acha o seu cadastro do outro lado e confirma que o link é seu.
+            </div>
           </div>
         </article>
 
         <article class="tuto-step">
           <div class="tuto-num">2</div>
           <div>
-            <h3>PREENCHA SEUS DADOS</h3>
-            <p>A tela “Crie sua conta” pede quatro campos:</p>
+            <h3>COMPLETE SEUS DADOS</h3>
+            <p>
+              Na tela seguinte, escolha <strong>Pessoa Física</strong> e preencha <strong>CPF</strong> e
+              <strong>Nome Completo</strong>. Logo abaixo, em <em>Grupos</em>, diga onde você divulga:
+            </p>
             <ul class="tuto-fields">
-              <li>E-mail</li>
-              <li>Telefone</li>
-              <li>Senha</li>
-              <li>Confirme a senha</li>
+              <li>Grupos de Divulgação → Página Instagram</li>
+              <li>Site de Divulgação → seu @ / link do Instagram</li>
             </ul>
-            <div class="tuto-aviso">
-              Use o <strong>mesmo e-mail e o mesmo WhatsApp</strong> que você passou pra gente na
-              inscrição. É assim que a gente encontra o seu cadastro do outro lado e confirma que o
-              link é seu.
-            </div>
+            <p style="margin-top:12px;">Aceite os Termos e clique em <strong>Concluir Cadastro</strong>.</p>
           </div>
         </article>
 
         <article class="tuto-step">
           <div class="tuto-num">3</div>
           <div>
-            <h3>COMPLETE O PERFIL</h3>
+            <h3>AVISE A GENTE (ISSO ACELERA)</h3>
             <p>
-              Depois de criar a conta, a Magafilio pede os dados para o pagamento das comissões —
-              incluindo <strong>CPF</strong> e os dados bancários da conta onde você quer receber.
-              Pessoa física resolve tudo com CPF: <strong>não é preciso ter empresa nem emitir nota fiscal</strong>.
+              Vai aparecer <strong>“Seu cadastro está em análise”</strong> — a liberação chega no seu
+              e-mail. Enquanto isso, <strong>mande pra gente no WhatsApp o e-mail que você cadastrou</strong>.
+              É com ele que a gente identifica você lá dentro e destrava a sua liberação mais rápido.
             </p>
             <div class="tuto-aviso">
-              Confira o CPF e a conta bancária com calma. É por esses dados que o dinheiro chega até
-              você, e corrigir depois atrasa o seu primeiro pagamento.
+              WhatsApp do time de parcerias: <a href="https://wa.me/554792415457" target="_blank" rel="noopener" class="text-volt"><strong>+55 47 9241-5457</strong></a>
             </div>
           </div>
         </article>
@@ -150,15 +190,44 @@
         <article class="tuto-step">
           <div class="tuto-num">4</div>
           <div>
-            <h3>ENCONTRE A TOOKAS E PEGUE SEU LINK</h3>
+            <h3>PREENCHA OS DADOS DE PAGAMENTO</h3>
             <p>
-              Dentro do portal do afiliado, procure a <strong>Tookas</strong> na lista de lojas e gere o
-              seu link de divulgação. Esse link é só seu: ele carrega um código que identifica cada
-              visita e cada pedido que vieram do seu conteúdo.
+              Com a conta liberada, abra o menu <strong>☰</strong> no canto superior e vá em
+              <strong>Configurações</strong>. Preencha e clique em <strong>Salvar</strong>:
             </p>
+            <ul class="tuto-fields">
+              <li>Endereço completo</li>
+              <li>Número do PIS</li>
+              <li>Data de nascimento</li>
+              <li>CPF e titular</li>
+              <li>Banco, agência e conta</li>
+              <li>Poupança ou corrente</li>
+            </ul>
             <div class="tuto-aviso">
-              <strong>Terminou?</strong> Manda uma mensagem pra gente no WhatsApp com o seu link.
-              A gente confere se está registrando certinho antes de você começar a divulgar.
+              Confira a conta bancária com calma: é por ela que o dinheiro chega até você, e corrigir
+              depois atrasa o seu primeiro pagamento.
+            </div>
+          </div>
+        </article>
+
+        <article class="tuto-step">
+          <div class="tuto-num">5</div>
+          <div>
+            <h3>GERE SEU LINK DA TOOKAS</h3>
+            <p>
+              No menu lateral, clique em <strong>Anunciantes Ativos</strong>. Ache o card da
+              <strong>Tookas</strong> e clique em <strong>Gerar link</strong> — ele já copia o link
+              automaticamente. Agora é só colar na <strong>bio do seu Instagram</strong> e usar nos
+              seus conteúdos.
+            </p>
+            <div class="tuto-numeros">
+              <div class="tuto-numero"><b>10%</b><span>comissão sobre as vendas</span></div>
+              <div class="tuto-numero"><b>Mensal</b><span>comissionamento</span></div>
+              <div class="tuto-numero"><b>30 dias</b><span>janela de atribuição</span></div>
+            </div>
+            <div class="tuto-aviso">
+              <strong>Janela de 30 dias</strong> quer dizer que, se a pessoa clicar no seu link hoje e
+              comprar em até 30 dias, a venda ainda conta como sua.
             </div>
           </div>
         </article>
@@ -168,8 +237,8 @@
       <div class="tuto-cta">
         <a href="https://magafilio.com.br/afiliado/login/solicitacao" target="_blank" rel="noopener" class="btn btn-volt">CRIAR MINHA CONTA NA MAGAFILIO</a>
         <br>
-        <a href="https://wa.me/554792415457?text=Ol%C3%A1!%20J%C3%A1%20criei%20minha%20conta%20na%20Magafilio%20e%20quero%20enviar%20o%20meu%20link." target="_blank" rel="noopener" class="tuto-voltar">
-          Já terminei — quero mandar meu link no WhatsApp
+        <a href="https://wa.me/554792415457?text=Ol%C3%A1!%20J%C3%A1%20fiz%20meu%20cadastro%20na%20Magafilio.%20O%20e-mail%20que%20cadastrei%20%C3%A9%3A%20" target="_blank" rel="noopener" class="tuto-voltar">
+          Já me cadastrei — quero informar meu e-mail no WhatsApp
         </a>
       </div>
     </div>
@@ -184,39 +253,52 @@
       <div class="tuto-faq">
         <details>
           <summary>Preciso ter CNPJ?</summary>
-          <p>Não. A Magafilio aceita pessoa física com CPF, sem empresa e sem emissão de nota fiscal.</p>
+          <p>Não. Dá para se cadastrar como Pessoa Física, com CPF, sem empresa e sem emitir nota fiscal.</p>
         </details>
         <details>
-          <summary>Quanto custa para me cadastrar?</summary>
-          <p>Nada. O cadastro na plataforma é gratuito.</p>
-        </details>
-        <details>
-          <summary>Como recebo minhas comissões?</summary>
+          <summary>Por que pedem o número do PIS?</summary>
           <p>
-            A Magafilio deposita as comissões todo mês na conta bancária que você cadastrar no perfil,
-            considerando os pedidos aprovados que vieram do seu link.
+            É a plataforma que paga a sua comissão, e ela pede esse dado no cadastro de pagamento,
+            junto com a data de nascimento e a conta bancária. Você encontra o seu PIS na carteira de
+            trabalho ou no aplicativo Carteira de Trabalho Digital / Meu INSS.
+          </p>
+        </details>
+        <details>
+          <summary>Meu cadastro ficou “em análise”. E agora?</summary>
+          <p>
+            É normal: a liberação é confirmada por e-mail. Manda o e-mail que você cadastrou no nosso
+            WhatsApp (+55 47 9241-5457) que a gente acompanha a liberação por aqui.
           </p>
         </details>
         <details>
           <summary>Como a loja sabe que a venda veio de mim?</summary>
           <p>
-            Pelo link exclusivo. Ele tem um código que acompanha a visita até a compra — por isso
-            divulgue sempre o <strong>seu</strong> link, e não o endereço normal da loja.
+            Pelo link que você gerou no card da Tookas. Ele carrega um código que acompanha a visita até
+            a compra — por isso divulgue sempre o <strong>seu</strong> link, e não o endereço normal da
+            loja. A janela de atribuição é de 30 dias.
+          </p>
+        </details>
+        <details>
+          <summary>Quando recebo minha comissão?</summary>
+          <p>
+            O comissionamento é mensal: a plataforma deposita na conta bancária que você cadastrou,
+            considerando os pedidos aprovados que vieram do seu link.
           </p>
         </details>
         <details>
           <summary>Onde acompanho minhas vendas?</summary>
           <p>
-            No próprio portal do afiliado da Magafilio, com o valor e o status de cada pedido que você
-            gerou.
+            No próprio painel da Magafilio, nos atalhos <em>Dashboard</em>, <em>Vendas</em> e
+            <em>Visitas</em>, com o valor e o status de cada pedido que você gerou.
           </p>
         </details>
         <details>
           <summary>Tenho um problema com a plataforma. Com quem falo?</summary>
           <p>
-            O suporte da Magafilio atende de segunda a sexta, das 9h às 18h, pelo WhatsApp
-            (47) 3180-0704 ou pelo e-mail contato@magafilio.com.br. Dúvidas sobre o Programa de
-            Criadores (planos, crédito, conteúdo) são com a gente, no nosso WhatsApp.
+            Dúvida sobre cadastro, pagamento ou painel é com o suporte da Magafilio: WhatsApp
+            (47) 3180-0704 ou contato@magafilio.com.br, de segunda a sexta, das 9h às 18h.
+            Dúvida sobre o Programa de Criadores (planos, crédito, conteúdo) é com a gente, no
+            +55 47 9241-5457.
           </p>
         </details>
       </div>
