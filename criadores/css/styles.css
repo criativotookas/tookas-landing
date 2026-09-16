@@ -1156,3 +1156,234 @@ input[type="range"] {
     font-size: 0.85rem;
   }
 }
+
+/* ==========================================================================
+   VÍDEOS DOS CRIADORES (trilha horizontal, stories 9:16)
+   Os vídeos usam preload="none": até alguém clicar, a página só carrega o
+   poster (~25 KB cada) em vez dos 40 MB de vídeo.
+   ========================================================================== */
+
+.videos-wrap {
+  position: relative;
+}
+
+.videos-trilha {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0 1.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+.videos-trilha::-webkit-scrollbar {
+  height: 6px;
+}
+
+.videos-trilha::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-pill);
+}
+
+.videos-trilha::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.video-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 246px;
+  aspect-ratio: 9 / 16;
+  scroll-snap-align: start;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.video-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+
+.video-card__media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+/* Botão de play sobre o poster. Some quando o vídeo começa a tocar. */
+.video-card__play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(180deg, rgba(10, 11, 14, 0) 55%, rgba(10, 11, 14, 0.55) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--transition-fast);
+}
+
+/* Play vazado, como o carrossel de stories da loja. */
+.video-card__play::before {
+  content: '';
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background: rgba(10, 11, 14, 0.15);
+  backdrop-filter: blur(2px);
+  transition: transform var(--transition-bounce), border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.video-card__play svg {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  color: #fff;
+  margin-left: 3px;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+  transition: color var(--transition-fast);
+}
+
+.video-card__play:hover::before {
+  transform: scale(1.08);
+  border-color: var(--accent-volt);
+  background: rgba(226, 255, 0, 0.12);
+}
+
+.video-card__play:hover svg {
+  color: var(--accent-volt);
+}
+
+.video-card__play:focus-visible {
+  outline: 2px solid var(--accent-volt);
+  outline-offset: -4px;
+}
+
+.video-card__info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+.video-card__label {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.video-card__time {
+  flex: 0 0 auto;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background: rgba(10, 11, 14, 0.75);
+  color: var(--text-secondary);
+}
+
+/* Enquanto toca: o controle nativo assume, o resto sai da frente. */
+.video-card.tocando .video-card__play,
+.video-card.tocando .video-card__info {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.video-card.tocando {
+  border-color: var(--accent-volt);
+}
+
+/* Setas (só no desktop; no celular o gesto é arrastar) */
+.videos-seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-primary);
+  background: rgba(10, 11, 14, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.videos-seta svg {
+  width: 20px;
+  height: 20px;
+}
+
+.videos-seta:hover {
+  background: var(--accent-volt);
+  color: var(--bg-dark);
+  border-color: var(--accent-volt);
+}
+
+.videos-seta:focus-visible {
+  outline: 2px solid var(--accent-volt);
+  outline-offset: 2px;
+}
+
+.videos-seta--esq {
+  left: -22px;
+}
+
+.videos-seta--dir {
+  right: -22px;
+}
+
+.videos-dica {
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+@media (min-width: 900px) {
+  .videos-seta {
+    display: flex;
+  }
+
+  /* `display: flex` acima vence o atributo [hidden] - sem esta regra a seta
+     da esquerda aparece mesmo no comeco da trilha. */
+  .videos-seta[hidden] {
+    display: none;
+  }
+
+  .videos-dica {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .video-card {
+    width: 72vw;
+    max-width: 280px;
+  }
+}
