@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPills();
   initSmoothScroll();
   initContractModal();
+  initVideosCriadores();
 });
 
 /* 1. Navbar Glassmorphism Scroll Effect */
@@ -257,4 +258,71 @@ function showToast(message, type = 'success') {
   setTimeout(() => {
     toast.classList.remove('show');
   }, 4000);
+}
+
+/* 8. Vídeos dos Criadores (trilha horizontal) */
+function initVideosCriadores() {
+  const trilha = document.getElementById('videosCriadores');
+  if (!trilha) return;
+
+  const cards = Array.from(trilha.querySelectorAll('.video-card'));
+
+  function pararTodos(menos) {
+    cards.forEach((card) => {
+      const video = card.querySelector('.video-card__media');
+      if (!video || video === menos) return;
+      video.pause();
+      video.controls = false;
+      card.classList.remove('tocando');
+    });
+  }
+
+  cards.forEach((card) => {
+    const video = card.querySelector('.video-card__media');
+    const botao = card.querySelector('.video-card__play');
+    if (!video || !botao) return;
+
+    botao.addEventListener('click', () => {
+      // Um de cada vez: som de dois vídeos juntos é o jeito mais rápido
+      // de a pessoa fechar a página.
+      pararTodos(video);
+      video.controls = true;
+      card.classList.add('tocando');
+      const tocou = video.play();
+      if (tocou && typeof tocou.catch === 'function') {
+        tocou.catch(() => {
+          // Autoplay bloqueado ou arquivo indisponível: devolve o poster
+          // em vez de deixar um retângulo preto sem explicação.
+          video.controls = false;
+          card.classList.remove('tocando');
+          showToast('Não consegui abrir o vídeo. Tente de novo.', 'error');
+        });
+      }
+    });
+
+    // Terminou: volta ao poster, pronto para o próximo clique.
+    video.addEventListener('ended', () => {
+      video.controls = false;
+      video.currentTime = 0;
+      card.classList.remove('tocando');
+    });
+  });
+
+  // Setas do desktop: andam um cartão por clique.
+  const esq = document.querySelector('.videos-seta--esq');
+  const dir = document.querySelector('.videos-seta--dir');
+  const passo = () => (cards[0] ? cards[0].offsetWidth + 20 : 260);
+
+  function atualizarSetas() {
+    if (!esq || !dir) return;
+    const fim = trilha.scrollWidth - trilha.clientWidth - 8;
+    esq.hidden = trilha.scrollLeft <= 8;
+    dir.hidden = trilha.scrollLeft >= fim;
+  }
+
+  if (esq) esq.addEventListener('click', () => trilha.scrollBy({ left: -passo(), behavior: 'smooth' }));
+  if (dir) dir.addEventListener('click', () => trilha.scrollBy({ left: passo(), behavior: 'smooth' }));
+  trilha.addEventListener('scroll', atualizarSetas, { passive: true });
+  window.addEventListener('resize', atualizarSetas);
+  atualizarSetas();
 }
