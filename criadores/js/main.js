@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initContractModal();
   initVideosCriadores();
+  initIrParaCadastro();
 });
 
 /* 1. Navbar Glassmorphism Scroll Effect */
@@ -223,7 +224,9 @@ function initPills() {
 
 /* 6. Smooth Scroll links */
 function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  // O CTA do cadastro tem dono proprio (initIrParaCadastro): ele avisa antes de
+  // rolar, e dois donos no mesmo clique dariam dois scrolls.
+  document.querySelectorAll('a[href^="#"]:not(.ir-para-cadastro)').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
       if (targetId === '#') return;
@@ -254,8 +257,12 @@ function showToast(message, type = 'success') {
   const msgSpan = toast.querySelector('.toast-msg');
   msgSpan.textContent = message;
 
+  // Sem limpar o timer anterior, um segundo aviso dentro dos 4 s herda a
+  // contagem do primeiro e some antes de ser lido (medido: o aviso do CTA da
+  // barra nao aparecia quando vinha logo depois do aviso do topo).
+  clearTimeout(toast._timer);
   toast.classList.add('show');
-  setTimeout(() => {
+  toast._timer = setTimeout(() => {
     toast.classList.remove('show');
   }, 4000);
 }
@@ -325,4 +332,27 @@ function initVideosCriadores() {
   trilha.addEventListener('scroll', atualizarSetas, { passive: true });
   window.addEventListener('resize', atualizarSetas);
   atualizarSetas();
+}
+
+/* 9. CTA "Quero Ser Criador" (barra e topo) -> avisa e leva ao formulario */
+function initIrParaCadastro() {
+  const destino = document.getElementById('inscrever');
+  const botoes = document.querySelectorAll('.ir-para-cadastro');
+  if (!destino || !botoes.length) return;
+
+  botoes.forEach((botao) => {
+    botao.addEventListener('click', (e) => {
+      e.preventDefault();
+      // O aviso some sozinho (4 s, o padrao do showToast).
+      showToast('Preencha seus dados abaixo para se inscrever.', 'success');
+      destino.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // No desktop, deixa o cursor pronto no primeiro campo. No celular nao:
+      // o teclado subiria por cima da pagina antes de a pessoa ver onde caiu.
+      if (window.innerWidth >= 900) {
+        const nome = document.getElementById('appName');
+        if (nome) setTimeout(() => nome.focus({ preventScroll: true }), 900);
+      }
+    });
+  });
 }
