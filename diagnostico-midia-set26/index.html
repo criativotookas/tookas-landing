@@ -138,7 +138,7 @@ footer p{margin:7px 0}
 <main>
 <div class="wrap">
 
-<p class="lede">O site recebe <strong>15.210 visitas por mês</strong> e fecha <strong>49 pedidos</strong>. Isso é <strong>0,32% de conversão</strong>, contra 1% a 2% que uma loja de moda costuma fazer. O problema principal não é falta de gente chegando — é a loja não converter quem chega.</p>
+<p class="lede">A loja fecha <strong>49 pedidos por mês</strong> no site e compra, no mesmo período, pelo menos <strong>2.764 cliques de anúncio</strong>. Isso põe a conversão em <strong>1,8% no máximo</strong> — e o número exato ninguém sabe, porque <strong>o rastreamento da loja está quebrado</strong>: carrinho, checkout e compra não são registrados. O problema principal não é falta de gente chegando — é a loja não converter quem chega, e não conseguir enxergar onde perde.</p>
 
 <p>Em volta disso há três coisas que também custam dinheiro: <strong>as métricas contam a mesma venda duas ou três vezes</strong>, o orçamento de anúncio está mal distribuído nos três canais, e <strong>o sistema de recuperação de carrinho que a loja paga entregou zero</strong> no último mês.</p>
 
@@ -159,10 +159,10 @@ footer p{margin:7px 0}
 
 <p>Maio gastou 6× menos que janeiro e ainda assim vendeu 68% mais — já com a fraude descontada dos dois meses. Os dois melhores meses do site no período (dezembro e novembro) foram Natal e Black Friday, não meses de mídia forte.</p>
 
-<h2><span class="num">01</span>Os sete problemas</h2>
+<h2><span class="num">01</span>Os oito problemas</h2>
 
 <ol>
-  <li><strong>A loja converte 0,32% do tráfego.</strong> São 15.210 visitas por mês para 49 pedidos. Com 1% de conversão, o mesmo tráfego daria 152 pedidos. É o maior item da lista, e nenhum ajuste de anúncio o resolve.</li>
+  <li><strong>O rastreamento da loja está quebrado, e por isso a conversão não é mensurável.</strong> Carrinho, checkout e compra não chegam ao analytics. O que dá para afirmar é um teto: com 2.764 cliques pagos e 49 pedidos, a conversão é de <strong>no máximo 1,8%</strong> — e na prática menos. É o maior item da lista, nenhum ajuste de anúncio o resolve, e a causa técnica está medida na seção 02.</li>
   <li><strong>O sistema de recuperação de carrinho que a loja paga entregou zero.</strong> 153 e-mails no último mês, 1 clique, nenhum carrinho recuperado, R$ 0 de receita.</li>
   <li><strong>Não existe topo de funil em canal nenhum.</strong> No Meta, R$ 34,53 de R$ 894 foram para público novo. No Google, a campanha de Search se chama “Institucional”: é gente pesquisando por “tookas”, demanda que já existia.</li>
   <li><strong>O Google conta cada compra duas vezes.</strong> Há duas ações de conversão de compra ativas ao mesmo tempo. O ROAS real é cerca de 2,6, não os 4,99 que o painel mostra.</li>
@@ -290,22 +290,27 @@ footer p{margin:7px 0}
 
 <h3>O tráfego do site, e o que ele revela</h3>
 
-<p>Estes números vieram da plataforma Performa.AI, conectada em 18/09/2026. Eles não existiam na primeira versão deste documento, e são o achado mais importante dele.</p>
+<p>Estes números vieram da plataforma Performa.AI, conectada em 18/09/2026. Eles não existiam na primeira versão deste documento. <strong>Atenção à unidade:</strong> a Performa conta <strong>páginas vistas</strong>, não pessoas — a mesma pessoa navegando por dez páginas conta dez vezes. Isso vale para todos os números desta seção, inclusive a tabela de origem.</p>
 
 <div class="kpis">
-  <div class="kpi"><div class="v">15.210</div><div class="r">Visitas no site em 30 dias</div></div>
-  <div class="kpi mau"><div class="v">0,32%</div><div class="r">Conversão de visita em pedido</div></div>
-  <div class="kpi"><div class="v">48%</div><div class="r">Do tráfego vem de anúncio pago</div></div>
-  <div class="kpi bom"><div class="v">152</div><div class="r">Pedidos que o mesmo tráfego daria a 1% de conversão</div></div>
+  <div class="kpi"><div class="v">15.736</div><div class="r">Páginas vistas no site em 30 dias</div></div>
+  <div class="kpi"><div class="v">2.764</div><div class="r">Cliques comprados no período (Meta + Google)</div></div>
+  <div class="kpi mau"><div class="v">≤ 1,8%</div><div class="r">Teto da conversão — o valor exato não é mensurável hoje</div></div>
+  <div class="kpi"><div class="v">49</div><div class="r">Pedidos fechados no site em 30 dias</div></div>
 </div>
 
-<p>Uma loja de moda costuma converter entre <strong>1% e 2%</strong> das visitas. A Tookas converte <strong>0,32%</strong>. Com os mesmos 15 mil visitantes e 1% de conversão — ainda modesto —, seriam <strong>152 pedidos</strong> no mês em vez de 49.</p>
+<p>Uma loja de moda costuma converter entre <strong>1% e 2%</strong> das visitas. O teto medido aqui — 1,8% — encosta no piso dessa faixa, e o valor real está abaixo dele. Ou seja: mesmo no cenário mais generoso possível, a conversão é a pior variável do negócio, e é a única que melhora sem verba nova.</p>
+
+<div class="destaque">
+  <p><strong>Correção de um número desta página.</strong> Uma versão anterior deste documento afirmava <strong>15.210 visitas por mês</strong> e <strong>0,32% de conversão</strong>. Estava errado: aquele número é a soma de <strong>páginas vistas</strong> por dispositivo, não de pessoas entrando. Usei página vista como se fosse visitante, e o denominador da conta ficou inflado.</p>
+  <p style="margin-bottom:0">O valor certo também não é 49 dividido pelas <strong>868 sessões</strong> que a Performa reporta: só os anúncios já trouxeram <strong>2.764 cliques</strong> no mês, mais do que essas 868 sessões, e a mesma fonte reporta <strong>955 visitantes únicos</strong> — mais visitantes do que sessões, o que é impossível. A contagem de sessões não fecha. O que se afirma com segurança é o teto de <strong>1,8%</strong>. Continua na faixa baixa, mas longe dos 0,32% publicados antes.</p>
+</div>
 
 <p>De onde vem esse tráfego:</p>
 
 <div class="tabela">
 <table>
-  <thead><tr><th>Origem</th><th class="n">Visitas</th><th>O que é</th></tr></thead>
+  <thead><tr><th>Origem</th><th class="n">Páginas vistas</th><th>O que é</th></tr></thead>
   <tbody>
     <tr><td>Direto</td><td class="n">5.332</td><td>Digitou o endereço ou já conhecia</td></tr>
     <tr><td>Shopping</td><td class="n">2.906</td><td>Anúncio pago</td></tr>
@@ -319,9 +324,74 @@ footer p{margin:7px 0}
 </div>
 
 <div class="destaque">
-  <p><strong>Isso desloca a prioridade do documento.</strong> Quase metade do tráfego já é comprado — cerca de 7.250 visitas por mês vêm de anúncio. A mídia está cumprindo o papel de levar gente até a loja. O que não acontece é a venda: de cada 300 pessoas que entram, uma compra.</p>
-  <p style="margin-bottom:0">Enquanto a conversão estiver em 0,32%, cada real a mais em anúncio compra mais visitas com o mesmo desfecho. Subir a conversão para 1% vale mais do que qualquer ajuste de campanha discutido nas seções seguintes — e não depende de verba nova.</p>
+  <p><strong>Isso desloca a prioridade do documento.</strong> Boa parte do tráfego já é comprada, e o maior bloco isolado é o <strong>direto</strong> — gente que já conhece a marca. A mídia está cumprindo o papel de levar gente até a loja. O que não acontece é a venda.</p>
+  <p style="margin-bottom:0">Enquanto a conversão estiver onde está, cada real a mais em anúncio compra mais visitas com o mesmo desfecho. Subir a conversão para 1% vale mais do que qualquer ajuste de campanha discutido nas seções seguintes — e não depende de verba nova.</p>
 </div>
+
+<h3>Por que a loja não registra carrinho, checkout nem compra</h3>
+
+<p>Isto foi medido na loja ao vivo em 18/09/2026, abrindo uma página de produto e observando o que sai do navegador. A causa não é falta de configuração — é excesso. A loja carrega <strong>sete identificadores de medição ao mesmo tempo</strong>:</p>
+
+<div class="tabela">
+<table>
+  <thead><tr><th>Código</th><th>O que é</th><th>De onde vem</th></tr></thead>
+  <tbody>
+    <tr><td><code>G-1VBYX7D2M7</code></td><td>Google Analytics 4 — nº 1</td><td>painel da loja</td></tr>
+    <tr><td><code>G-CF6Y3M1NRY</code></td><td>Google Analytics 4 — nº 2</td><td>dentro de um GTM</td></tr>
+    <tr><td><code>UA-230508409-1</code></td><td>Universal Analytics — <strong>desligado pelo Google em julho de 2023</strong></td><td>dentro de um GTM</td></tr>
+    <tr><td><code>GTM-T5B8N9ZH</code></td><td>Gerenciador de Tags</td><td>painel da loja</td></tr>
+    <tr><td><code>GTM-TWPT8XW</code></td><td>Gerenciador de Tags — nº 2</td><td>painel da loja</td></tr>
+    <tr><td><code>AW-10926351019</code></td><td>Google Ads</td><td>painel da loja</td></tr>
+    <tr><td><code>AW-18135399264</code></td><td>Google Ads — nº 2</td><td>dentro de um GTM</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Mais o Pixel do Meta, o Clarity, o CartStack e a Performa. Nenhum desses códigos está nos 12 registros de conteúdo personalizado da loja — todos vêm da configuração de painel ou de dentro dos dois Gerenciadores de Tags.</p>
+
+<p><strong>O tema da loja manda os eventos certos.</strong> Na página de produto ele declara o destino <code>groups:'analytics'</code> e dispara <code>view_item</code> com <code>send_to:"analytics"</code>, com item, preço e categoria corretos. O código está certo. O que falha é o que acontece depois que os outros seis identificadores carregam.</p>
+
+<p>Dois eventos disparados na página, no ar:</p>
+
+<div class="tabela">
+<table>
+  <thead><tr><th>Evento</th><th class="n">Chegou ao analytics?</th></tr></thead>
+  <tbody>
+    <tr><td>Com <code>send_to:"analytics"</code> — o mesmo destino que a loja usa</td><td class="n ruim">Nenhuma requisição</td></tr>
+    <tr><td>Com o identificador direto, <code>send_to:"G-1VBYX7D2M7"</code></td><td class="n bom">Chegou normalmente</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Ou seja: no instante em que o evento é disparado, o destino <code>analytics</code> já não aponta para lugar nenhum. Algum dos outros carregamentos reconfigura aquele identificador e leva o destino junto.</p>
+
+<p>E o comportamento <strong>não é estável</strong>. Dois carregamentos seguidos da mesma página de produto:</p>
+
+<div class="tabela">
+<table>
+  <thead><tr><th>Carregamento</th><th>GA4 nº 1</th><th>GA4 nº 2</th></tr></thead>
+  <tbody>
+    <tr><td>Primeiro</td><td>só page_view</td><td class="ruim">só page_view — nenhum view_item</td></tr>
+    <tr><td>Segundo</td><td>só page_view</td><td>page_view + view_item</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>O evento de visualização de produto caiu numa propriedade num carregamento e sumiu no outro. Isso é assinatura de disputa entre scripts: dois Gerenciadores de Tags e o código do tema configurando o mesmo identificador, e quem chega por último define. O <code>add_to_cart</code>, o <code>begin_checkout</code> e o <code>purchase</code> seguem o mesmo caminho — por isso a plataforma de analytics registra <strong>zero</strong> dos três em 30 dias, e por isso os quatro eventos armados no Google Ads (seção 03) estão em 0,0.</p>
+
+<div class="destaque">
+  <p style="margin-bottom:0"><strong>O que não foi possível verificar:</strong> o Pixel do Meta. Nem uma chamada manual produziu requisição visível no navegador usado, então a medição não serve como prova — é provável que seja limitação da ferramenta, não da loja. Como o Meta reporta 18 compras no período, ele deve estar funcionando. Confirmar pelo Gerenciador de Eventos do Meta antes de mexer em qualquer coisa ali.</p>
+</div>
+
+<p><strong>Como consertar</strong> — os três primeiros itens são configuração de painel, não desenvolvimento:</p>
+
+<ol>
+  <li><strong>Escolher uma propriedade GA4 e desligar a outra.</strong> Duas propriedades são duas verdades, e hoje o evento cai ora numa, ora em nenhuma. Fica a que tem histórico útil e está ligada ao Google Ads.</li>
+  <li><strong>Remover o Universal Analytics.</strong> Está desligado há três anos, carrega um script em toda página e não grava nada em lugar nenhum.</li>
+  <li><strong>Deixar um Gerenciador de Tags só.</strong> Dois containers são a causa mais provável da disputa.</li>
+  <li><strong>Testar com o critério certo:</strong> GA4 → Administrador → DebugView, percorrendo produto, carrinho, checkout e compra. O teste passa quando os quatro eventos aparecem, <strong>numa propriedade só</strong>, em <strong>três carregamentos seguidos</strong> — recarregar uma vez não vale: foi exatamente um carregamento assim que escondeu o problema na primeira medição.</li>
+  <li><strong>Só então mexer nas conversões do Google Ads</strong> (passo 2 do plano). Arrumar a contagem antes de arrumar o rastreio troca um número errado por outro.</li>
+</ol>
 
 <p>Três leituras que valem mais que a média:</p>
 <ul>
@@ -420,8 +490,8 @@ footer p{margin:7px 0}
 <p>Esse dinheiro comprou alcance de <strong>12.355 pessoas</strong>, que viraram <strong>1.151 visitas</strong> à loja.</p>
 
 <div class="destaque">
-  <p><strong>Correção de uma conclusão anterior.</strong> A primeira versão deste documento dizia que o problema central era não entrar cliente novo, e usava estes números do Meta como prova. Isso estava errado, e o erro foi de método: as 1.151 visitas do Meta são <strong>7,6% das 15.210 visitas</strong> que o site recebe por mês. Eu tomei o funil de um canal pequeno pelo funil da loja inteira, sem ter o total — que só foi medido em 18/09.</p>
-  <p style="margin-bottom:0">O que continua valendo: <strong>o Meta, especificamente, gasta 96% em remarketing</strong>, e isso é um desenho ruim de campanha. O que não vale mais: concluir daí que falta gente entrando na loja. Entra gente — 15 mil por mês. Ela não compra.</p>
+  <p><strong>Correção de uma conclusão anterior.</strong> A primeira versão deste documento dizia que o problema central era não entrar cliente novo, e usava estes números do Meta como prova. Isso estava errado, e o erro foi de método: o Meta é <strong>um</strong> dos caminhos pelos quais a loja recebe gente, e nem o maior — no painel da própria loja ele aparece atrás do tráfego direto, do shopping e do Google. Tomei o funil de um canal pelo funil da loja inteira.</p>
+  <p style="margin-bottom:0">O que continua valendo: <strong>o Meta, especificamente, gasta 96% em remarketing</strong>, e isso é um desenho ruim de campanha. O que não vale mais: concluir daí que falta gente entrando na loja. Entra gente por vários caminhos; ela não compra.</p>
 </div>
 
 <div class="tabela">
@@ -656,11 +726,11 @@ footer p{margin:7px 0}
 <p>A ordem é deliberada: do que custa nada ao que custa verba. Os seis primeiros itens não pedem um real a mais de investimento.</p>
 
 <div class="passo">
-  <h3><span class="b">1</span> Atacar a conversão da loja</h3>
+  <h3><span class="b">1</span> Consertar o rastreamento e atacar a conversão</h3>
   <p class="custo">Maior retorno da lista · sem verba de mídia</p>
-  <p>0,32% de conversão com 15 mil visitas por mês é onde está o dinheiro. Cada décimo de ponto vale cerca de 15 pedidos a mais no mês, com o tráfego que já existe. Por onde começar, na ordem em que costuma doer:</p>
+  <p>A conversão é onde está o dinheiro, e hoje ela nem se mede: a loja não registra carrinho, checkout nem compra, então não dá para saber em que etapa as pessoas desistem, e qualquer melhoria vira palpite. O diagnóstico técnico completo, com a causa medida e o passo a passo, está na <strong>seção 02</strong>. Por onde começar:</p>
   <ul>
-    <li><strong>Consertar o rastreamento primeiro.</strong> Hoje a loja não registra carrinho, checkout nem compra na plataforma de analytics — sem isso não dá para saber em que etapa as pessoas desistem, e qualquer melhoria vira palpite.</li>
+    <li><strong>Limpar os sete identificadores de medição</strong> até sobrar um GA4, um Gerenciador de Tags e um Google Ads. É configuração de painel, não desenvolvimento.</li>
     <li>Medir o funil real depois de corrigido: quantos veem produto, quantos põem no carrinho, quantos chegam ao pagamento.</li>
     <li>Revisar a página de produto e o checkout com os números na mão, não por opinião.</li>
   </ul>
@@ -727,7 +797,7 @@ footer p{margin:7px 0}
 
 <ul>
   <li><strong>O gasto real do Mercado Ads.</strong> A API entrega campanhas, orçamentos, ACOS alvo e o status de cada anúncio, mas não entrega custo, cliques nem vendas — essa parte da documentação é restrita a parceiros certificados. Os R$ 133 por dia são <strong>teto de orçamento</strong>, não gasto realizado; o gasto efetivo costuma ser menor.</li>
-  <li><strong>O funil de navegação dentro da loja.</strong> O tráfego total e a conversão agora estão medidos (Performa.AI), mas as etapas intermediárias não: a loja não registra eventos de carrinho, checkout e compra no rastreamento, então não dá para dizer <em>em que ponto</em> as pessoas desistem. Corrigir isso é o passo 1 do plano.</li>
+  <li><strong>A conversão real e o funil dentro da loja.</strong> O rastreamento não registra carrinho, checkout nem compra (causa medida na seção 02), e a contagem de sessões da Performa não fecha — ela reporta 868 sessões e 955 visitantes únicos no mesmo período, o que é impossível, e menos sessões do que os 2.764 cliques que os anúncios compraram. Por isso este documento afirma um <strong>teto</strong> de 1,8%, não uma taxa. A porcentagem exata, e <em>em que ponto</em> as pessoas desistem, só depois de consertar o rastreio — passo 1 do plano.</li>
   <li><strong>Duas fontes contam pedidos de forma diferente.</strong> No mesmo período a Performa registra 25 pedidos e R$ 5.385, enquanto o sistema da loja registra 49 e R$ 10.524. A diferença provavelmente é o que o script da Performa consegue rastrear. Os números de venda deste documento vêm do sistema da loja, que é a fonte oficial.</li>
   <li><strong>A atribuição real de cada venda.</strong> Sabemos que a soma não fecha, mas não dá para dizer, pedido a pedido, qual anúncio trouxe qual cliente.</li>
   <li><strong>Quais fraudes já viraram chargeback.</strong> O critério usado foi entrega na região de João Pessoa/PB com ticket a partir de R$ 300, cruzado com o padrão de tentativas canceladas. Isso identifica o ataque, mas o prejuízo financeiro confirmado só a adquirente informa. Também pode existir fraude de ticket baixo que esse critério não alcança.</li>
