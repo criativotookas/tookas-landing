@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Por que estamos vendendo pouco — diagnóstico de mídia paga | Tookas</title>
-<meta name="description" content="Diagnóstico de Google Ads, Meta Ads e Mercado Ads da Tookas, com dados medidos em setembro de 2026.">
+<title>Auditoria de mídia paga — Tookas | setembro 2026</title>
+<meta name="description" content="Auditoria de Google Ads e Meta Ads da Tookas: gasto, conversões declaradas x vendas reais, deduplicação e recomendações. Medido em 19/09/2026.">
 <style>
 :root{
   --bg:#f6f6f4; --sup:#ffffff; --linha:#e3e2dd;
@@ -122,15 +122,15 @@ footer p{margin:7px 0}
 
 <header class="topo">
   <div class="wrap">
-    <p class="eyebrow">Tookas · Análise de mídia paga</p>
-    <h1>Por que estamos vendendo pouco</h1>
-    <p class="sub">Diagnóstico de Google Ads, Meta Ads e Mercado Ads, com os números medidos direto nas APIs das plataformas e no Magazord.</p>
+    <p class="eyebrow">Tookas · Auditoria de mídia paga</p>
+    <h1>O que a mídia paga realmente entregou</h1>
+    <p class="sub">Segunda versão, refeita do zero. Gasto, conversões declaradas pelas plataformas e vendas reais da loja, medidos direto nas APIs — com fraude e resgate de crédito fora da conta.</p>
     <div class="meta">
-      <span class="tag">18 de setembro de 2026</span>
-      <span class="tag">Período: 19/08 a 17/09/2026</span>
+      <span class="tag">19 de setembro de 2026</span>
+      <span class="tag">Período: 19/08 a 18/09/2026 (30 dias)</span>
       <span class="tag">Histórico: 12 meses</span>
       <span class="tag">Documento interno</span>
-      <span class="tag" style="border-color:var(--marca);color:var(--marca)">Revisado em 18/09 — fraude descontada e tráfego medido</span>
+      <span class="tag" style="border-color:var(--marca);color:var(--marca)">v2 — reescrito após crítica da agência</span>
     </div>
   </div>
 </header>
@@ -138,696 +138,338 @@ footer p{margin:7px 0}
 <main>
 <div class="wrap">
 
-<p class="lede">A loja fecha <strong>49 pedidos por mês</strong> no site e compra, no mesmo período, pelo menos <strong>2.764 cliques de anúncio</strong>. Isso põe a conversão em <strong>1,8% no máximo</strong> — e o número exato ninguém sabe, porque <strong>o rastreamento da loja está quebrado</strong>: carrinho, checkout e compra não são registrados. O problema principal não é falta de gente chegando — é a loja não converter quem chega, e não conseguir enxergar onde perde.</p>
+<p class="lede">Em 30 dias a loja gastou <strong>R$ 3.401,52</strong> em Google e Meta. As duas plataformas dizem ter gerado <strong>77,5 compras e R$ 15.055,98</strong>. O site fez, de verdade, <strong>43 pedidos e R$ 9.234,35</strong>. As plataformas reivindicam <strong>180% dos pedidos</strong> que existiram.</p>
 
-<p>Em volta disso há três coisas que também custam dinheiro: <strong>as métricas contam a mesma venda duas ou três vezes</strong>, o orçamento de anúncio está mal distribuído nos três canais, e <strong>o sistema de recuperação de carrinho que a loja paga entregou zero</strong> no último mês.</p>
+<p>Isso não significa que a mídia não funciona — significa que <strong>o número que está sendo usado para decidir está errado</strong>, e para mais. Abaixo estão a conta corrigida, o que causa a diferença e o que fazer com isso.</p>
 
 <div class="destaque">
-  <p><strong>Ao longo de 12 meses, a relação entre quanto gastamos em mídia e quanto o site vendeu é fraca: correlação de +0,19.</strong> Existe alguma relação, mas pequena demais para explicar o resultado do negócio — o que move as vendas hoje é sazonalidade e promoção.</p>
-  <p style="font-size:15px;color:var(--ink-2);margin-bottom:0">Uma primeira versão deste documento trazia <strong>−0,13</strong>. Aquele número estava contaminado por fraude: R$ 9.207 em pedidos que a loja registrou como vendas entregues e que eram golpe, concentrados em maio e junho. Com a fraude descontada, o sinal muda de negativo para levemente positivo. Veja a seção 07. O motivo de a relação ser fraca ficou claro quando o tráfego foi medido: <strong>a mídia entrega visitas, e as visitas não viram pedido</strong> (seção 02).</p>
+  <p><strong>Esta versão existe porque a primeira estava errada em pontos importantes.</strong> A agência apontou, conferi, e a maior parte das críticas procede. A seção 01 lista cada erro e o que a medição mostra no lugar — antes de qualquer conclusão nova.</p>
+  <p style="margin-bottom:0">Nada aqui depende de opinião: cada número tem a consulta que o produziu, e a seção 11 diz como refazer.</p>
 </div>
+
+<h2><span class="num">01</span>O que eu errei na primeira versão</h2>
 
 <div class="tabela">
 <table>
-  <thead><tr><th>Mês</th><th class="n">Gasto em mídia</th><th class="n">Receita do site</th></tr></thead>
+  <thead><tr><th>O que eu publiquei</th><th>O que a medição mostra</th></tr></thead>
   <tbody>
-    <tr><td>Que <strong>mais</strong> gastou — jan/26</td><td class="n">R$ 2.399</td><td class="n ruim">R$ 6.567</td></tr>
-    <tr><td>Que <strong>menos</strong> gastou — mai/26</td><td class="n">R$ 405</td><td class="n bom">R$ 11.040</td></tr>
+    <tr><td>“96% do Meta vai para remarketing; só R$ 34,53 para público novo”</td><td class="ruim"><strong>Errado.</strong> 68,5% do gasto (R$ 642,75) está em conjuntos de público <strong>aberto</strong>, sem lista de remarketing. Só 31,5% é remarketing.</td></tr>
+    <tr><td>“O site recebe 15.210 visitas/mês e converte 0,32%”</td><td class="ruim"><strong>Errado.</strong> Aquilo era <strong>páginas vistas</strong>, não visitantes. A taxa não é calculável com o rastreio atual.</td></tr>
+    <tr><td>Receita do site de R$ 10.524,13 em 30 dias</td><td class="ruim"><strong>Inflada.</strong> Incluía 6 pedidos pagos <strong>100% com crédito da loja</strong>, com R$ 0,00 cobrado. Real: R$ 9.234,35.</td></tr>
+    <tr><td>Correlação gasto × receita de −0,13, depois +0,19</td><td class="ruim"><strong>Retirada.</strong> 12 pontos mensais, sem controle de sazonalidade nem defasagem. Não sustenta conclusão nenhuma.</td></tr>
+    <tr><td>“A Search é institucional — demanda que já existia”</td><td class="ruim"><strong>Invertido.</strong> Só <strong>28%</strong> do gasto rastreável em busca é o nome da loja. O problema maior é o resto.</td></tr>
+    <tr><td>“O container de terceiro atrapalha a medição”</td><td class="ruim"><strong>Não provado.</strong> Tentei isolar três vezes e não consegui. Ele só carrega conversão do Google Ads.</td></tr>
+    <tr><td>Análise do Meta feita numa conta de anúncio</td><td class="ruim"><strong>Incompleta.</strong> O portfólio tem <strong>4 contas</strong>, uma delas da própria agência.</td></tr>
   </tbody>
 </table>
 </div>
 
-<p>Maio gastou 6× menos que janeiro e ainda assim vendeu 68% mais — já com a fraude descontada dos dois meses. Os dois melhores meses do site no período (dezembro e novembro) foram Natal e Black Friday, não meses de mídia forte.</p>
+<p>O que <strong>sobreviveu</strong> da primeira versão: a dupla contagem de conversão no Google Ads (agora provada com mais rigor), a fraude com cartão, e o fato de o marketplace ter passado o site.</p>
 
-<h2><span class="num">01</span>Os oito problemas</h2>
+<h2><span class="num">02</span>Método</h2>
 
-<ol>
-  <li><strong>O rastreamento da loja está quebrado, e por isso a conversão não é mensurável.</strong> Carrinho, checkout e compra não chegam ao analytics. O que dá para afirmar é um teto: com 2.764 cliques pagos e 49 pedidos, a conversão é de <strong>no máximo 1,8%</strong> — e na prática menos. É o maior item da lista, nenhum ajuste de anúncio o resolve, e a causa técnica está medida na seção 02.</li>
-  <li><strong>O sistema de recuperação de carrinho que a loja paga entregou zero.</strong> 153 e-mails no último mês, 1 clique, nenhum carrinho recuperado, R$ 0 de receita.</li>
-  <li><strong>Não existe topo de funil em canal nenhum.</strong> No Meta, R$ 34,53 de R$ 894 foram para público novo. No Google, a campanha de Search se chama “Institucional”: é gente pesquisando por “tookas”, demanda que já existia.</li>
-  <li><strong>O Google conta cada compra duas vezes.</strong> Há duas ações de conversão de compra ativas ao mesmo tempo. O ROAS real é cerca de 2,6, não os 4,99 que o painel mostra.</li>
-  <li><strong>O Mercado Ads pulveriza o orçamento.</strong> 77 dos 94 anúncios ativos recebem menos de R$ 0,50 por dia cada, enquanto 4 anúncios sozinhos consomem R$ 66 por dia.</li>
-  <li><strong>O Meta ficou sete meses desligado</strong> — de janeiro a julho de 2026 — e voltou gastando R$ 347 no mês.</li>
-  <li><strong>O site perde 86,5% dos carrinhos</strong> e a rotina de recuperação, pronta e testada, está desligada.</li>
-  <li><strong>Fraude com cartão entrou na receita.</strong> R$ 9.207 em oito pedidos de golpe foram registrados como vendas entregues nos últimos 12 meses — em maio, 37,5% da receita do site. Além disso, R$ 95 mil em tentativas canceladas.</li>
-</ol>
+<p>A auditoria segue o roteiro padrão de auditoria de conta paga — deduplicação de conversão, participação de impressão, desperdício em termos de busca, e conferência do volume declarado contra o pedido real no sistema da loja. Três regras foram aplicadas do começo ao fim:</p>
 
-<h2><span class="num">02</span>Os números medidos</h2>
+<ul>
+  <li><strong>Venda real é o que o Magazord registra</strong>, não o que a plataforma declara. Fora da conta: pedido cancelado, resgate de crédito (dinheiro zero) e fraude.</li>
+  <li><strong>Conversão declarada por plataforma não se soma.</strong> Google e Meta usam último clique dentro da própria janela; os dois reivindicam a mesma venda.</li>
+  <li><strong>O que não foi medido não é afirmado.</strong> A seção 10 lista o que ficou sem resposta.</li>
+</ul>
 
-<p>Nos últimos 30 dias a Tookas vendeu <strong>R$ 20.416,99 em 138 pedidos</strong>. O site respondeu por pouco mais da metade e o Mercado Livre pelo resto.</p>
+<h2><span class="num">03</span>A conta que não fecha</h2>
 
 <div class="kpis">
-  <div class="kpi"><div class="v">R$ 10.524</div><div class="r">Site próprio · 49 pedidos</div></div>
-  <div class="kpi"><div class="v">R$ 9.893</div><div class="r">Marketplaces · 89 pedidos</div></div>
-  <div class="kpi"><div class="v">R$ 215</div><div class="r">Ticket médio do site</div></div>
-  <div class="kpi"><div class="v">estável</div><div class="r">Site entre R$ 11 mil e R$ 13,7 mil/mês desde maio, já sem fraude</div></div>
+  <div class="kpi"><div class="v">R$ 3.401</div><div class="r">Gasto em mídia em 30 dias</div></div>
+  <div class="kpi mau"><div class="v">77,5</div><div class="r">Compras que as plataformas declaram</div></div>
+  <div class="kpi"><div class="v">43</div><div class="r">Pedidos que o site realmente fez</div></div>
+  <div class="kpi bom"><div class="v">2,71</div><div class="r">Retorno real por real de mídia (site)</div></div>
 </div>
 
 <div class="tabela">
 <table>
-  <thead><tr><th>Canal</th><th class="n">Pedidos</th><th class="n">Receita</th><th class="n">Ticket médio</th></tr></thead>
+  <thead><tr><th>Fonte</th><th class="n">Gasto</th><th class="n">Compras</th><th class="n">Receita</th><th class="n">ROAS</th></tr></thead>
   <tbody>
-    <tr><td>Site próprio</td><td class="n">49</td><td class="n">R$ 10.524,13</td><td class="n">R$ 215</td></tr>
-    <tr><td>Mercado Livre Full</td><td class="n">50</td><td class="n">R$ 4.812,42</td><td class="n">R$ 96</td></tr>
-    <tr><td>Mercado Livre</td><td class="n">37</td><td class="n">R$ 4.509,95</td><td class="n">R$ 122</td></tr>
-    <tr><td>Netshoes</td><td class="n">1</td><td class="n">R$ 446,08</td><td class="n">R$ 446</td></tr>
-    <tr><td>Shopee</td><td class="n">1</td><td class="n">R$ 124,41</td><td class="n">R$ 124</td></tr>
-    <tr class="total"><td>Total</td><td class="n">138</td><td class="n">R$ 20.416,99</td><td class="n">—</td></tr>
+    <tr><td>Google Ads (declarado)</td><td class="n">R$ 2.463,71</td><td class="n">59,5</td><td class="n">R$ 11.292,44</td><td class="n">4,58</td></tr>
+    <tr><td>Meta Ads (declarado)</td><td class="n">R$ 937,81</td><td class="n">18,0</td><td class="n">R$ 3.763,54</td><td class="n">4,01</td></tr>
+    <tr class="total"><td><strong>Soma do que as plataformas dizem</strong></td><td class="n">R$ 3.401,52</td><td class="n">77,5</td><td class="n">R$ 15.055,98</td><td class="n">4,43</td></tr>
+    <tr><td><strong>Venda real do site</strong> (sem crédito, sem fraude)</td><td class="n">—</td><td class="n bom">43</td><td class="n bom">R$ 9.234,35</td><td class="n bom">2,71</td></tr>
   </tbody>
 </table>
 </div>
 
+<div class="destaque">
+  <p><strong>As plataformas reivindicam 180% dos pedidos e 163% da receita que existiram.</strong> Só o Google já declara 59,5 compras — <strong>138% de tudo que o site vendeu</strong>, incluindo as vendas que vieram de busca orgânica, tráfego direto, afiliado e e-mail.</p>
+  <p style="margin-bottom:0">Parte disso é erro de configuração e tem conserto (seção 04). Parte é a natureza do último clique: dois canais que tocaram o mesmo comprador contam a mesma venda cada um. Por isso o número de gestão tem que ser o <strong>retorno sobre o gasto total</strong> — hoje <strong>2,71</strong>, não 4,43.</p>
 </div>
 
-<div class="wide">
-<figure>
-  <div class="grafbox">
-    <svg viewBox="0 0 960 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Receita do site sem fraude, marketplaces e gasto em midia, set 2025 a ago 2026" class="gr">
-<style>.gr text{font-family:inherit}.gr .gl{stroke:var(--linha);stroke-width:1}.gr .ax{fill:var(--ink-3);font-size:11px}.gr .axb{fill:var(--ink-2);font-size:11.5px;font-weight:600}</style>
-<defs><pattern id="hf" width="5" height="5" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="var(--bg)"/><line x1="0" y1="0" x2="0" y2="5" stroke="var(--neg)" stroke-width="2.4"/></pattern></defs>
-<line class="gl" x1="62" y1="374.0" x2="898" y2="374.0"/>
-<text class="ax" x="54" y="378.0" text-anchor="end">R$ 0k</text>
-<line class="gl" x1="62" y1="288.0" x2="898" y2="288.0"/>
-<text class="ax" x="54" y="292.0" text-anchor="end">R$ 5k</text>
-<line class="gl" x1="62" y1="202.0" x2="898" y2="202.0"/>
-<text class="ax" x="54" y="206.0" text-anchor="end">R$ 10k</text>
-<line class="gl" x1="62" y1="116.0" x2="898" y2="116.0"/>
-<text class="ax" x="54" y="120.0" text-anchor="end">R$ 15k</text>
-<line class="gl" x1="62" y1="30.0" x2="898" y2="30.0"/>
-<text class="ax" x="54" y="34.0" text-anchor="end">R$ 20k</text>
-<text class="ax" x="906" y="378.0" text-anchor="start">0.0k</text>
-<text class="ax" x="906" y="292.0" text-anchor="start">0.7k</text>
-<text class="ax" x="906" y="206.0" text-anchor="start">1.4k</text>
-<text class="ax" x="906" y="120.0" text-anchor="start">2.1k</text>
-<text class="ax" x="906" y="34.0" text-anchor="start">2.8k</text>
-<rect class="b-site" x="73.9" y="233.3" width="20.9" height="140.7" rx="2"><title>set/25 — site R$ 8,177.76</title></rect>
-<rect class="b-mkt" x="98.8" y="318.9" width="20.9" height="55.1" rx="2"><title>set/25 — marketplaces R$ 3,202.09</title></rect>
-<text class="ax" x="96.8" y="392.0" text-anchor="middle">set/25</text>
-<rect class="b-site" x="143.6" y="220.7" width="20.9" height="153.3" rx="2"><title>out/25 — site R$ 8,910.17</title></rect>
-<rect class="b-mkt" x="168.5" y="288.4" width="20.9" height="85.6" rx="2"><title>out/25 — marketplaces R$ 4,977.83</title></rect>
-<text class="ax" x="166.5" y="392.0" text-anchor="middle">out/25</text>
-<rect class="b-site" x="213.3" y="135.8" width="20.9" height="238.2" rx="2"><title>nov/25 — site R$ 13,849.13</title></rect>
-<rect class="b-mkt" x="238.2" y="189.5" width="20.9" height="184.5" rx="2"><title>nov/25 — marketplaces R$ 10,725.51</title></rect>
-<text class="ax" x="236.2" y="392.0" text-anchor="middle">nov/25</text>
-<rect class="b-site" x="282.9" y="36.5" width="20.9" height="337.5" rx="2"><title>dez/25 — site R$ 19,622.74</title></rect>
-<rect class="b-mkt" x="307.8" y="344.7" width="20.9" height="29.3" rx="2"><title>dez/25 — marketplaces R$ 1,705.15</title></rect>
-<text class="ax" x="305.8" y="392.0" text-anchor="middle">dez/25</text>
-<rect class="b-site" x="352.6" y="261.0" width="20.9" height="113.0" rx="2"><title>jan/26 — site R$ 6,567.49</title></rect>
-<rect class="b-mkt" x="377.5" y="332.0" width="20.9" height="42.0" rx="2"><title>jan/26 — marketplaces R$ 2,443.78</title></rect>
-<text class="ax" x="375.5" y="392.0" text-anchor="middle">jan/26</text>
-<rect class="b-site" x="422.3" y="238.4" width="20.9" height="135.6" rx="2"><title>fev/26 — site R$ 7,883.27</title></rect>
-<rect class="b-mkt" x="447.2" y="325.2" width="20.9" height="48.8" rx="2"><title>fev/26 — marketplaces R$ 2,838.88</title></rect>
-<text class="ax" x="445.2" y="392.0" text-anchor="middle">fev/26</text>
-<rect class="b-site" x="491.9" y="202.8" width="20.9" height="171.2" rx="2"><title>mar/26 — site R$ 9,954.36</title></rect>
-<rect fill="url(#hf)" stroke="var(--neg)" stroke-width="1" x="491.9" y="197.0" width="20.9" height="5.8" rx="2"><title>mar/26 — fraude R$ 336.84</title></rect>
-<rect class="b-mkt" x="516.8" y="327.5" width="20.9" height="46.5" rx="2"><title>mar/26 — marketplaces R$ 2,704.60</title></rect>
-<text class="ax" x="514.8" y="392.0" text-anchor="middle">mar/26</text>
-<rect class="b-site" x="561.6" y="239.9" width="20.9" height="134.1" rx="2"><title>abr/26 — site R$ 7,793.62</title></rect>
-<rect class="b-mkt" x="586.5" y="337.8" width="20.9" height="36.2" rx="2"><title>abr/26 — marketplaces R$ 2,107.37</title></rect>
-<text class="ax" x="584.5" y="392.0" text-anchor="middle">abr/26</text>
-<rect class="b-site" x="631.3" y="184.1" width="20.9" height="189.9" rx="2"><title>mai/26 — site R$ 11,039.79</title></rect>
-<rect fill="url(#hf)" stroke="var(--neg)" stroke-width="1" x="631.3" y="70.4" width="20.9" height="113.7" rx="2"><title>mai/26 — fraude R$ 6,612.35</title></rect>
-<rect class="b-mkt" x="656.2" y="303.6" width="20.9" height="70.4" rx="2"><title>mai/26 — marketplaces R$ 4,093.49</title></rect>
-<text class="ax" x="654.2" y="392.0" text-anchor="middle">mai/26</text>
-<rect class="b-site" x="700.9" y="175.9" width="20.9" height="198.1" rx="2"><title>jun/26 — site R$ 11,517.95</title></rect>
-<rect fill="url(#hf)" stroke="var(--neg)" stroke-width="1" x="700.9" y="137.0" width="20.9" height="38.8" rx="2"><title>jun/26 — fraude R$ 2,258.72</title></rect>
-<rect class="b-mkt" x="725.8" y="274.5" width="20.9" height="99.5" rx="2"><title>jun/26 — marketplaces R$ 5,782.63</title></rect>
-<text class="ax" x="723.8" y="392.0" text-anchor="middle">jun/26</text>
-<rect class="b-site" x="770.6" y="138.9" width="20.9" height="235.1" rx="2"><title>jul/26 — site R$ 13,666.52</title></rect>
-<rect class="b-mkt" x="795.5" y="270.0" width="20.9" height="104.0" rx="2"><title>jul/26 — marketplaces R$ 6,046.29</title></rect>
-<text class="ax" x="793.5" y="392.0" text-anchor="middle">jul/26</text>
-<rect class="b-site" x="840.3" y="184.0" width="20.9" height="190.0" rx="2"><title>ago/26 — site R$ 11,044.66</title></rect>
-<rect class="b-mkt" x="865.2" y="146.2" width="20.9" height="227.8" rx="2"><title>ago/26 — marketplaces R$ 13,245.76</title></rect>
-<text class="ax" x="863.2" y="392.0" text-anchor="middle">ago/26</text>
-<polyline class="l-gasto" points="96.8,129.9 166.5,237.6 236.2,80.4 305.8,128.2 375.5,79.3 445.2,240.3 514.8,111.8 584.5,240.8 654.2,324.2 723.8,218.2 793.5,157.5 863.2,56.0" fill="none"/>
-<circle class="p-gasto" cx="96.8" cy="129.9" r="3.5"><title>set/25 — gasto R$ 1,986.77</title></circle>
-<circle class="p-gasto" cx="166.5" cy="237.6" r="3.5"><title>out/25 — gasto R$ 1,110.43</title></circle>
-<circle class="p-gasto" cx="236.2" cy="80.4" r="3.5"><title>nov/25 — gasto R$ 2,389.68</title></circle>
-<circle class="p-gasto" cx="305.8" cy="128.2" r="3.5"><title>dez/25 — gasto R$ 2,000.87</title></circle>
-<circle class="p-gasto" cx="375.5" cy="79.3" r="3.5"><title>jan/26 — gasto R$ 2,398.95</title></circle>
-<circle class="p-gasto" cx="445.2" cy="240.3" r="3.5"><title>fev/26 — gasto R$ 1,088.33</title></circle>
-<circle class="p-gasto" cx="514.8" cy="111.8" r="3.5"><title>mar/26 — gasto R$ 2,134.26</title></circle>
-<circle class="p-gasto" cx="584.5" cy="240.8" r="3.5"><title>abr/26 — gasto R$ 1,084.18</title></circle>
-<circle class="p-gasto" cx="654.2" cy="324.2" r="3.5"><title>mai/26 — gasto R$ 405.26</title></circle>
-<circle class="p-gasto" cx="723.8" cy="218.2" r="3.5"><title>jun/26 — gasto R$ 1,268.29</title></circle>
-<circle class="p-gasto" cx="793.5" cy="157.5" r="3.5"><title>jul/26 — gasto R$ 1,762.09</title></circle>
-<circle class="p-gasto" cx="863.2" cy="56.0" r="3.5"><title>ago/26 — gasto R$ 2,588.63</title></circle>
-<text class="axb" x="62" y="18" text-anchor="start">Receita (barras)</text>
-<text class="axb" x="898" y="18" text-anchor="end">Gasto em mídia (linha)</text>
-</svg>
-    <div class="leg">
-      <span><i class="sw" style="background:var(--site)"></i> Receita do site (sem fraude)</span>
-      <span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--neg),var(--neg) 2px,var(--bg) 2px,var(--bg) 5px);border:1px solid var(--neg)"></i> Fraude registrada como venda</span>
-      <span><i class="sw" style="background:var(--mkt)"></i> Receita de marketplaces</span>
-      <span><i class="sw ln" style="background:var(--gasto)"></i> Gasto em mídia (eixo direito)</span>
-    </div>
-  </div>
-  <figcaption>Meses fechados, set/2025 a ago/2026. A parte hachurada de maio, junho e março é fraude que estava contabilizada como venda. Gasto = Google Ads + Meta Ads; o Mercado Ads não entra porque a API não entrega o valor gasto. Fonte: Magazord, Google Ads API, Meta Graph API.</figcaption>
-</figure>
+<h2><span class="num">04</span>Google Ads: a mesma compra contada duas vezes</h2>
+
+<p>A conta tem <strong>duas ações de conversão da categoria “Compra”</strong>, as duas marcadas como principais e as duas somando na métrica do painel:</p>
+
+<div class="tabela">
+<table>
+  <thead><tr><th>Ação de conversão</th><th>Origem</th><th class="n">Janela</th><th class="n">Conversões</th><th class="n">Valor</th></tr></thead>
+  <tbody>
+    <tr><td>Compra</td><td>tag nativa do Google Ads</td><td class="n">30 dias</td><td class="n">32,0</td><td class="n">R$ 6.018,54</td></tr>
+    <tr><td>Tookas — GA4 (web) purchase</td><td>importada do GA4</td><td class="n">90 dias</td><td class="n">27,5</td><td class="n">R$ 5.273,90</td></tr>
+    <tr class="total"><td><strong>Métrica “conversões” da conta</strong></td><td></td><td class="n"></td><td class="n">59,5</td><td class="n">R$ 11.292,44</td></tr>
+  </tbody>
+</table>
 </div>
 
-<div class="wrap">
+<p>A soma fecha exatamente: <strong>32,0 + 27,5 = 59,5</strong>, que é o total da conta. Não há terceira fonte contribuindo. As duas disparam na mesma página de pedido concluído — é a <strong>mesma compra, contada duas vezes</strong>, e com janelas diferentes (30 e 90 dias), o que nem permite comparar uma com a outra.</p>
 
-<h3>O tráfego do site, e o que ele revela</h3>
+<p>A confirmação independente é a loja: <strong>o site fez 43 pedidos</strong>. Nenhuma configuração honesta produz 59,5 compras a partir de 43 pedidos, dos quais boa parte sequer veio de anúncio.</p>
 
-<p>Estes números vieram da plataforma Performa.AI, conectada em 18/09/2026. Eles não existiam na primeira versão deste documento. <strong>Atenção à unidade:</strong> a Performa conta <strong>páginas vistas</strong>, não pessoas — a mesma pessoa navegando por dez páginas conta dez vezes. Isso vale para todos os números desta seção, inclusive a tabela de origem.</p>
+<p><strong>Corrigido isso, o ROAS do Google cai de 4,58 para cerca de 2,44</strong> (mantendo só a tag nativa). Não é uma piora — é o número que sempre foi verdade.</p>
+
+<h3>19 das 22 ações ativas estão marcadas como principais</h3>
+
+<p>Além das duas de compra, estão marcadas como conversão principal: <code>carrinho</code>, <code>checkout</code>, <code>login</code>, uma segunda ação de “compra” do GA4, chamadas telefônicas, visitas à loja física, inscrições no YouTube e cliques para ligar. Hoje elas contribuem <strong>zero</strong> para a métrica, mas registram atividade (o evento de carrinho do GA4 acumulou 81,9 no período em “todas as conversões”).</p>
+
+<p>Conversão principal é o que o lance automático persegue. Manter login e carrinho nessa lista ensina o algoritmo a comprar visita, não venda. <strong>Devem ficar como secundárias</strong> — continuam visíveis no relatório, param de guiar o lance.</p>
+
+<h3>Onde a verba está sendo perdida</h3>
+
+<div class="tabela">
+<table>
+  <thead><tr><th>Campanha</th><th class="n">Gasto</th><th class="n">Particip. de impressão</th><th class="n">Perdida por orçamento</th><th class="n">Perdida por posição</th></tr></thead>
+  <tbody>
+    <tr><td>PRO — Performance Max</td><td class="n">R$ 1.330,71</td><td class="n">21,9%</td><td class="n">1,0%</td><td class="n ruim">77,1%</td></tr>
+    <tr><td>PRO — Search | Institucional</td><td class="n">R$ 1.133,00</td><td class="n">65,2%</td><td class="n">2,0%</td><td class="n">32,8%</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p><strong>A Performance Max perde 77% das impressões por posição e apenas 1% por orçamento.</strong> Isso desmonta a ideia de que falta verba: aumentar o orçamento não compra impressão nenhuma enquanto o anúncio perder o leilão. O que move esse número é qualidade do feed, criativo e lance — não dinheiro.</p>
+
+<h3>Termos de busca: 40 termos em 30 dias</h3>
+
+<div class="tabela">
+<table>
+  <thead><tr><th>Grupo</th><th class="n">Gasto</th><th class="n">Conversões</th><th class="n">Custo por conversão</th></tr></thead>
+  <tbody>
+    <tr><td>Termos com o nome da loja</td><td class="n">R$ 166,80</td><td class="n">13,8</td><td class="n bom">R$ 12,09</td></tr>
+    <tr><td>Termos sem o nome da loja</td><td class="n">R$ 430,01</td><td class="n ruim">1,0</td><td class="n ruim">R$ 430,01</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Dos termos visíveis, <strong>R$ 464,61 foram para buscas que geraram clique e nenhuma venda</strong>. Entre elas: <code>reclamo mas treino</code> (R$ 67,24), <code>toulon jeans</code> (R$ 52,90), <code>mais pano</code> (R$ 24,81), <code>berzerk</code> (R$ 12,81) — marcas de concorrente e termos sem relação com o catálogo. E <code>tokkas</code>, erro de digitação do próprio nome, levou R$ 55,72 sem uma venda.</p>
+
+<p>Corrigindo a leitura da primeira versão: o gasto em marca é pequeno (28%) e é o que converte barato. <strong>O dinheiro está vazando no não-marca</strong>, que custa 2,6 vezes mais e entregou uma conversão.</p>
+
+<h3>O período piorou</h3>
+
+<div class="tabela">
+<table>
+  <thead><tr><th>Google Ads</th><th class="n">30 dias anteriores</th><th class="n">Estes 30 dias</th><th class="n">Variação</th></tr></thead>
+  <tbody>
+    <tr><td>Gasto</td><td class="n">R$ 2.091,42</td><td class="n">R$ 2.463,71</td><td class="n">+17,8%</td></tr>
+    <tr><td>Cliques</td><td class="n">1.480</td><td class="n">1.621</td><td class="n">+9,5%</td></tr>
+    <tr><td>Conversões declaradas</td><td class="n">76,0</td><td class="n">59,5</td><td class="n ruim">−21,7%</td></tr>
+    <tr><td>Valor declarado</td><td class="n">R$ 17.417,11</td><td class="n">R$ 11.292,44</td><td class="n ruim">−35,2%</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Gastou-se mais, comprou-se mais clique e entregou-se menos. Como as duas janelas têm a mesma configuração (errada) de conversão, a <em>comparação</em> entre elas é válida mesmo com o número absoluto inflado.</p>
+
+<h2><span class="num">05</span>Meta Ads: a correção que eu devia</h2>
+
+<p>A primeira versão dizia que 96% do investimento ia para remarketing. <strong>É falso.</strong> Lendo o público de cada conjunto de anúncios:</p>
+
+<div class="tabela">
+<table>
+  <thead><tr><th>Conjunto</th><th>Público</th><th class="n">Gasto</th><th class="n">Compras</th><th class="n">ROAS declarado</th></tr></thead>
+  <tbody>
+    <tr><td>Catálogo Todos — Público Roupas e Compradores</td><td class="bom">aberto (prospecção)</td><td class="n">R$ 589,90</td><td class="n">13,0</td><td class="n">4,74</td></tr>
+    <tr><td>Engajamento + Compradores 90d</td><td>remarketing</td><td class="n">R$ 295,06</td><td class="n">4,0</td><td class="n">2,02</td></tr>
+    <tr><td>Público Roupas e Compradores</td><td class="bom">aberto (prospecção)</td><td class="n">R$ 52,85</td><td class="n">1,0</td><td class="n">7,07</td></tr>
+    <tr class="total"><td><strong>Prospecção</strong></td><td></td><td class="n">R$ 642,75 <strong>(68,5%)</strong></td><td class="n">14,0</td><td class="n">4,93</td></tr>
+    <tr class="total"><td><strong>Remarketing</strong></td><td></td><td class="n">R$ 295,06 (31,5%)</td><td class="n">4,0</td><td class="n">2,02</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Ou seja: <strong>a maior parte do investimento no Meta já busca público novo</strong>, e é justamente essa parte que declara o melhor retorno. A recomendação que eu tinha dado — “levar verba para o topo do funil” — partia de uma leitura errada dos nomes das campanhas.</p>
+
+<p>O que continua valendo como ponto de atenção: o conjunto maior tem <strong>frequência 3,7</strong> sobre 8.042 pessoas. Frequência nesse patamar num público de oito mil significa repetir o mesmo anúncio para as mesmas pessoas — é onde o custo sobe sem entrega nova. Renovar criativo é mais barato que ampliar verba.</p>
+
+<h3>Existem quatro contas de anúncio, não uma</h3>
+
+<div class="tabela">
+<table>
+  <thead><tr><th>Conta</th><th>Tipo</th><th class="n">Gasto no período</th><th class="n">Gasto histórico</th></tr></thead>
+  <tbody>
+    <tr><td>Tookas</td><td>própria</td><td class="n">R$ 937,81</td><td class="n">R$ 47.606,30</td></tr>
+    <tr><td>Propulse Marketing Digital</td><td>de parceiro</td><td class="n">R$ 0,00</td><td class="n">R$ 16.697,05</td></tr>
+    <tr><td>255933657855575</td><td>própria</td><td class="n">R$ 0,00</td><td class="n">R$ 35,85</td></tr>
+    <tr><td>1486156258827830</td><td>própria</td><td class="n">R$ 0,00</td><td class="n">R$ 115,00</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>No período analisado só a conta própria gastou, então os números acima estão completos. Mas a conta da agência já investiu R$ 16.697,05 em algum momento — <strong>qualquer análise histórica que ignore isso está incompleta</strong>, e a minha primeira versão ignorava.</p>
+
+<h2><span class="num">06</span>Cliente novo, custo de aquisição e o número que importa</h2>
+
+<p>Dos 43 pedidos reais do site, cruzando documento contra os 12 meses anteriores (858 clientes distintos):</p>
 
 <div class="kpis">
-  <div class="kpi"><div class="v">15.736</div><div class="r">Páginas vistas no site em 30 dias</div></div>
-  <div class="kpi"><div class="v">2.764</div><div class="r">Cliques comprados no período (Meta + Google)</div></div>
-  <div class="kpi mau"><div class="v">≤ 1,8%</div><div class="r">Teto da conversão — o valor exato não é mensurável hoje</div></div>
-  <div class="kpi"><div class="v">49</div><div class="r">Pedidos fechados no site em 30 dias</div></div>
+  <div class="kpi bom"><div class="v">29</div><div class="r">Pedidos de cliente novo (67%)</div></div>
+  <div class="kpi"><div class="v">14</div><div class="r">Pedidos de cliente recorrente</div></div>
+  <div class="kpi"><div class="v">R$ 215</div><div class="r">Ticket médio real do site</div></div>
+  <div class="kpi"><div class="v">R$ 117</div><div class="r">Piso do custo por cliente novo</div></div>
 </div>
 
-<p>Uma loja de moda costuma converter entre <strong>1% e 2%</strong> das visitas. O teto medido aqui — 1,8% — encosta no piso dessa faixa, e o valor real está abaixo dele. Ou seja: mesmo no cenário mais generoso possível, a conversão é a pior variável do negócio, e é a única que melhora sem verba nova.</p>
+<p>Dois terços dos pedidos são de gente que nunca tinha comprado. <strong>Isso derruba de vez a tese da primeira versão de que “não entra cliente novo”</strong> — entra, e é a maioria.</p>
+
+<p>O R$ 117,29 é um <strong>piso</strong>, não uma estimativa: ele supõe que toda a verba de Google e Meta trouxe todos os 29 clientes novos, inclusive os que chegaram por busca orgânica ou indicação. O custo real por cliente novo vindo de anúncio é mais alto que isso.</p>
 
 <div class="destaque">
-  <p><strong>Correção de um número desta página.</strong> Uma versão anterior deste documento afirmava <strong>15.210 visitas por mês</strong> e <strong>0,32% de conversão</strong>. Estava errado: aquele número é a soma de <strong>páginas vistas</strong> por dispositivo, não de pessoas entrando. Usei página vista como se fosse visitante, e o denominador da conta ficou inflado.</p>
-  <p style="margin-bottom:0">O valor certo também não é 49 dividido pelas <strong>868 sessões</strong> que a Performa reporta: só os anúncios já trouxeram <strong>2.764 cliques</strong> no mês, mais do que essas 868 sessões, e a mesma fonte reporta <strong>955 visitantes únicos</strong> — mais visitantes do que sessões, o que é impossível. A contagem de sessões não fecha. O que se afirma com segurança é o teto de <strong>1,8%</strong>. Continua na faixa baixa, mas longe dos 0,32% publicados antes.</p>
+  <p><strong>Com ticket de R$ 215 e custo de aquisição a partir de R$ 117, a primeira compra praticamente não sobra margem.</strong> Numa confecção com margem bruta típica de 50% a 60%, a contribuição de um pedido de R$ 215 fica entre R$ 107 e R$ 129 — mesma ordem de grandeza do custo de trazer o cliente.</p>
+  <p style="margin-bottom:0">Isso não condena a operação: significa que <strong>ela depende da segunda compra</strong>. Enquanto a recompra não for medida e trabalhada, cada real novo em mídia compra faturamento sem comprar lucro.</p>
 </div>
 
-<p>De onde vem esse tráfego:</p>
+<h2><span class="num">07</span>Fraude e crédito: por que a série histórica mudou</h2>
+
+<p>Duas coisas estavam infladas na receita do site e foram retiradas de todos os meses:</p>
 
 <div class="tabela">
 <table>
-  <thead><tr><th>Origem</th><th class="n">Páginas vistas</th><th>O que é</th></tr></thead>
+  <thead><tr><th>Item</th><th class="n">12 meses</th><th>O que é</th></tr></thead>
   <tbody>
-    <tr><td>Direto</td><td class="n">5.332</td><td>Digitou o endereço ou já conhecia</td></tr>
-    <tr><td>Shopping</td><td class="n">2.906</td><td>Anúncio pago</td></tr>
-    <tr><td>Google</td><td class="n">2.625</td><td>Busca e anúncio</td></tr>
-    <tr><td>Instagram</td><td class="n">784</td><td>Orgânico e pago</td></tr>
-    <tr><td>Facebook</td><td class="n">710</td><td>Orgânico e pago</td></tr>
-    <tr><td>Magafilio</td><td class="n">574</td><td>Programa de afiliados</td></tr>
-    <tr><td>Performa</td><td class="n">574</td><td>Recomendação dentro da própria loja</td></tr>
+    <tr><td>Fraude com cartão</td><td class="n ruim">R$ 9.207,91</td><td>Pedidos entregues, todos com destino na região de João Pessoa/PB e ticket alto. Concentrados em <strong>maio (R$ 6.612), junho (R$ 2.259) e março (R$ 337)</strong>.</td></tr>
+    <tr><td>Resgate de crédito</td><td class="n ruim">R$ 11.719,47</td><td>Pedidos pagos 100% com crédito da loja, <strong>R$ 0,00 cobrado</strong>. Mercadoria sai, dinheiro novo não entra. 8,5% de tudo que eu contava como receita.</td></tr>
   </tbody>
 </table>
 </div>
 
-<div class="destaque">
-  <p><strong>Isso desloca a prioridade do documento.</strong> Boa parte do tráfego já é comprada, e o maior bloco isolado é o <strong>direto</strong> — gente que já conhece a marca. A mídia está cumprindo o papel de levar gente até a loja. O que não acontece é a venda.</p>
-  <p style="margin-bottom:0">Enquanto a conversão estiver onde está, cada real a mais em anúncio compra mais visitas com o mesmo desfecho. Subir a conversão para 1% vale mais do que qualquer ajuste de campanha discutido nas seções seguintes — e não depende de verba nova.</p>
-</div>
-
-<h3>Por que a loja não registra carrinho, checkout nem compra</h3>
-
-<p>Isto foi medido na loja ao vivo em 18/09/2026, abrindo uma página de produto e observando o que sai do navegador. A causa não é falta de configuração — é excesso. A loja carrega <strong>sete identificadores de medição ao mesmo tempo</strong>:</p>
-
 <div class="tabela">
 <table>
-  <thead><tr><th>Código</th><th>O que é</th><th>De onde vem</th></tr></thead>
+  <thead><tr><th>Mês</th><th class="n">Site — como eu contava</th><th class="n">Site — real</th><th class="n">Marketplace</th></tr></thead>
   <tbody>
-    <tr><td><code>G-1VBYX7D2M7</code></td><td>Google Analytics 4 — nº 1</td><td>painel da loja</td></tr>
-    <tr><td><code>G-CF6Y3M1NRY</code></td><td>Google Analytics 4 — nº 2</td><td>dentro de um GTM</td></tr>
-    <tr><td><code>UA-230508409-1</code></td><td>Universal Analytics — <strong>desligado pelo Google em julho de 2023</strong></td><td>dentro de um GTM</td></tr>
-    <tr><td><code>GTM-T5B8N9ZH</code></td><td>Gerenciador de Tags</td><td>painel da loja</td></tr>
-    <tr><td><code>GTM-TWPT8XW</code></td><td>Gerenciador de Tags — nº 2</td><td>painel da loja</td></tr>
-    <tr><td><code>AW-10926351019</code></td><td>Google Ads</td><td>painel da loja</td></tr>
-    <tr><td><code>AW-18135399264</code></td><td>Google Ads — nº 2</td><td>dentro de um GTM</td></tr>
+    <tr><td>out/2025</td><td class="n">R$ 8.910,17</td><td class="n">R$ 7.250,98</td><td class="n">R$ 4.977,83</td></tr>
+    <tr><td>nov/2025</td><td class="n">R$ 13.849,13</td><td class="n">R$ 13.268,67</td><td class="n">R$ 10.725,51</td></tr>
+    <tr><td>dez/2025</td><td class="n">R$ 19.622,74</td><td class="n">R$ 17.062,18</td><td class="n">R$ 1.705,15</td></tr>
+    <tr><td>jan/2026</td><td class="n">R$ 6.567,49</td><td class="n">R$ 6.351,15</td><td class="n">R$ 2.443,78</td></tr>
+    <tr><td>fev/2026</td><td class="n">R$ 7.883,27</td><td class="n">R$ 7.883,27</td><td class="n">R$ 2.838,88</td></tr>
+    <tr><td>mar/2026</td><td class="n">R$ 10.291,20</td><td class="n">R$ 9.164,46</td><td class="n">R$ 2.704,60</td></tr>
+    <tr><td>abr/2026</td><td class="n">R$ 7.793,62</td><td class="n">R$ 6.980,76</td><td class="n">R$ 2.107,37</td></tr>
+    <tr><td>mai/2026</td><td class="n">R$ 17.652,14</td><td class="n ruim">R$ 10.117,56</td><td class="n">R$ 4.093,49</td></tr>
+    <tr><td>jun/2026</td><td class="n">R$ 13.776,67</td><td class="n">R$ 9.773,64</td><td class="n">R$ 5.782,63</td></tr>
+    <tr><td>jul/2026</td><td class="n">R$ 13.666,52</td><td class="n">R$ 13.298,70</td><td class="n">R$ 6.046,29</td></tr>
+    <tr><td>ago/2026</td><td class="n">R$ 11.044,66</td><td class="n">R$ 9.541,00</td><td class="n bom">R$ 13.245,76</td></tr>
+    <tr><td>set/2026 (18 dias)</td><td class="n">R$ 6.134,32</td><td class="n">R$ 5.572,18</td><td class="n">R$ 6.862,00</td></tr>
   </tbody>
 </table>
 </div>
 
-<p>Mais o Pixel do Meta, o Clarity, o CartStack e a Performa. Nenhum desses códigos está nos 12 registros de conteúdo personalizado da loja — todos vêm da configuração de painel ou de dentro dos dois Gerenciadores de Tags.</p>
+<p><strong>Maio nunca foi um mês excepcional</strong> — era fraude. Com a limpeza, o site fica entre R$ 6,4 mil e R$ 13,3 mil desde janeiro, sem tendência clara de alta ou de queda. E <strong>o marketplace ultrapassou o site em agosto</strong> pela primeira vez, com uma curva que é real.</p>
 
-<p><strong>O tema da loja manda os eventos certos.</strong> Na página de produto ele declara o destino <code>groups:'analytics'</code> e dispara <code>view_item</code> com <code>send_to:"analytics"</code>, com item, preço e categoria corretos. O código está certo. O que falha é o que acontece depois que os outros seis identificadores carregam.</p>
+<h2><span class="num">08</span>O que fazer, em ordem</h2>
 
-<p>Dois eventos disparados na página, no ar:</p>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Evento</th><th class="n">Chegou ao analytics?</th></tr></thead>
-  <tbody>
-    <tr><td>Com <code>send_to:"analytics"</code> — o mesmo destino que a loja usa</td><td class="n ruim">Nenhuma requisição</td></tr>
-    <tr><td>Com o identificador direto, <code>send_to:"G-1VBYX7D2M7"</code></td><td class="n bom">Chegou normalmente</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>Ou seja: no instante em que o evento é disparado, o destino <code>analytics</code> já não aponta para lugar nenhum. Algum dos outros carregamentos reconfigura aquele identificador e leva o destino junto.</p>
-
-<p>E o comportamento <strong>não é estável</strong>. Dois carregamentos seguidos da mesma página de produto:</p>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Carregamento</th><th>GA4 nº 1</th><th>GA4 nº 2</th></tr></thead>
-  <tbody>
-    <tr><td>Primeiro</td><td>só page_view</td><td class="ruim">só page_view — nenhum view_item</td></tr>
-    <tr><td>Segundo</td><td>só page_view</td><td>page_view + view_item</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>O evento de visualização de produto caiu numa propriedade num carregamento e sumiu no outro. Isso é assinatura de disputa entre scripts: dois Gerenciadores de Tags e o código do tema configurando o mesmo identificador, e quem chega por último define. O <code>add_to_cart</code>, o <code>begin_checkout</code> e o <code>purchase</code> seguem o mesmo caminho — por isso a plataforma de analytics registra <strong>zero</strong> dos três em 30 dias, e por isso os quatro eventos armados no Google Ads (seção 03) estão em 0,0.</p>
-
-<div class="destaque">
-  <p style="margin-bottom:0"><strong>O que não foi possível verificar:</strong> o Pixel do Meta. Nem uma chamada manual produziu requisição visível no navegador usado, então a medição não serve como prova — é provável que seja limitação da ferramenta, não da loja. Como o Meta reporta 18 compras no período, ele deve estar funcionando. Confirmar pelo Gerenciador de Eventos do Meta antes de mexer em qualquer coisa ali.</p>
-</div>
-
-<p><strong>Como consertar</strong> — os três primeiros itens são configuração de painel, não desenvolvimento:</p>
-
-<ol>
-  <li><strong>Escolher uma propriedade GA4 e desligar a outra.</strong> Duas propriedades são duas verdades, e hoje o evento cai ora numa, ora em nenhuma. Fica a que tem histórico útil e está ligada ao Google Ads.</li>
-  <li><strong>Remover o Universal Analytics.</strong> Está desligado há três anos, carrega um script em toda página e não grava nada em lugar nenhum.</li>
-  <li><strong>Deixar um Gerenciador de Tags só.</strong> Dois containers são a causa mais provável da disputa.</li>
-  <li><strong>Testar com o critério certo:</strong> GA4 → Administrador → DebugView, percorrendo produto, carrinho, checkout e compra. O teste passa quando os quatro eventos aparecem, <strong>numa propriedade só</strong>, em <strong>três carregamentos seguidos</strong> — recarregar uma vez não vale: foi exatamente um carregamento assim que escondeu o problema na primeira medição.</li>
-  <li><strong>Só então mexer nas conversões do Google Ads</strong> (passo 2 do plano). Arrumar a contagem antes de arrumar o rastreio troca um número errado por outro.</li>
-</ol>
-
-<p>Três leituras que valem mais que a média:</p>
-<ul>
-  <li><strong>O site não está caindo — está parado.</strong> Descontada a fraude, a receita fica entre R$ 11.040 e R$ 13.667 desde maio. A "queda de 38% desde maio" que aparecia na primeira versão deste documento era a fraude de maio saindo da base, não venda perdida. Continua sendo um problema: cinco meses sem crescer.</li>
-  <li><strong>O marketplace ultrapassou o site em agosto</strong>, pela primeira vez: R$ 13.245 contra R$ 11.044. Em um ano saiu de 20 para 127 pedidos por mês — e essa curva é real, sem fraude.</li>
-  <li><strong>Os melhores meses do site foram dezembro e novembro</strong>, Natal e Black Friday, com gasto em mídia igual ou menor que o de janeiro, o pior mês do período.</li>
-</ul>
-
-<h2><span class="num">03</span>Google Ads: o ROAS do painel está inflado</h2>
-
-<p>O painel mostra <strong>ROAS 4,99</strong>. O número real é cerca de <strong>2,6</strong>, porque há duas ações de conversão de compra contando a mesma venda ao mesmo tempo.</p>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Ação de conversão</th><th class="n">Conversões (30d)</th><th class="n">Receita atribuída</th></tr></thead>
-  <tbody>
-    <tr><td>Compra</td><td class="n">33,3</td><td class="n">R$ 6.377,71</td></tr>
-    <tr><td>Tookas — GA4 (web) purchase</td><td class="n">29,6</td><td class="n">R$ 5.880,25</td></tr>
-    <tr class="total"><td>Total contabilizado</td><td class="n">62,8</td><td class="n">R$ 12.257,96</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>São a mesma compra, registrada duas vezes. Isso importa porque decisão tomada com ROAS 5 é “está ótimo, não mexe”; com 2,6 a conversa é outra.</p>
-
-<h3>Por que isso acontece</h3>
-
-<p>O cliente compra <strong>uma vez</strong>. Mas o site tem duas marcações disparando no mesmo evento de compra:</p>
-
-<ul>
-  <li>a <strong>tag nativa do Google Ads</strong> instalada no site, que registra a venda por conta própria;</li>
-  <li>o evento <code>purchase</code> do <strong>Google Analytics 4</strong>, importado para dentro do Google Ads como ação de conversão.</li>
-</ul>
-
-<p>As duas estão marcadas como “conversão principal”, então o Google soma as duas na métrica que aparece no painel. A prova é aritmética: 33,3 + 29,6 = 62,9, e a métrica oficial da conta marca <strong>62,8</strong>. O total de conversões é exatamente a soma das duas — não há mais nada contribuindo.</p>
-
-<p>As janelas diferentes explicam por que os números não são idênticos: a nativa dá crédito a cliques de até 30 dias atrás, a do GA4 até 90 dias. Para um ticket de R$ 215, noventa dias é generoso demais.</p>
-
-<p><strong>As duas ações pertencem à própria conta da loja</strong>, não vêm de conta gerenciadora nem de terceiro — o campo de proprietário foi conferido nas duas.</p>
-
-<p>Um detalhe revelador: existe uma terceira ação de compra na conta, herdada do antigo Universal Analytics, e essa <strong>está</strong> com “contar em Conversões” desligado. Alguém já fez esse ajuste corretamente uma vez. Só não repetiu quando a do GA4 entrou.</p>
-
-<h3>Quatro eventos que não são venda também estão marcados como conversão</h3>
-
-<p>Esta parte ainda não está doendo, mas está armada:</p>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Ação marcada como conversão</th><th>O que é de verdade</th><th class="n">Conversões (30d)</th></tr></thead>
-  <tbody>
-    <tr><td>GA4 (web) carrinho</td><td>Visualização de página</td><td class="n">0,0</td></tr>
-    <tr><td>GA4 (web) checkout</td><td>Início de checkout</td><td class="n">0,0</td></tr>
-    <tr><td>GA4 (web) compra</td><td>Visualização de página</td><td class="n">0,0</td></tr>
-    <tr><td>GA4 (web) login</td><td>Visualização de página</td><td class="n">0,0</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>As quatro estão em zero porque a marcação não está disparando. Mas todas estão configuradas para entrar na conta de “Conversões” junto com venda de verdade. No dia em que voltarem a disparar, o número de conversões multiplica sem uma venda a mais, e o lance automático passa a otimizar para gente que faz login.</p>
-
-<p>Um sinal de que já existe volume por trás: a métrica <code>all_conversions</code> da conta marca <strong>278,5</strong> contra 62,8 de “Conversões”.</p>
-
-<h3>Como corrigir</h3>
-
-<p>No Google Ads, em <strong>Metas → Conversões → Resumo</strong>, coluna “Ação de otimização da meta”:</p>
-
-<ol>
-  <li>Escolher <strong>uma</strong> fonte de compra e passar a outra para “Secundária” — não apagar, só tirar da métrica principal. A recomendação é manter a nativa, pela janela de 30 dias.</li>
-  <li>Passar carrinho, checkout, login e a “compra” de tipo visualização de página para secundárias. Elas servem como métrica de funil, não como meta de otimização.</li>
-</ol>
-
-<p>Nos 30 dias o Google gastou <strong>R$ 2.455,07</strong> em duas campanhas ativas, com 92.005 impressões, 1.613 cliques e CPC de R$ 1,52.</p>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Campanha</th><th class="n">Orç./dia</th><th class="n">Gasto 30d</th><th class="n">Conversões</th><th class="n">Impression share</th><th class="n">Perdido por rank</th></tr></thead>
-  <tbody>
-    <tr><td>PRO — Search | Institucional</td><td class="n">R$ 50</td><td class="n">R$ 1.138,41</td><td class="n">21,8</td><td class="n">65,0%</td><td class="n">32,5%</td></tr>
-    <tr><td>PRO — Performance Max</td><td class="n">R$ 55</td><td class="n">R$ 1.316,65</td><td class="n">41,0</td><td class="n">21,8%</td><td class="n ruim">77,3%</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>Dois pontos que mudam o que fazer:</p>
-<ul>
-  <li><strong>Não é falta de orçamento que trava as campanhas, é o rank.</strong> A PMax perde 77,3% dos leilões por posição e apenas 1,0% por orçamento; o Search perde 32,5% por rank e 2,4% por orçamento. Subir verba sem mexer em lance, qualidade de anúncio e feed não compra mais leilão.</li>
-  <li><strong>A PMax está abaixo do volume de aprendizado.</strong> Com R$ 55 por dia e 41 conversões no mês, ela opera perto do mínimo que o algoritmo precisa para otimizar.</li>
-</ul>
-
-<p>Há ainda <strong>16 campanhas pausadas</strong> na conta, incluindo Shopping, que está desligado.</p>
-
-<h2><span class="num">04</span>Meta Ads: sete meses parado e sem topo de funil</h2>
-
-<p>A conta gastou <strong>R$ 0 de janeiro a julho de 2026</strong>. Voltou em agosto com R$ 346,90 e fez R$ 547,31 na primeira metade de setembro. Nos 30 dias analisados, R$ 894,21 no total.</p>
-
-<p>Esse dinheiro comprou alcance de <strong>12.355 pessoas</strong>, que viraram <strong>1.151 visitas</strong> à loja.</p>
-
-<div class="destaque">
-  <p><strong>Correção de uma conclusão anterior.</strong> A primeira versão deste documento dizia que o problema central era não entrar cliente novo, e usava estes números do Meta como prova. Isso estava errado, e o erro foi de método: o Meta é <strong>um</strong> dos caminhos pelos quais a loja recebe gente, e nem o maior — no painel da própria loja ele aparece atrás do tráfego direto, do shopping e do Google. Tomei o funil de um canal pelo funil da loja inteira.</p>
-  <p style="margin-bottom:0">O que continua valendo: <strong>o Meta, especificamente, gasta 96% em remarketing</strong>, e isso é um desenho ruim de campanha. O que não vale mais: concluir daí que falta gente entrando na loja. Entra gente por vários caminhos; ela não compra.</p>
-</div>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Etapa do funil</th><th class="n">Volume</th><th class="n">Conversão da etapa anterior</th></tr></thead>
-  <tbody>
-    <tr><td>Alcance</td><td class="n">12.355 pessoas</td><td class="n">—</td></tr>
-    <tr><td>Visitas à loja</td><td class="n">1.151</td><td class="n">—</td></tr>
-    <tr><td>Visualização de produto</td><td class="n">2.064</td><td class="n">—</td></tr>
-    <tr><td>Adicionou ao carrinho</td><td class="n">109</td><td class="n">9,5% das visitas</td></tr>
-    <tr><td>Iniciou checkout</td><td class="n">42</td><td class="n">38,5%</td></tr>
-    <tr class="total"><td>Comprou</td><td class="n">18</td><td class="n">42,9%</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>O funil em si não está quebrado: 1,56% de visita até compra é aceitável para moda. O problema é o que entra no topo dele.</p>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Campanha</th><th class="n">Gasto</th><th class="n">Alcance</th><th class="n">Frequência</th><th class="n">Compras</th><th class="n">Receita</th></tr></thead>
-  <tbody>
-    <tr><td>Meio | Vendas | Catálogo</td><td class="n">R$ 573,05</td><td class="n">7.983</td><td class="n ruim">3,7×</td><td class="n">13</td><td class="n">R$ 2.795,10</td></tr>
-    <tr><td>Meio | Vendas | Criativos</td><td class="n">R$ 286,63</td><td class="n">5.196</td><td class="n">2,0×</td><td class="n">4</td><td class="n">R$ 594,82</td></tr>
-    <tr><td><strong>Topo | Vendas</strong></td><td class="n ruim">R$ 34,53</td><td class="n">573</td><td class="n">2,0×</td><td class="n">1</td><td class="n">R$ 373,62</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div class="destaque">
-  <p><strong>96% do dinheiro vai para meio de funil</strong> — catálogo e remarketing, quem já visitou o site. Sobram R$ 34,53 para trazer gente nova. A campanha que mais vende impacta 7.983 pessoas com frequência 3,7: está batendo quase quatro vezes na mesma base pequena.</p>
-</div>
-
-<p>Uma campanha com frequência 3,7 sobre 7.983 pessoas está batendo quase quatro vezes na mesma base pequena, o que encarece o resultado com o tempo. Vale corrigir — mas é um problema de eficiência do canal, não a explicação do resultado da loja. A explicação está na seção 02: o tráfego chega e não converte.</p>
-
-<p>Uma observação à parte: existe uma segunda conta de anúncios vinculada ao negócio, da <strong>Propulse Marketing Digital</strong>, com R$ 16.697 gastos historicamente e <strong>R$ 0 nos últimos 30 dias</strong>.</p>
-
-<h2><span class="num">05</span>Mercado Ads: orçamento pulverizado e campanhas fora de estação</h2>
-
-<p>A conta anuncia como <strong>TOOKAS OFICIAL</strong> com <strong>100 anúncios ativos</strong> distribuídos em 8 campanhas. O teto de orçamento somado é <strong>R$ 133 por dia</strong>, cerca de R$ 3.990 por mês — mais que Google e Meta juntos.</p>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Campanha</th><th class="n">Orç./dia</th><th class="n">Anúncios</th><th class="n">Por anúncio/dia</th><th class="n">ACOS alvo</th></tr></thead>
-  <tbody>
-    <tr><td>Visibilidade — Novos</td><td class="n">R$ 6</td><td class="n">32</td><td class="n ruim">R$ 0,19</td><td class="n">50,0%</td></tr>
-    <tr><td>KITS — Escala Verão</td><td class="n">R$ 15</td><td class="n">32</td><td class="n ruim">R$ 0,47</td><td class="n">50,0%</td></tr>
-    <tr><td>Queima</td><td class="n">R$ 6</td><td class="n">13</td><td class="n ruim">R$ 0,46</td><td class="n">66,7%</td></tr>
-    <tr><td>Curva A — Verão Regular</td><td class="n">R$ 40</td><td class="n">12</td><td class="n">R$ 3,33</td><td class="n">28,6%</td></tr>
-    <tr><td>Curva B — Verão Regular</td><td class="n">R$ 20</td><td class="n">2</td><td class="n">R$ 10,00</td><td class="n">22,2%</td></tr>
-    <tr><td>Curva A — <strong>Inverno</strong> Regular</td><td class="n">R$ 20</td><td class="n">1</td><td class="n ruim">R$ 20,00</td><td class="n">22,2%</td></tr>
-    <tr><td>Curva B — Plus <strong>Inverno</strong></td><td class="n">R$ 16</td><td class="n">1</td><td class="n ruim">R$ 16,00</td><td class="n">33,3%</td></tr>
-    <tr><td>Curva B — Plus Verão</td><td class="n">R$ 10</td><td class="n">1</td><td class="n">R$ 10,00</td><td class="n">40,0%</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>Três problemas saltam da tabela:</p>
-<ol>
-  <li><strong>77 dos 94 anúncios com publicidade recebem menos de R$ 0,50 por dia.</strong> Com esse valor nenhum deles ganha leilão de forma consistente. É orçamento espalhado fino demais para produzir resultado em qualquer um.</li>
-  <li><strong>R$ 36 por dia — 27% do orçamento — estão em campanhas de inverno</strong>, em setembro, entrando no verão. E cada uma dessas campanhas tem <strong>um único anúncio</strong>, consumindo R$ 20 e R$ 16 por dia sozinhos.</li>
-  <li><strong>6 anúncios estão órfãos.</strong> Eles apontam para uma campanha que a API reporta como <code>Campaign is limbo</code> — quebrada. Esses anúncios não recebem publicidade nenhuma.</li>
-</ol>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Anúncio sem publicidade</th><th class="n">Preço</th><th class="n">Estoque</th><th class="n">Vendidos</th></tr></thead>
-  <tbody>
-    <tr><td>Bermuda Walk Bad Boy Summer</td><td class="n">R$ 199,95</td><td class="n">18</td><td class="n bom">46</td></tr>
-    <tr><td>Vestido More Tookas</td><td class="n">R$ 129,90</td><td class="n">82</td><td class="n">8</td></tr>
-    <tr><td>Shorts Masculino Bolsos Cordão</td><td class="n">R$ 129,95</td><td class="n">215</td><td class="n">3</td></tr>
-    <tr><td>Box Surpresa Tookas Essential</td><td class="n">R$ 99,95</td><td class="n">1.069</td><td class="n">0</td></tr>
-    <tr><td>Camiseta Tricô Body Gola Redonda</td><td class="n">R$ 139,90</td><td class="n">72</td><td class="n">0</td></tr>
-    <tr><td>Camiseta Tricô Body Gola Redonda</td><td class="n">R$ 139,90</td><td class="n">21</td><td class="n">0</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>A <strong>Bermuda Walk Bad Boy Summer</strong> é o caso mais caro: 46 unidades vendidas comprovam que o produto converte, e ele está sem publicidade em plena entrada de verão, com apenas 18 peças em estoque. O <strong>Box Surpresa</strong> tem 1.069 peças paradas e zero vendas, também sem anúncio.</p>
-
-<p>Apesar de tudo isso, o Mercado Livre é o canal que mais cresce da Tookas. É exatamente o argumento a favor de arrumar essas três coisas antes de qualquer outra: aqui o retorno marginal é o mais alto e o conserto é de configuração, não de verba nova.</p>
-
-<h2><span class="num">06</span>As contas não fecham</h2>
-
-<p>Somando o que cada plataforma reivindica nos mesmos 30 dias, contra o que o site de fato vendeu:</p>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Origem</th><th class="n">Pedidos alegados</th><th class="n">Receita alegada</th></tr></thead>
-  <tbody>
-    <tr><td>Google Ads (como o painel mostra)</td><td class="n">62,8</td><td class="n">R$ 12.257,96</td></tr>
-    <tr><td>Meta Ads</td><td class="n">18</td><td class="n">R$ 3.763,54</td></tr>
-    <tr class="total"><td>Soma</td><td class="n">80,8</td><td class="n">R$ 16.021,50</td></tr>
-    <tr><td><strong>Vendas reais do site</strong></td><td class="n"><strong>49</strong></td><td class="n"><strong>R$ 10.524,13</strong></td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>As plataformas reivindicam <strong class="ruim">165% dos pedidos</strong> que o site fez. Isso é aritmeticamente impossível.</p>
-
-<p>Descontando a dupla contagem do Google, a conta melhora mas continua dizendo a mesma coisa:</p>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Origem</th><th class="n">Pedidos</th><th class="n">Receita</th></tr></thead>
-  <tbody>
-    <tr><td>Google Ads (sem a duplicata)</td><td class="n">33,3</td><td class="n">R$ 6.377,71</td></tr>
-    <tr><td>Meta Ads</td><td class="n">18</td><td class="n">R$ 3.763,54</td></tr>
-    <tr class="total"><td>Soma</td><td class="n">51,3</td><td class="n">R$ 10.141,25</td></tr>
-    <tr><td><strong>Vendas reais do site</strong></td><td class="n"><strong>49</strong></td><td class="n"><strong>R$ 10.524,13</strong></td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>Mesmo corrigido, os anúncios reivindicam <strong>105% dos pedidos e 96% da receita</strong> do site — e isso sem contar o Mercado Ads, que atende outro canal. Duas leituras possíveis, e as duas levam ao mesmo lugar:</p>
-
-<ul>
-  <li><strong>Se os números estiverem certos</strong>, cada venda está sendo atribuída ao Google e ao Meta ao mesmo tempo. O ROAS somado é ficção.</li>
-  <li><strong>Se a atribuição estiver honesta</strong>, então praticamente 100% das vendas do site passam por anúncio — o que significa que a loja não tem nenhuma venda orgânica relevante, e os anúncios estão cobrando por clientes que já viriam.</li>
-</ul>
-
-<p>A correlação de −0,13 ao longo de 12 meses decide entre as duas: se a mídia realmente gerasse essas vendas, meses de gasto alto venderiam mais. Não é o que acontece. O mais provável é uma mistura — sobreposição entre as plataformas <strong>e</strong> captura de demanda que já existia.</p>
-
-<h2><span class="num">07</span>Fraude com cartão entrou na receita</h2>
-
-<p>Oito pedidos de golpe foram registrados como <strong>vendas entregues</strong> nos últimos 12 meses, somando <strong>R$ 9.207,91</strong>. Todos com entrega na região de <strong>João Pessoa/PB</strong>, todos pagos com cartão, todos com ticket muito acima da média da loja.</p>
-
-<div class="kpis">
-  <div class="kpi mau"><div class="v">R$ 9.208</div><div class="r">Fraude contabilizada como venda em 12 meses</div></div>
-  <div class="kpi mau"><div class="v">37,5%</div><div class="r">Da receita do site em maio era fraude</div></div>
-  <div class="kpi mau"><div class="v">R$ 95.298</div><div class="r">Em tentativas canceladas da mesma origem</div></div>
-  <div class="kpi"><div class="v">57</div><div class="r">Pedidos cancelados de alto valor vindos de lá</div></div>
-</div>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Mês</th><th class="n">Valor</th><th>Comprador</th><th>Situação no sistema</th></tr></thead>
-  <tbody>
-    <tr><td>mar/26</td><td class="n">R$ 336,84</td><td>Comprador A</td><td>Entregue</td></tr>
-    <tr><td>mai/26</td><td class="n">R$ 2.008,49</td><td>Comprador B</td><td>Entregue</td></tr>
-    <tr><td>mai/26</td><td class="n">R$ 1.546,23</td><td>Comprador C</td><td>Entregue</td></tr>
-    <tr><td>mai/26</td><td class="n">R$ 1.139,04</td><td>Comprador B</td><td>Entregue</td></tr>
-    <tr><td>mai/26</td><td class="n">R$ 1.089,06</td><td>Comprador D</td><td>Entregue</td></tr>
-    <tr><td>mai/26</td><td class="n">R$ 829,53</td><td>Comprador E</td><td>Entregue</td></tr>
-    <tr><td>jun/26</td><td class="n">R$ 1.530,40</td><td>Comprador F</td><td>Entregue</td></tr>
-    <tr><td>jun/26</td><td class="n">R$ 728,32</td><td>Comprador B</td><td>Entregue</td></tr>
-    <tr class="total"><td>Total</td><td class="n">R$ 9.207,91</td><td>8 pedidos · 6 compradores</td><td>—</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p style="font-size:14px;color:var(--ink-3)">Os nomes foram omitidos por se tratar de página pública e de dado pessoal. A lista nominal completa está no relatório interno, à disposição do financeiro e da adquirente.</p>
-
-<p>O padrão é o de <strong>teste de cartão em massa</strong>: o fraudador dispara dezenas de tentativas com valores altos até uma passar. Em maio, junho e julho o site recebeu <strong>68 pedidos cancelados acima de R$ 500</strong>, somando R$ 105.533 — e <strong>57 deles, R$ 95.298, vieram da região de João Pessoa/PB</strong>. Só em junho foram R$ 97.312 em tentativas, sete vezes a receita legítima do mês.</p>
-
-<p>Os sinais se repetem em todos: o mesmo comprador tentando o mesmo valor várias vezes seguidas, bandeiras diferentes alternando entre as tentativas (Elo, Visa, MasterCard), e-mail que não corresponde ao nome do titular, e forte predominância de cartão Elo.</p>
-
-<div class="destaque">
-  <p><strong>A situação “Entregue” no sistema não significa que a venda foi boa.</strong> Esses pedidos foram aprovados, faturados e despachados. O estorno chega depois, como chargeback — e aí a loja já perdeu a mercadoria e o frete, além de piorar o índice de contestação junto à adquirente.</p>
-</div>
-
-<h3>O que isso obriga a corrigir nesta análise</h3>
-
-<p>A fraude estava inflando maio e junho, e foi ela que produziu o número de correlação da primeira versão deste documento:</p>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>Indicador</th><th class="n">Com fraude</th><th class="n">Sem fraude</th></tr></thead>
-  <tbody>
-    <tr><td>Correlação gasto em mídia × receita do site</td><td class="n">−0,13</td><td class="n">+0,19</td></tr>
-    <tr><td>Receita do site em maio</td><td class="n">R$ 17.652</td><td class="n">R$ 11.040</td></tr>
-    <tr><td>Receita do site em junho</td><td class="n">R$ 13.777</td><td class="n">R$ 11.518</td></tr>
-    <tr><td>Variação do site de maio a agosto</td><td class="n">−37%</td><td class="n">0%</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>Duas conclusões da primeira versão caem, e precisam ser ditas com clareza:</p>
-
-<ul>
-  <li><strong>A correlação não é negativa, é fracamente positiva</strong> (+0,19). A mídia ajuda, só que pouco — não o suficiente para explicar o resultado do negócio. O diagnóstico continua valendo; o número que o sustentava era mais forte do que a realidade.</li>
-  <li><strong>O site não caiu 38% desde maio.</strong> A queda era a fraude saindo da base. A receita real está estável entre R$ 11 mil e R$ 13,7 mil desde maio — o que continua sendo um problema, mas é um problema diferente: cinco meses sem crescer, não um tombo.</li>
-</ul>
-
-<p>O que <strong>não</strong> muda: a dupla contagem no Google, a ausência de topo de funil no Meta, o orçamento pulverizado no Mercado Ads e os carrinhos abandonados. Nenhum desses depende da fraude.</p>
-
-<h2><span class="num">08</span>O site perde 86,5% dos carrinhos</h2>
-
-<p>Esta é a maior perda do documento e a única que não exige verba nova.</p>
-
-<div class="kpis">
-  <div class="kpi mau"><div class="v">424</div><div class="r">Carrinhos abandonados em 30 dias</div></div>
-  <div class="kpi"><div class="v">66</div><div class="r">Carrinhos convertidos</div></div>
-  <div class="kpi mau"><div class="v">13,5%</div><div class="r">Conversão do carrinho — média do ano: 25%</div></div>
-  <div class="kpi"><div class="v">~R$ 91 mil</div><div class="r">Intenção de compra que não virou venda</div></div>
-</div>
-
-<h3>A loja já paga por uma recuperação de carrinho — e ela entregou zero</h3>
-
-<p>A Tookas assina a Performa.AI (plano ECONOMY, R$ 190 por mês), que inclui o PowerCart, o produto de recuperação de carrinho. No último mês ele fez isto:</p>
-
-<div class="tabela">
-<table>
-  <thead><tr><th>E-mail da sequência</th><th class="n">Enviados</th><th class="n">Aberturas</th><th class="n">Cliques</th><th class="n">Recuperados</th></tr></thead>
-  <tbody>
-    <tr><td>1º</td><td class="n">63</td><td class="n">17</td><td class="n">1</td><td class="n">0</td></tr>
-    <tr><td>2º</td><td class="n">47</td><td class="n">11</td><td class="n">0</td><td class="n">0</td></tr>
-    <tr><td>3º</td><td class="n">43</td><td class="n">12</td><td class="n">0</td><td class="n">0</td></tr>
-    <tr class="total"><td>Total</td><td class="n">153</td><td class="n">40</td><td class="n">1</td><td class="n ruim">0</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>A taxa de abertura é normal (26%). O que não acontece é o clique: <strong>um clique em 153 e-mails</strong>, e <strong>nenhum carrinho recuperado</strong>. Receita recuperada no período: <strong>R$ 0,00</strong>.</p>
-
-<p>Há ainda um problema de alcance. O PowerCart enxergou <strong>63 carrinhos abandonados</strong>; o sistema da loja registrou <strong>424</strong>. Ele só alcança quem chegou a se identificar no checkout — cerca de 15% do total. Os outros 85% não recebem nada de ninguém. A própria plataforma avisa que <em>"esta loja não registra eventos de carrinho/checkout/compra no rastreamento"</em>, ou seja, a instalação dela está incompleta.</p>
-
-<p>Isso não condena a ferramenta inteira: a parte de <strong>recomendação de produto</strong> da Performa influenciou 24% dos pedidos e 32,9% da receita que ela mede no período. O que não entrega é a recuperação de carrinho.</p>
-
-<h3>Existe um segundo sistema pronto, e desligado</h3>
-
-<p>A Tookas tem uma rotina própria de recuperação já construída, testada de ponta a ponta e com envio real funcionando — WhatsApp e e-mail, com cupom próprio e link que reabre o carrinho em qualquer aparelho. <strong>Ela está desligada.</strong></p>
-
-<p>Antes de conectar a Performa, havia o risco de os dois sistemas mandarem mensagem para o mesmo cliente. Medido o PowerCart, esse risco desapareceu: <strong>não há sobreposição com um sistema que entrega zero</strong>.</p>
-
-<p>Ligar depende de uma decisão de negócio, não de desenvolvimento: são mensagens para clientes reais, e essa é a razão de ela nunca ter sido ligada sozinha.</p>
-
-<p>Vale notar o contraste com a mídia. Um ganho de 10 pontos na taxa de recuperação vale mais, em receita, do que qualquer ajuste de campanha discutido acima — e custa apenas o envio das mensagens.</p>
-
-<h2><span class="num">09</span>O que fazer, em ordem</h2>
-
-<p>A ordem é deliberada: do que custa nada ao que custa verba. Os seis primeiros itens não pedem um real a mais de investimento.</p>
+<p>Os quatro primeiros itens não pedem um real a mais de investimento.</p>
 
 <div class="passo">
-  <h3><span class="b">1</span> Consertar o rastreamento e atacar a conversão</h3>
-  <p class="custo">Maior retorno da lista · sem verba de mídia</p>
-  <p>A conversão é onde está o dinheiro, e hoje ela nem se mede: a loja não registra carrinho, checkout nem compra, então não dá para saber em que etapa as pessoas desistem, e qualquer melhoria vira palpite. O diagnóstico técnico completo, com a causa medida e o passo a passo, está na <strong>seção 02</strong>. Por onde começar:</p>
+  <h3><span class="b">1</span> Deixar uma única ação de compra como principal</h3>
+  <p class="custo">5 minutos · sem custo · faz todo o resto ficar mensurável</p>
+  <p>No Google Ads, escolher entre a tag nativa e a importação do GA4 — nunca as duas. Espere o ROAS do painel cair de 4,58 para cerca de 2,44: <strong>essa queda é a correção, não uma piora</strong>. Enquanto as duas contarem, nenhuma decisão de lance ou de orçamento se apoia em número real.</p>
+</div>
+
+<div class="passo">
+  <h3><span class="b">2</span> Rebaixar carrinho, checkout e login a conversão secundária</h3>
+  <p class="custo">10 minutos · sem custo</p>
+  <p>São 19 ações marcadas como principais numa conta que vende um produto só. Conversão principal é o alvo do lance automático; com login na lista, o algoritmo aprende a comprar cadastro. Elas continuam aparecendo no relatório como secundárias.</p>
+</div>
+
+<div class="passo">
+  <h3><span class="b">3</span> Negativar os termos que só custam</h3>
+  <p class="custo">Uma hora · devolve ~R$ 460/mês</p>
   <ul>
-    <li><strong>Limpar os sete identificadores de medição</strong> até sobrar um GA4, um Gerenciador de Tags e um Google Ads. É configuração de painel, não desenvolvimento.</li>
-    <li>Medir o funil real depois de corrigido: quantos veem produto, quantos põem no carrinho, quantos chegam ao pagamento.</li>
-    <li>Revisar a página de produto e o checkout com os números na mão, não por opinião.</li>
+    <li>Marca de concorrente sem intenção de compra: <code>toulon jeans</code>, <code>mais pano</code>, <code>berzerk</code>.</li>
+    <li>Termos fora do catálogo: <code>reclamo mas treino</code>, <code>camiseta leg day</code>, <code>short academia</code>.</li>
+    <li>Cadastrar <code>tokkas</code> e as variações erradas do nome como palavra-chave de marca — hoje custam caro e convertem zero, quando deveriam ser o tráfego mais barato da conta.</li>
   </ul>
 </div>
 
 <div class="passo">
-  <h3><span class="b">2</span> Parar de medir errado</h3>
-  <p class="custo">5 minutos · sem custo</p>
-  <p>Desligar uma das duas ações de conversão de compra no Google Ads, mantendo a nativa ou a do GA4, nunca as duas. Enquanto ambas contarem, nenhuma decisão de otimização é confiável. Este item vem antes de todos porque os outros dependem de números corretos.</p>
+  <h3><span class="b">4</span> Tratar a Performance Max pela posição, não pela verba</h3>
+  <p class="custo">Sem custo · corrige o diagnóstico</p>
+  <p>77% das impressões são perdidas por posição e 1% por orçamento. Aumentar o orçamento dela não compra alcance. O caminho é feed de produto (título, imagem, atributos), criativo e estratégia de lance. <strong>Se alguém propuser subir a verba da PMax, este número é a resposta.</strong></p>
 </div>
 
 <div class="passo">
-  <h3><span class="b">3</span> Consertar o Mercado Ads</h3>
-  <p class="custo">Uma tarde · sem verba nova</p>
+  <h3><span class="b">5</span> Renovar criativo no Meta antes de ampliar público</h3>
+  <p class="custo">Custo de produção · sem verba de mídia nova</p>
+  <p>Frequência 3,7 sobre 8.042 pessoas no conjunto que concentra o gasto. O público aberto já está entregando o melhor retorno declarado da conta — o limite ali é repetição, não tamanho.</p>
+</div>
+
+<div class="passo">
+  <h3><span class="b">6</span> Adotar o retorno sobre o gasto total como número de gestão</h3>
+  <p class="custo">Sem custo · muda a conversa</p>
+  <p>Receita real do site dividida pelo gasto total em mídia: <strong>2,71 hoje</strong>. É um número que ninguém consegue inflar, não depende de janela de atribuição e não soma a mesma venda duas vezes. O ROAS de cada plataforma continua útil para comparar campanhas <em>dentro</em> da mesma plataforma — nunca para decidir orçamento entre elas.</p>
+</div>
+
+<div class="passo">
+  <h3><span class="b">7</span> Provar incrementalidade antes de escalar</h3>
+  <p class="custo">Um mês · sem custo adicional</p>
+  <p>Desligar uma campanha por duas semanas e medir a venda real da loja é o único teste que separa venda causada de venda apenas atribuída. Com R$ 3,4 mil por mês, começar pela campanha de marca é o teste mais barato e o mais informativo.</p>
+</div>
+
+<div class="passo">
+  <h3><span class="b">8</span> Fechar a porta da fraude e separar crédito de venda</h3>
+  <p class="custo">Urgente · protege margem</p>
   <ul>
-    <li>Religar os 6 anúncios órfãos, começando pela Bermuda Walk Bad Boy Summer, que tem 46 vendas comprovadas e só 18 peças em estoque.</li>
-    <li>Desligar ou reduzir as duas campanhas de inverno e realocar os R$ 36 por dia para produto de verão.</li>
-    <li>Concentrar o orçamento: menos anúncios com verba real, em vez de 77 anúncios com R$ 0,50 por dia.</li>
+    <li>Revisão manual de todo pedido acima de R$ 500 com entrega na Paraíba enquanto o padrão estiver ativo.</li>
+    <li>Nos relatórios de venda, <strong>resgate de crédito não é receita</strong> — o painel do Magazord já separa isso pelo filtro de origem “Site”; qualquer leitura por fora dele precisa excluir a forma de pagamento “Crédito”.</li>
   </ul>
 </div>
 
-<div class="passo">
-  <h3><span class="b">4</span> Fechar a porta da fraude</h3>
-  <p class="custo">Urgente · antes de perder mais mercadoria</p>
-  <ul>
-    <li>Revisar manualmente todo pedido acima de R$ 500 com entrega na Paraíba enquanto o ataque estiver ativo.</li>
-    <li>Exigir análise antifraude para ticket acima de R$ 500 em qualquer destino — a média da loja é R$ 215, então esses pedidos são exceção e cabem em revisão manual.</li>
-    <li>Barrar repetição: mesmo comprador, documento ou e-mail acumulando mais de duas recusas no mesmo dia.</li>
-    <li>Conferir com a adquirente quais dos oito pedidos já viraram chargeback e qual é o prejuízo real em mercadoria e frete.</li>
-  </ul>
-</div>
-
-<div class="passo">
-  <h3><span class="b">5</span> Ligar a recuperação de carrinho</h3>
-  <p class="custo">Decisão de negócio · sistema pronto</p>
-  <p>424 carrinhos abandonados por mês, sistema construído e testado, e o concorrente interno (PowerCart) entregando zero. Sem risco de mensagem duplicada. Vale cobrar da Performa o motivo de o PowerCart não converter — a loja paga por ele — e, em paralelo, ligar o nosso, que alcança também os 85% que o deles não vê.</p>
-</div>
-
-<div class="passo">
-  <h3><span class="b">6</span> Criar topo de funil no Meta</h3>
-  <p class="custo">Realocação de verba existente</p>
-  <p>Público frio, criativo de marca e produto, com orçamento próprio separado do catálogo. Sem isso, subir verba no remarketing só aumenta a frequência sobre as mesmas 8 mil pessoas. Uma referência comum de mercado é algo próximo de 60% em público novo e 40% em remarketing; hoje estamos em 4% e 96%.</p>
-</div>
-
-<div class="passo">
-  <h3><span class="b">7</span> Só então, decidir a verba</h3>
-  <p class="custo">Depende dos quatro anteriores</p>
-  <p>Com medição limpa e funil montado, a conversa sobre investir mais passa a fazer sentido. Antes disso, subir verba num funil que só colhe demanda existente é pagar por venda que aconteceria de qualquer jeito — foi exatamente o que janeiro de 2026 mostrou, com o maior gasto do ano e a menor receita.</p>
-</div>
-
-<h2><span class="num">10</span>Perguntas para quem opera as contas</h2>
+<h2><span class="num">09</span>O que não dá para afirmar hoje</h2>
 
 <ul>
-  <li>Por que há duas ações de conversão de compra ativas ao mesmo tempo no Google Ads?</li>
-  <li>Por que a Performance Max perde 77% dos leilões por rank, e qual é o plano para lance, qualidade e feed?</li>
-  <li>Qual foi a razão de o Meta ficar sete meses sem investimento?</li>
-  <li>Qual é a estratégia de topo de funil para os próximos 90 dias?</li>
-  <li>Qual é o ROAS reportado, e como ele se concilia com os 49 pedidos que o site fez no período?</li>
+  <li><strong>A taxa de conversão do site.</strong> O rastreamento não registra carrinho, checkout e compra de forma confiável, e a plataforma de analytics conta páginas, não pessoas. Sem isso não existe funil.</li>
+  <li><strong>Quanto da venda a mídia causou.</strong> Atribuição diz quem tocou por último; não diz o que teria acontecido sem o anúncio. Só um teste de desligamento responde (passo 7).</li>
+  <li><strong>A causa da falha de rastreio.</strong> Medi que os eventos não chegam de forma confiável e que a loja carrega dois GA4 e um Universal Analytics desativado pelo Google em 2023. <strong>Não consegui isolar o culpado</strong> — três tentativas, todas inconclusivas.</li>
+  <li><strong>O gasto real do Mercado Ads.</strong> A API entrega orçamento e status, não custo nem venda. Por isso o Mercado Livre não entra na conta de retorno deste documento, embora seja hoje o maior canal da loja.</li>
+  <li><strong>Fraude de ticket baixo.</strong> O critério usado alcança o padrão conhecido (Paraíba, ticket a partir de R$ 300). Abaixo disso não foi varrido.</li>
 </ul>
 
-<h2><span class="num">11</span>Limites desta análise e de onde vieram os números</h2>
-
-<p>Três coisas não foi possível medir, e vale registrá-las para ninguém tratar estimativa como fato:</p>
+<h2><span class="num">10</span>Perguntas para a próxima conversa com a agência</h2>
 
 <ul>
-  <li><strong>O gasto real do Mercado Ads.</strong> A API entrega campanhas, orçamentos, ACOS alvo e o status de cada anúncio, mas não entrega custo, cliques nem vendas — essa parte da documentação é restrita a parceiros certificados. Os R$ 133 por dia são <strong>teto de orçamento</strong>, não gasto realizado; o gasto efetivo costuma ser menor.</li>
-  <li><strong>A conversão real e o funil dentro da loja.</strong> O rastreamento não registra carrinho, checkout nem compra (causa medida na seção 02), e a contagem de sessões da Performa não fecha — ela reporta 868 sessões e 955 visitantes únicos no mesmo período, o que é impossível, e menos sessões do que os 2.764 cliques que os anúncios compraram. Por isso este documento afirma um <strong>teto</strong> de 1,8%, não uma taxa. A porcentagem exata, e <em>em que ponto</em> as pessoas desistem, só depois de consertar o rastreio — passo 1 do plano.</li>
-  <li><strong>Duas fontes contam pedidos de forma diferente.</strong> No mesmo período a Performa registra 25 pedidos e R$ 5.385, enquanto o sistema da loja registra 49 e R$ 10.524. A diferença provavelmente é o que o script da Performa consegue rastrear. Os números de venda deste documento vêm do sistema da loja, que é a fonte oficial.</li>
-  <li><strong>A atribuição real de cada venda.</strong> Sabemos que a soma não fecha, mas não dá para dizer, pedido a pedido, qual anúncio trouxe qual cliente.</li>
-  <li><strong>Quais fraudes já viraram chargeback.</strong> O critério usado foi entrega na região de João Pessoa/PB com ticket a partir de R$ 300, cruzado com o padrão de tentativas canceladas. Isso identifica o ataque, mas o prejuízo financeiro confirmado só a adquirente informa. Também pode existir fraude de ticket baixo que esse critério não alcança.</li>
+  <li>Quem escolheu manter as duas ações de compra como principais, e há alguma razão que eu não esteja vendo?</li>
+  <li>A conta de anúncio da Propulse voltará a ser usada? Se sim, os relatórios precisam somar as duas.</li>
+  <li>Existe algum teste de incrementalidade já feito nesta conta?</li>
+  <li>Qual a meta de retorno combinada — em ROAS de plataforma ou em retorno sobre gasto total?</li>
+  <li>A PMax perde 77% por posição: qual é o plano para feed e criativo?</li>
 </ul>
 
-<p>Todo o resto foi medido diretamente nas APIs em 18 de setembro de 2026:</p>
+<h2><span class="num">11</span>De onde vem cada número</h2>
 
 <div class="tabela">
 <table>
   <thead><tr><th>Dado</th><th>Fonte</th></tr></thead>
   <tbody>
-    <tr><td>Pedidos, receita, ticket, carrinhos</td><td>API do Magazord</td></tr>
-    <tr><td>Campanhas, conversões, impression share</td><td>API do Google Ads</td></tr>
-    <tr><td>Gasto, funil, alcance, frequência</td><td>Graph API do Meta</td></tr>
-    <tr><td>Campanhas, orçamentos, status dos anúncios</td><td>API do Mercado Livre</td></tr>
-    <tr><td>Pedidos fraudulentos e cidade de entrega</td><td>API do Magazord (detalhe de pedido)</td></tr>
-    <tr><td>Visitas, origem do tráfego e recuperação de carrinho</td><td>Performa.AI (PowerMCP, somente leitura)</td></tr>
+    <tr><td>Gasto, cliques, conversões por ação, participação de impressão, termos de busca</td><td>API do Google Ads (GAQL), conta 569-491-7076</td></tr>
+    <tr><td>Gasto, público, frequência e compras por conjunto</td><td>Graph API do Meta v23.0, 4 contas do portfólio</td></tr>
+    <tr><td>Pedidos, situação, forma de pagamento, origem e cidade de entrega</td><td>API do Magazord (lista + detalhe de pedido)</td></tr>
+    <tr><td>Cliente novo × recorrente</td><td>Documento do comprador cruzado com 12 meses de pedidos</td></tr>
   </tbody>
 </table>
 </div>
 
-<p>O período de 30 dias é 19/08 a 17/09/2026. O histórico cobre setembro de 2025 a agosto de 2026 em meses fechados; setembro de 2026 aparece apenas como projeção de ritmo, com 17 dias corridos.</p>
+<p>Período: 19/08 a 18/09/2026, a mesma janela nas três fontes. Histórico: outubro de 2025 a setembro de 2026, em meses fechados, com setembro parcial (18 dias). Medido em 19 de setembro de 2026.</p>
 
 </div>
 </main>
 
 <footer>
   <div class="wrap">
-    <p><strong>Tookas surf and street</strong> — documento interno de análise de mídia paga.</p>
-    <p>Dados medidos em 18 de setembro de 2026. Período analisado: 19/08 a 17/09/2026.</p>
+    <p><strong>Tookas surf and street</strong> — auditoria interna de mídia paga, versão 2.</p>
+    <p>Medido em 19 de setembro de 2026. Período: 19/08 a 18/09/2026. A versão 1, de 18/09, continha os erros listados na seção 01.</p>
   </div>
 </footer>
 
