@@ -63,6 +63,23 @@
       color: var(--text-secondary); font-size: 15px; line-height: 1.6;
     }
     .tuto-aviso strong { color: var(--text-primary); }
+    /* O aviso que corrige um erro merece cor propria: quem le em diagonal tem
+       que parar justamente nele (o card e a coisa mais visivel do painel, e e
+       a errada). */
+    .tuto-aviso-atencao {
+      border-left-color: #ff6b3d; background: rgba(255,107,61,.06);
+    }
+    /* `preload="none"` e o que torna isto viavel: sem ele o MP4 baixa em toda
+       visita. A capa segura o espaco, entao a pagina nao pula quando carrega. */
+    .tuto-video { margin: 18px 0 0; }
+    .tuto-video video {
+      display: block; width: 100%; max-width: 280px; height: auto;
+      border-radius: var(--radius-sm); background: #000;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .tuto-video figcaption {
+      margin-top: 8px; font-size: 13px; color: var(--text-secondary);
+    }
     .tuto-numeros {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 12px; margin-top: 16px;
@@ -215,10 +232,31 @@
           <div>
             <h3>GERE SEU LINK DA TOOKAS</h3>
             <p>
-              No menu lateral, clique em <strong>Anunciantes Ativos</strong>. Ache o card da
-              <strong>Tookas</strong> e clique em <strong>Gerar link</strong> — ele já copia o link
-              automaticamente. Agora é só colar na <strong>bio do seu Instagram</strong> e usar nos
-              seus conteúdos.
+              No painel, abra o menu <strong>☰</strong> (os três risquinhos, no canto de cima) e
+              toque em <strong>Ferramentas de Link</strong>. Em <strong>Gerador de links</strong>,
+              cole o endereço da nossa loja — <code>https://www.tookas.com.br/</code> — e toque em
+              <strong>Gerar Link</strong>: ele já copia o link pronto. Agora é só colar na
+              <strong>bio do seu Instagram</strong> e usar nos seus conteúdos.
+            </p>
+            <div class="tuto-aviso tuto-aviso-atencao">
+              <strong>Não é pelo card da Tookas.</strong> Aquele card que aparece em
+              <strong>Anunciantes</strong> é só a propaganda das promoções que estão rolando na
+              loja — o link não sai de lá. Ele sai em <strong>Ferramentas de Link</strong>.
+            </div>
+            <figure class="tuto-video">
+              <video controls preload="none" playsinline
+                     poster="gerar-link.jpg"
+                     aria-label="Vídeo mostrando como gerar o link no painel da Magafilio">
+                <source src="gerar-link.mp4" type="video/mp4">
+                Seu navegador não toca este vídeo.
+                <a href="gerar-link.mp4">Baixe aqui</a>.
+              </video>
+              <figcaption>12 segundos, sem áudio — o caminho inteiro na tela.</figcaption>
+            </figure>
+            <p>
+              Dá para gerar o link da <strong>home</strong>, de uma <strong>categoria</strong> ou de
+              um <strong>produto específico</strong> — o que combinar com o conteúdo que você está
+              fazendo.
             </p>
             <div class="tuto-numeros">
               <div class="tuto-numero"><b>10%</b><span>comissão sobre as vendas</span></div>
