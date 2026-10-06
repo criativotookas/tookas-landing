@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tookas — Style Guide & Operational Manual</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#F7F7F5;
+  --surface:#FFFFFF;
+  --ink:#0A0A0A;
+  --mid:#555;
+  --pale:#999;
+  --rule:#E0E0DE;
+  --rule-dark:#CCCCCA;
+  --black:#000;
+  --code-bg:#0D0D0D;
+  --code-fg:#9CA3AF;
+  --code-hi:#E5E7EB;
+  --code-key:#6B7280;
+  --code-accent:#E12628;
+}
+html{font-size:15px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300}
+
+/* ── FIXED SIDEBAR ── */
+.sidebar{position:fixed;left:0;top:0;width:200px;height:100vh;background:var(--black);overflow-y:auto;z-index:100;display:flex;flex-direction:column}
+.sidebar-brand{padding:20px 20px 16px;border-bottom:1px solid #1a1a1a}
+.sidebar-brand-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:#fff}
+.sidebar-brand-sub{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#444;margin-top:2px}
+.sidebar-section{padding:16px 20px 8px;font-size:7px;letter-spacing:.2em;text-transform:uppercase;color:#444}
+.sidebar-link{display:block;padding:7px 20px;font-size:11px;color:#555;text-decoration:none;letter-spacing:.02em;border-left:2px solid transparent;transition:all .15s}
+.sidebar-link:hover{color:#fff;border-left-color:#333}
+.sidebar-link.active{color:#fff;border-left-color:#fff}
+.sidebar-footer{margin-top:auto;padding:16px 20px;border-top:1px solid #1a1a1a;font-size:8px;color:#333;letter-spacing:.08em;line-height:1.8}
+
+/* ── MAIN ── */
+.main{margin-left:200px;min-height:100vh}
+
+/* ── PAGE HEADER ── */
+.page-header{background:var(--black);padding:48px 56px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px}
+.page-header-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,88px);line-height:.9;letter-spacing:.01em;color:#fff}
+.page-header-meta{text-align:right}
+.page-header-label{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#333;line-height:2}
+.page-header-ticker{background:#fff;padding:10px 56px;display:flex;gap:32px;align-items:center;overflow:hidden;border-bottom:1px solid var(--rule)}
+.page-header-ticker span{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--pale)}
+
+/* ── SECTION ── */
+.section{border-bottom:1px solid var(--rule)}
+.section-header{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--rule);background:var(--surface)}
+.section-num{padding:20px 24px;background:var(--black);display:flex;align-items:center;justify-content:center}
+.section-num-text{font-family:'Bebas Neue',sans-serif;font-size:32px;color:#222;line-height:1}
+.section-title-area{padding:20px 32px;display:flex;align-items:center;justify-content:space-between}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.section-tag{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--pale);background:var(--bg);padding:4px 10px;border:1px solid var(--rule)}
+.section-body{padding:40px 56px;background:var(--surface)}
+
+/* ── RULE ROW ── */
+.rule-row{display:grid;grid-template-columns:240px 1fr;gap:32px;padding:24px 0;border-bottom:1px solid var(--rule);align-items:start}
+.rule-row:last-child{border-bottom:none}
+.rule-label{font-size:11px;font-weight:500;color:var(--ink)}
+.rule-desc{font-size:12.5px;color:var(--mid);line-height:1.65;font-weight:300}
+.rule-desc strong{color:var(--ink);font-weight:500}
+
+/* ── DO/DONT ── */
+.do-dont{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:24px}
+.do-col,.dont-col{padding:20px 24px}
+.do-col{background:#000;border:1px solid #222}
+.dont-col{background:#f9f9f7;border:1px solid var(--rule)}
+.col-label{font-size:8px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;font-weight:500}
+.do-col .col-label{color:#555}
+.dont-col .col-label{color:#bbb}
+.do-item,.dont-item{font-size:13px;padding:8px 0;border-bottom:1px solid;display:flex;gap:10px;align-items:baseline;line-height:1.4}
+.do-item{color:#e5e7eb;border-bottom-color:#1a1a1a}
+.dont-item{color:#aaa;border-bottom-color:var(--rule);text-decoration:line-through;text-decoration-color:#ddd}
+.do-item::before{content:'→';color:#555;flex-shrink:0;font-size:11px}
+.dont-item::before{content:'×';color:#ccc;flex-shrink:0;font-size:11px}
+
+/* ── CODE BLOCK ── */
+.code-block{background:var(--code-bg);border-radius:3px;overflow:hidden;margin:16px 0}
+.code-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:#0a0a0a;border-bottom:1px solid #1a1a1a}
+.code-title{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#444;display:flex;align-items:center;gap:8px}
+.code-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--code-accent);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.copy-btn{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#444;background:none;border:1px solid #1f1f1f;padding:4px 10px;cursor:pointer;font-family:'Inter',sans-serif;border-radius:2px;transition:all .2s}
+.copy-btn:hover{color:#fff;border-color:#333}
+.copy-btn.ok{color:#4ade80;border-color:#4ade80}
+.code-body{padding:20px 16px;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.85;color:var(--code-fg);white-space:pre-wrap;overflow-x:auto}
+.code-body .ck{color:var(--code-key)}
+.code-body .cv{color:var(--code-hi)}
+.code-body .cc{color:#374151}
+.code-body .ca{color:var(--code-accent)}
+
+/* ── COLOR CHIPS ── */
+.color-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;margin-top:16px}
+.chip{border-radius:2px;overflow:hidden;border:1px solid var(--rule)}
+.chip-swatch{height:56px}
+.chip-info{padding:10px 12px;background:var(--surface);border-top:1px solid var(--rule)}
+.chip-name{font-size:10px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.chip-hex{font-size:9px;color:var(--pale);font-family:'JetBrains Mono',monospace}
+
+/* ── TYPE SPECIMEN ── */
+.type-spec{border:1px solid var(--rule);overflow:hidden;margin-top:16px}
+.type-spec-demo{padding:32px;background:var(--black)}
+.type-spec-meta{padding:16px 20px;background:var(--surface);display:grid;grid-template-columns:repeat(4,1fr);gap:16px;border-top:1px solid var(--rule)}
+.tsm-label{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--pale);margin-bottom:4px}
+.tsm-value{font-size:11px;color:var(--ink);font-weight:500}
+
+/* ── FORMAT TABLE ── */
+.format-table{width:100%;border-collapse:collapse;margin-top:16px}
+.format-table th{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--pale);text-align:left;padding:10px 16px;border-bottom:2px solid var(--rule-dark);font-weight:500}
+.format-table td{font-size:12px;color:var(--mid);padding:12px 16px;border-bottom:1px solid var(--rule);line-height:1.5;vertical-align:top;font-weight:300}
+.format-table td strong{color:var(--ink);font-weight:500}
+.format-table tr:last-child td{border-bottom:none}
+.format-table td:first-child{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--ink);letter-spacing:.04em;vertical-align:top;padding-top:14px}
+
+/* ── ACCENT TABLE ── */
+.accent-table{display:flex;flex-direction:column;gap:1px;margin-top:16px}
+.accent-row{display:grid;grid-template-columns:40px 160px 140px 1fr;gap:0;align-items:center;background:var(--surface);border:1px solid var(--rule)}
+.accent-swatch{width:100%;height:100%;min-height:56px}
+.accent-name{padding:0 16px;font-size:12px;font-weight:500;color:var(--ink)}
+.accent-hex{padding:0 16px;font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--pale)}
+.accent-when{padding:12px 16px;font-size:11px;color:var(--mid);line-height:1.5;font-weight:300;border-left:1px solid var(--rule)}
+
+/* ── HASHTAG POOL ── */
+.hashtag-pool{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.htag{font-size:10px;letter-spacing:.04em;color:var(--mid);background:var(--bg);border:1px solid var(--rule);padding:4px 10px;border-radius:2px}
+.htag.core{border-color:var(--rule-dark);color:var(--ink);font-weight:500}
+
+/* ── LOGO DISPLAY ── */
+.logo-display{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:16px}
+.logo-cell{aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;position:relative}
+.logo-cell img{max-width:50%;max-height:50%;object-fit:contain}
+.logo-cell-label{position:absolute;bottom:8px;left:12px;font-size:7px;letter-spacing:.14em;text-transform:uppercase}
+
+/* ── INFO GRID ── */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:16px}
+.info-cell{padding:20px 24px;background:var(--surface);border:1px solid var(--rule)}
+.info-cell-label{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--pale);margin-bottom:8px}
+.info-cell-value{font-size:13px;color:var(--ink);line-height:1.6;font-weight:400}
+
+/* ── AFFILIATE ── */
+.aff-rule{display:grid;grid-template-columns:36px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:start}
+.aff-rule:last-child{border:none}
+.aff-n{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--rule-dark);line-height:1}
+.aff-title{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.aff-desc{font-size:11.5px;color:var(--mid);line-height:1.55;font-weight:300}
+
+/* ── FOOTER ── */
+.guide-footer{background:var(--black);padding:40px 56px;display:flex;justify-content:space-between;align-items:center}
+.gf-brand{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:.1em;color:rgba(255,255,255,.15)}
+.gf-meta{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#333;text-align:right;line-height:2}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .sidebar{display:none}
+  .main{margin-left:0}
+  .section-header{grid-template-columns:60px 1fr}
+  .rule-row{grid-template-columns:1fr}
+  .do-dont{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:1fr}
+  .logo-display{grid-template-columns:1fr 1fr}
+  .accent-row{grid-template-columns:40px 1fr;flex-wrap:wrap}
+  .accent-when{grid-column:span 2;border-left:none;border-top:1px solid var(--rule)}
+  .section-body{padding:28px}
+  .page-header{padding:36px 28px}
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-brand">
+    <div class="sidebar-brand-name">TOOKAS</div>
+    <div class="sidebar-brand-sub">Style Guide 2026</div>
+  </div>
+  <div class="sidebar-section">Identidade</div>
+  <a class="sidebar-link active" href="#logo-rules">01 — Logo & Aplicações</a>
+  <a class="sidebar-link" href="#cores-rules">02 — Sistema de Cores</a>
+  <a class="sidebar-link" href="#tipo-rules">03 — Tipografia</a>
+  <div class="sidebar-section">Conteúdo</div>
+  <a class="sidebar-link" href="#voz-rules">04 — Tom de Voz</a>
+  <a class="sidebar-link" href="#formatos">05 — Formatos Sociais</a>
+  <a class="sidebar-link" href="#foto-rules">06 — Regras de Foto</a>
+  <div class="sidebar-section">Digital & IA</div>
+  <a class="sidebar-link" href="#linhas">03B — Linhas de Produto</a>
+  <a class="sidebar-link" href="#ia-prompts">07 — Prompts de IA</a>
+  <a class="sidebar-link" href="#dimensoes">7B — Dimensões</a>
+  <a class="sidebar-link" href="#afiliados">08 — Afiliados</a>
+  <a class="sidebar-link" href="#tiktok">09 — TikTok Shop</a>
+  <div class="sidebar-footer">
+    tookas.com.br<br>
+    @tookasoficial<br>
+    Joinville · SC · BR
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-title">STYLE<br>GUIDE</div>
+  <div class="page-header-meta">
+    <div class="page-header-label">
+      TOOKAS<br>
+      MANUAL OPERACIONAL<br>
+      VERSÃO 2026<br>
+      USO INTERNO & AGENTES DE IA
+    </div>
+  </div>
+</header>
+<div class="page-header-ticker">
+  <span>DOCUMENTO OPERACIONAL</span>
+  <span>·</span>
+  <span>REGRAS DE USO DA MARCA</span>
+  <span>·</span>
+  <span>PROMPTS DE IA INCLUÍDOS</span>
+  <span>·</span>
+  <span>TOOKAS 2026</span>
+</div>
+
+<!-- ══════════ 01 LOGO ══════════ -->
+<section class="section" id="logo-rules">
+  <div class="section-header">
+    <div class="section-num"><div class="section-num-text">01</div></div>
+    <div class="section-title-area">
+      <div class="section-title">Logo & Aplicações</div>
+      <div class="section-tag">Identidade</div>
+    </div>
+  </div>
+  <div class="section-body">
+
+    <div style="display:flex;flex-direction:column;gap:0">
+      <div class="rule-row">
+        <div class="rule-label">Versão principal</div>
+        <div class="rule-desc">Logo branco sobre fundo escuro. É a versão de uso preferencial em todo conteúdo digital e impresso da marca. Arquivo: <strong>escrita branca.png</strong></div>
+      </div>
+      <div class="rule-row">
+        <div class="rule-label">Versão alternativa</div>
+        <div class="rule-desc">Logo preto para fundos claros (papel, camiseta branca, fundo off-white). Arquivo: <strong>escrita preta.png</strong></div>
+      </div>
+      <div class="rule-row">
+        <div class="rule-label">Tamanho mínimo</div>
+        <div class="rule-desc"><strong>Digital: 80px</strong> de largura. <strong>Impresso: 15mm</strong>. Abaixo disso, usar somente o símbolo sem texto.</div>
+      </div>
+      <div class="rule-row">
+        <div class="rule-label">Zona de exclusão</div>
+        <div class="rule-desc">Área equivalente à altura da letra "T" do logotipo em todos os lados. Nenhum elemento entra nessa zona.</div>
+      </div>
+      <div class="rule-row">
+        <div class="rule-label">Proibido</div>
+        <div class="rule-desc">Não distorcer · Não rotacionar · Não aplicar sombra · Não aplicar outline · Não alterar cores · Não esticar proporções</div>
+      </div>
+    </div>
+
+    <!-- Logo display -->
+    <div style="margin-top:32px">
+      <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--pale);margin-bottom:12px">Versões aprovadas por contexto de fundo</div>
+      <div class="logo-display">
+        <div class="logo-cell" style="background:#000">
+          <img src="https://drive.google.com/uc?export=view&id=1IEOSMXqdBXSNu6gtqeT5dJBbbjMLTNAq" alt="Logo" style="filter:brightness(0) invert(1)" onerror="this.style.display='none'">
+          <span class="logo-cell-label" style="color:#333">Preto · ✓</span>
+        </div>
+        <div class="logo-cell" style="background:#1a1a1a">
+          <img src="https://drive.google.com/uc?export=view&id=1IEOSMXqdBXSNu6gtqeT5dJBbbjMLTNAq" alt="Logo" style="filter:brightness(0) invert(1)" onerror="this.style.display='none'">
+          <span class="logo-cell-label" style="color:#444">Grafite · ✓</span>
+        </div>
+        <div class="logo-cell" style="background:#555">
+          <img src="https://drive.google.com/uc?export=view&id=1IEOSMXqdBXSNu6gtqeT5dJBbbjMLTNAq" alt="Logo" style="filter:brightness(0) invert(1)" onerror="this.style.display='none'">
+          <span class="logo-cell-label" style="color:#888">Cinza médio · ✓</span>
+        </div>
+        <div class="logo-cell" style="background:#E0E0DE">
+          <img src="https://drive.google.com/uc?export=view&id=1KDnMlsCtSAJhXuxIFf7QgViWOlkECoYH" alt="Logo preto" onerror="this.style.display='none'">
+          <span class="logo-cell-label" style="color:#bbb">Claro · ✓</span>
+        </div>
+        <div class="logo-cell" style="background:#F7F7F5">
+          <img src="https://drive.google.com/uc?export=view&id=1KDnMlsCtSAJhXuxIFf7QgViWOlkECoYH" alt="Logo preto" onerror="this.style.display='none'">
+          <span class="logo-cell-label" style="color:#ccc">Papel · ✓</span>
+        </div>
+        <div class="logo-cell" style="background:#fff;border:1px solid #eee">
+          <img src="https://drive.google.com/uc?export=view&id=1IEOSMXqdBXSNu6gtqeT5dJBbbjMLTNAq" alt="Logo" style="filter:brightness(0) invert(0.5);opacity:.25" onerror="this.style.display='none'">
+          <span class="logo-cell-label" style="color:#ddd">Branco puro · Evitar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 02 CORES ══════════ -->
+<section class="section" id="cores-rules">
+  <div class="section-header">
+    <div class="section-num"><div class="section-num-text">02</div></div>
+    <div class="section-title-area">
+      <div class="section-title">Sistema de Cores</div>
+      <div class="section-tag">Identidade</div>
+    </div>
+  </div>
+  <div class="section-body">
+
+    <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--pale);margin-bottom:16px">Paleta base — permanente em todo material</div>
+    <div class="color-chips">
+      <div class="chip">
+        <div class="chip-swatch" style="background:#000"></div>
+        <div class="chip-info"><div class="chip-name">Tookas Black</div><div class="chip-hex">#000000</div><div style="font-size:9px;color:var(--pale);margin-top:2px">Fundo principal</div></div>
+      </div>
+      <div class="chip">
+        <div class="chip-swatch" style="background:#1A1A1A"></div>
+        <div class="chip-info"><div class="chip-name">Grafite 900</div><div class="chip-hex">#1A1A1A</div><div style="font-size:9px;color:var(--pale);margin-top:2px">Bg secundário</div></div>
+      </div>
+      <div class="chip">
+        <div class="chip-swatch" style="background:#373737"></div>
+        <div class="chip-info"><div class="chip-name">Grafite 600</div><div class="chip-hex">#373737</div><div style="font-size:9px;color:var(--pale);margin-top:2px">Bordas · divisores</div></div>
+      </div>
+      <div class="chip">
+        <div class="chip-swatch" style="background:#808080"></div>
+        <div class="chip-info"><div class="chip-name">Cinza Médio</div><div class="chip-hex">#808080</div><div style="font-size:9px;color:var(--pale);margin-top:2px">Textos secundários</div></div>
+      </div>
+      <div class="chip">
+        <div class="chip-swatch" style="background:#B0B0B0"></div>
+        <div class="chip-info"><div class="chip-name">Prata</div><div class="chip-hex">#B0B0B0</div><div style="font-size:9px;color:var(--pale);margin-top:2px">Detalhes</div></div>
+      </div>
+      <div class="chip">
+        <div class="chip-swatch" style="background:#E0E0DE;border:1px solid #ccc"></div>
+        <div class="chip-info"><div class="chip-name">Off White</div><div class="chip-hex">#E0E0DE</div><div style="font-size:9px;color:var(--pale);margin-top:2px">Fundos claros</div></div>
+      </div>
+      <div class="chip">
+        <div class="chip-swatch" style="background:#FFFFFF;border:1px solid #eee"></div>
+        <div class="chip-info"><div class="chip-name">Branco</div><div class="chip-hex">#FFFFFF</div><div style="font-size:9px;color:var(--pale);margin-top:2px">Logo · título · CTA</div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--pale);margin-bottom:16px">Acentos de campanha — um por campanha, nunca combinar dois</div>
+
+    <div class="accent-table">
+      <div class="accent-row">
+        <div class="accent-swatch" style="background:#E8B800"></div>
+        <div class="accent-name">Amarelo Ouro</div>
+        <div class="accent-hex">#E8B800</div>
+        <div class="accent-when">Dia dos Pais · Gifting · Lifestyle adulto · Público 30–50 anos. Tom sofisticado e quente.</div>
+      </div>
+      <div class="accent-row">
+        <div class="accent-swatch" style="background:#39FF14"></div>
+        <div class="accent-name">Verde Neon</div>
+        <div class="accent-hex">#39FF14</div>
+        <div class="accent-when">Street · Kits · Promoções agressivas · Público jovem. Máxima energia. Só em números e CTAs.</div>
+      </div>
+      <div class="accent-row">
+        <div class="accent-swatch" style="background:#E12628"></div>
+        <div class="accent-name">Vermelho</div>
+        <div class="accent-hex">#E12628 · Pantone 2035</div>
+        <div class="accent-when">Jiu-Jitsu · Artes marciais · Lançamentos · Performance. Também no ícone "Vivendo em Movimento".</div>
+      </div>
+      <div class="accent-row">
+        <div class="accent-swatch" style="background:#D0D0D0;border:1px solid #ccc"></div>
+        <div class="accent-name">Neutro</div>
+        <div class="accent-hex">—</div>
+        <div class="accent-when">Produto fala por si · Estúdio clean · Moda casual. Fundo cinza estúdio, tipografia P&B.</div>
+      </div>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-col">
+        <div class="col-label">Correto</div>
+        <div class="do-item">Base escura obrigatória em todo material de campanha</div>
+        <div class="do-item">Escolher apenas um acento por campanha</div>
+        <div class="do-item">Acento só em números, CTAs e elementos de destaque</div>
+      </div>
+      <div class="dont-col">
+        <div class="col-label">Errado</div>
+        <div class="dont-item">Fundo claro (cream, bege, branco) em campanhas</div>
+        <div class="dont-item">Dois acentos na mesma arte</div>
+        <div class="dont-item">Acento como cor de texto corrido</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 03 TIPOGRAFIA ══════════ -->
+<section class="section" id="tipo-rules">
+  <div class="section-header">
+    <div class="section-num"><div class="section-num-text">03</div></div>
+    <div class="section-title-area">
+      <div class="section-title">Tipografia</div>
+      <div class="section-tag">Identidade</div>
+    </div>
+  </div>
+  <div class="section-body">
+
+    <!-- Bebas Neue -->
+    <div class="type-spec">
+      <div class="type-spec-demo">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,96px);color:#fff;line-height:.9;letter-spacing:.01em">BEBAS NEUE</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,3.5vw,40px);color:#333;line-height:1;letter-spacing:.04em;margin-top:8px">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</div>
+      </div>
+      <div class="type-spec-meta">
+        <div><div class="tsm-label">Uso</div><div class="tsm-value">Display · H1 · H2 · H3 · Números</div></div>
+        <div><div class="tsm-label">Case</div><div class="tsm-value">UPPERCASE obrigatório</div></div>
+        <div><div class="tsm-label">Tracking</div><div class="tsm-value">0.01em – 0.12em</div></div>
+        <div><div class="tsm-label">Nunca</div><div class="tsm-value">Em texto corrido · Em caixa baixa</div></div>
+      </div>
+    </div>
+
+    <!-- Inter -->
+    <div class="type-spec" style="margin-top:16px">
+      <div class="type-spec-demo">
+        <div style="font-family:'Inter',sans-serif;font-size:clamp(36px,5vw,64px);color:#fff;line-height:.9;font-weight:300">Inter</div>
+        <div style="font-family:'Inter',sans-serif;font-size:13px;color:#555;line-height:1.7;margin-top:16px;max-width:500px;font-weight:300">Roupas projetadas para quem vive em movimento. Conforto e performance sem escolher. Vivendo em Movimento desde 1994.</div>
+      </div>
+      <div class="type-spec-meta">
+        <div><div class="tsm-label">Uso</div><div class="tsm-value">Body · Labels · UI · Legendas</div></div>
+        <div><div class="tsm-label">Case</div><div class="tsm-value">Sentence case no texto</div></div>
+        <div><div class="tsm-label">Pesos</div><div class="tsm-value">300 · 400 · 500 · 600</div></div>
+        <div><div class="tsm-label">Line-height</div><div class="tsm-value">1.6 – 1.8 em parágrafos</div></div>
+      </div>
+    </div>
+
+    <!-- Scale table -->
+    <div style="margin-top:32px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--pale);margin-bottom:12px">Escala tipográfica de referência</div>
+    <table style="width:100%;border-collapse:collapse">
+      <tr style="border-bottom:2px solid var(--rule-dark)">
+        <th style="font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--pale);text-align:left;padding:8px 0;font-weight:500">Nível</th>
+        <th style="font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--pale);text-align:left;padding:8px 16px;font-weight:500">Exemplo</th>
+        <th style="font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--pale);text-align:right;padding:8px 0;font-weight:500">Tamanho</th>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:12px 0;font-size:10px;font-weight:500;color:var(--ink)">Hero / Capa</td>
+        <td style="padding:12px 16px"><span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4.5vw,56px);color:var(--ink)">TOOKAS PERFORMANCE</span></td>
+        <td style="padding:12px 0;font-size:10px;color:var(--pale);text-align:right">96 – 160px</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:12px 0;font-size:10px;font-weight:500;color:var(--ink)">H1</td>
+        <td style="padding:12px 16px"><span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,3vw,38px);color:var(--ink)">LINHA TECH SYSTEM</span></td>
+        <td style="padding:12px 0;font-size:10px;color:var(--pale);text-align:right">48 – 72px</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:12px 0;font-size:10px;font-weight:500;color:var(--ink)">H2</td>
+        <td style="padding:12px 16px"><span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,2.2vw,28px);color:var(--ink)">RASH GUARD UV50+</span></td>
+        <td style="padding:12px 0;font-size:10px;color:var(--pale);text-align:right">32 – 48px</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--rule)">
+        <td style="padding:12px 0;font-size:10px;font-weight:500;color:var(--ink)">Body</td>
+        <td style="padding:12px 16px;font-size:13.5px;color:var(--mid);font-weight:300">Roupas para quem vive em movimento. Conforto e performance.</td>
+        <td style="padding:12px 0;font-size:10px;color:var(--pale);text-align:right">14 – 16px</td>
+      </tr>
+      <tr>
+        <td style="padding:12px 0;font-size:10px;font-weight:500;color:var(--ink)">Caption</td>
+        <td style="padding:12px 16px;font-size:9px;color:var(--pale);letter-spacing:.15em;text-transform:uppercase">REF.4059 · TECH SYSTEM · UV50+ · POLIAMIDA 80%</td>
+        <td style="padding:12px 0;font-size:10px;color:var(--pale);text-align:right">9 – 11px</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════ 03B LINHAS ══════════ -->
+<section class="section" id="linhas">
+  <div class="section-header">
+    <div class="section-num"><div class="section-num-text" style="font-size:22px">03B</div></div>
+    <div class="section-title-area">
+      <div class="section-title">Linhas de Produto & Estética por Contexto</div>
+      <div class="section-tag">Identidade</div>
+    </div>
+  </div>
+  <div class="section-body">
+
+    <div class="info-grid" style="grid-template-columns:1fr 1fr 1fr;gap:1px">
+      <div class="info-cell" style="border-bottom:3px solid #000">
+        <div class="info-cell-label">Linha Performance</div>
+        <div class="info-cell-value" style="font-size:12px;line-height:1.7">Academia · Training · Running · CrossFit · Surf · Street<br><br>
+        <strong>Estética:</strong> Fundo preto ou grafite. Foto de ação ou atleta em esforço. Acento conforme sazonalidade (vermelho para sports em geral, neon para kits street).<br><br>
+        <strong>Tipografia em destaque:</strong> Bebas Neue grande, números de preço ou benefício em acento.<br><br>
+        <strong>Ref:</strong> Nike, Venum, RVCA, Bad Boy</div>
+      </div>
+      <div class="info-cell" style="border-bottom:3px solid #555">
+        <div class="info-cell-label">Linha Lifestyle / Casual</div>
+        <div class="info-cell-value" style="font-size:12px;line-height:1.7">Calças · Bermudas · Camisetas · Jaquetas · Moletom<br><br>
+        <strong>Estética:</strong> Fundo cinza estúdio (#C8C8C8–#D8D8D8) OU ambiente urbano / outdoor com luz natural. Sem acento de cor — produto fala por si. Tipografia preta.<br><br>
+        <strong>Modelo:</strong> Corpo inteiro visível, postura natural, produto bem caindo.<br><br>
+        <strong>Ref:</strong> Galápagos, Birden, Nike SB</div>
+      </div>
+      <div class="info-cell" style="border-bottom:3px solid #E12628;opacity:.7">
+        <div class="info-cell-label">Linha Artes Marciais (em início · volume baixo)</div>
+        <div class="info-cell-value" style="font-size:12px;line-height:1.7">JJ · MMA — linha que está começando agora<br><br>
+        <strong>Estética:</strong> Fundo preto, acento vermelho, foto de treino intenso. Ainda em desenvolvimento — não priorizar no planejamento de conteúdo mensal.<br><br>
+        <strong>Ref:</strong> Venum, Bad Boy (referência, não cópia)</div>
+      </div>
+      <div class="info-cell" style="border-bottom:3px solid #E8B800">
+        <div class="info-cell-label">Linha Premium / Gifting</div>
+        <div class="info-cell-value" style="font-size:12px;line-height:1.7">Jaquetas · Kits presente · Datas comemorativas<br><br>
+        <strong>Estética:</strong> Fundo preto com acento amarelo ouro (#E8B800). Foto em ambiente urbano elegante (café, rua europeia). Público 30–50 anos, sofisticado.<br><br>
+        <strong>Exemplo real:</strong> Banners Dia dos Pais — logo com "É NA TOOKAS" + % OFF em amarelo.<br><br>
+        <strong>Ref:</strong> Reserva, Lacoste lifestyle</div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--pale);margin-bottom:16px">Padrão visual por linha — referência de banners reais</div>
+
+    <table class="format-table">
+      <thead>
+        <tr>
+          <th>Linha</th>
+          <th>Fundo</th>
+          <th>Acento</th>
+          <th>Tipografia destaque</th>
+          <th>Foto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-size:13px;font-weight:500;color:var(--ink)">Performance</td>
+          <td>Preto #000 ou grafite</td>
+          <td>Neon #39FF14 · Vermelho #E12628</td>
+          <td>Bebas Neue branco/acento · Números grandes</td>
+          <td>Ação, atleta, tatame, asfalto</td>
+        </tr>
+        <tr>
+          <td style="font-size:13px;font-weight:500;color:var(--ink)">Casual</td>
+          <td>Cinza estúdio #C8C8C8 ou outdoor natural</td>
+          <td>Nenhum</td>
+          <td>Bebas Neue preto · Inter médio</td>
+          <td>Estúdio corpo inteiro ou outdoor relaxado</td>
+        </tr>
+        <tr>
+          <td style="font-size:13px;font-weight:500;color:var(--ink)">Premium / Gifting</td>
+          <td>Preto #000 com overlay gradiente</td>
+          <td>Amarelo ouro #E8B800</td>
+          <td>Bebas Neue amarelo · Logo Tookas em destaque</td>
+          <td>Ambiente elegante, público adulto</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════ 04 TOM DE VOZ ══════════ -->
+<section class="section" id="voz-rules">
+  <div class="section-header">
+    <div class="section-num"><div class="section-num-text">04</div></div>
+    <div class="section-title-area">
+      <div class="section-title">Tom de Voz</div>
+      <div class="section-tag">Conteúdo</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="rule-row">
+      <div class="rule-label">Personalidade</div>
+      <div class="rule-desc"><strong>Direto</strong> — diz o que precisa, sem rodeios. <strong>Autêntico</strong> — nunca força uma vibe que não é a sua. <strong>Técnico quando necessário</strong> — sabe de produto, sem ser pedante. <strong>Urbano</strong> — fala com quem está em movimento.</div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-label">Frases / Legenda</div>
+      <div class="rule-desc">Máximo <strong>3 linhas de copy</strong> na legenda principal + hashtags. Frases curtas que respeitam a inteligência do público. Reforçar sempre: atitude, movimento, qualidade técnica, autenticidade.</div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-label">Emojis</div>
+      <div class="rule-desc">Máx. <strong>1–2 por legenda</strong>, no final. Nunca no início da legenda. Nunca strings de emojis 🔥🔥🔥.</div>
+    </div>
+    <div class="rule-row" style="border:none">
+      <div class="rule-label">Nunca usar</div>
+      <div class="rule-desc">Linguagem genérica de e-commerce · "Meu amigo!" · "Incrível!" · "Aproveite essa oferta imperdível!" · Texto em CAPS LOCK total · Exclamações excessivas</div>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-col">
+        <div class="col-label">Escreva assim</div>
+        <div class="do-item">Da academia para a rua.</div>
+        <div class="do-item">Performance real. Estilo de verdade.</div>
+        <div class="do-item">Tecido que seca antes do treino acabar.</div>
+        <div class="do-item">Disponível agora. Link na bio.</div>
+        <div class="do-item">Compre 3, pague 2. Produtos selecionados.</div>
+      </div>
+      <div class="dont-col">
+        <div class="col-label">Nunca escreva assim</div>
+        <div class="dont-item">"Descubra o incrível mundo da moda esportiva! 🔥🔥"</div>
+        <div class="dont-item">"Seja um campeão com nossas peças exclusivas meu amigo!!"</div>
+        <div class="dont-item">"Aproveite essa oferta imperdível de hoje! Corra!"</div>
+        <div class="dont-item">"NOVA COLEÇÃO JÁ DISPONÍVEL!!!! 🙌😍💪🏽"</div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--pale);margin-bottom:12px">Pool de hashtags</div>
+    <div style="font-size:9px;color:var(--pale);margin-bottom:8px">Core — sempre incluir</div>
+    <div class="hashtag-pool">
+      <span class="htag core">#tookas</span>
+      <span class="htag core">#tookasoficial</span>
+      <span class="htag core">#vivendoemovimento</span>
+    </div>
+    <div style="font-size:9px;color:var(--pale);margin-top:12px;margin-bottom:8px">Complementares — escolher 5 a 7</div>
+    <div class="hashtag-pool">
+      <span class="htag">#modamasculina</span>
+      <span class="htag">#treino</span>
+      <span class="htag">#crossfit</span>
+      <span class="htag">#treino</span>
+      <span class="htag">#streetwear</span>
+      <span class="htag">#performancebrasil</span>
+      <span class="htag">#madeinbrazil</span>
+      <span class="htag">#treinolifestyle</span>
+      <span class="htag">#mma</span>
+      <span class="htag">#fitness</span>
+      <span class="htag">#training</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 05 FORMATOS ══════════ -->
+<section class="section" id="formatos">
+  <div class="section-header">
+    <div class="section-num"><div class="section-num-text">05</div></div>
+    <div class="section-title-area">
+      <div class="section-title">Formatos de Conteúdo Social</div>
+      <div class="section-tag">Conteúdo</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <table class="format-table">
+      <thead>
+        <tr>
+          <th>Formato</th>
+          <th>Função</th>
+          <th>Regras operacionais</th>
+          <th>Dimensões</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Reels</td>
+          <td>Alcance & Dinamismo</td>
+          <td><strong>Hook nos 3 primeiros segundos</strong> — corte, ação, detalhe de tecido. Cortes rápidos sincronizados ao áudio. Narrativa: vestir → treino → execução → lifestyle. CTA no final. Não usar como catálogo de fotos.</td>
+          <td>1080×1920 · 9:16 · 15–30s ideal</td>
+        </tr>
+        <tr>
+          <td>Carrossel</td>
+          <td>Detalhamento & Catálogo</td>
+          <td><strong>Slide 1:</strong> imagem impacto — nível campanha. <strong>Slides 2–4:</strong> detalhamento técnico (costura, modelagem, benefícios). <strong>Slide 5:</strong> casual vs esporte. <strong>Último:</strong> CTA direto.</td>
+          <td>1080×1080 · 1:1 por slide</td>
+        </tr>
+        <tr>
+          <td>Stories</td>
+          <td>Comunidade & Conversão</td>
+          <td>Bastidores de produção · Prova social (repost de clientes) · Gatilhos de escassez ("Últimas unidades") · Enquetes e caixas de perguntas · Sticker de produto no TikTok/IG. <strong>Mínimo 5/dia.</strong></td>
+          <td>1080×1920 · 9:16</td>
+        </tr>
+        <tr>
+          <td>Feed Foto</td>
+          <td>Branding & Desejo</td>
+          <td>Apenas fotos impecáveis. <strong>Sem</strong> artes poluídas ou excesso de texto sobre imagem. Legenda: máx. 3 linhas + hashtags. Curadoria: alternar performance ↔ lifestyle no grid.</td>
+          <td>1080×1080 ou 1080×1350</td>
+        </tr>
+        <tr>
+          <td>Banners Site</td>
+          <td>Campanha & Conversão</td>
+          <td>Base preta/grafite obrigatória (exceto Linha Casual: cinza estúdio). Um acento por campanha. Logo sempre visível. CTA com verbo de ação (APROVEITAR · COMPRAR AGORA · QUERO A MINHA). Foto de produto com pessoa em contexto real. <strong>Sempre produzir versão Desktop E Mobile.</strong></td>
+          <td><strong>Desktop: 1920×600px</strong><br>Mobile: 768×1100px<br>Ambas obrigatórias</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════ 06 FOTO ══════════ -->
+<section class="section" id="foto-rules">
+  <div class="section-header">
+    <div class="section-num"><div class="section-num-text">06</div></div>
+    <div class="section-title-area">
+      <div class="section-title">Regras de Fotografia</div>
+      <div class="section-tag">Conteúdo</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="info-grid">
+      <div class="info-cell">
+        <div class="info-cell-label">Linha Performance — Estética de Ação</div>
+        <div class="info-cell-value">Ângulos dinâmicos · Atleta em esforço real · Luz dura ou ambiente de treino · Background: box, academia, asfalto, praia · Paleta fechada · Tudo parece ação — sem pose de moda · Ref: Nike, Venum, RVCA</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-cell-label">Linha Lifestyle — Estética Outdoor</div>
+        <div class="info-cell-value">Luz natural · Situações reais: rua, rolê, natureza · Textura de tecido em evidência · Tom mais quente · Composições abertas · Pessoas reais em rotinas reais · Ref: Galápagos Outdoor, Birden</div>
+      </div>
+    </div>
+    <div style="margin-top:24px">
+      <div class="rule-row">
+        <div class="rule-label">Pilar 1 — Ação sobre pose</div>
+        <div class="rule-desc">Movimento sempre preferível ao estático. Correr, lutar, levantar, pedalar. Fotos estáticas aceitas apenas em contexto editorial de moda casual, nunca para performance.</div>
+      </div>
+      <div class="rule-row">
+        <div class="rule-label">Pilar 2 — Protagonismo do produto</div>
+        <div class="rule-desc">Caimento, textura e tecnologia da peça devem ser nítidos. Close em costuras, detalhes de acabamento e logo. O produto é o herói, não o modelo.</div>
+      </div>
+      <div class="rule-row">
+        <div class="rule-label">Pilar 3 — Autenticidade de contexto</div>
+        <div class="rule-desc">Cenário que valida a proposta do produto. Rash guard no treino de JJ, não num café. Bermuda casual num rolê urbano, não em estúdio branco.</div>
+      </div>
+      <div class="rule-row" style="border:none">
+        <div class="rule-label">Pilar 4 — Versatilidade mostrada</div>
+        <div class="rule-desc">Quando possível, mostrar a peça no treino E na rua. Essa dupla leitura é o diferencial Tookas e deve aparecer visualmente nos carrosséis e reels.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 07 IA PROMPTS ══════════ -->
+<section class="section" id="ia-prompts">
+  <div class="section-header">
+    <div class="section-num"><div class="section-num-text">07</div></div>
+    <div class="section-title-area">
+      <div class="section-title">Prompts de IA</div>
+      <div class="section-tag">Digital & IA</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <p style="font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;margin-bottom:32px">Cole os blocos abaixo como system prompt ao configurar agentes no <strong style="color:var(--ink)">Claude Design</strong>, Claude Chat ou qualquer outra plataforma de IA generativa para a Tookas.</p>
+
+    <!-- Prompt 1 -->
+    <div class="code-block">
+      <div class="code-header">
+        <span class="code-title">System Prompt — Agente de Conteúdo & Legenda (Instagram)</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-body"><span class="ck">MARCA:</span> <span class="cv">Tookas — marca brasileira de moda masculina, fundada em 1994 em Joinville/SC.</span>
+<span class="ck">DNA:</span> <span class="cv">Surf + streetwear de origem, expandida para performance (academia, training, running, CrossFit, surf e street).</span>
+<span class="ck">SLOGAN:</span> <span class="cv">Vivendo em Movimento</span>
+<span class="ck">LOCALIZAÇÃO:</span> <span class="cv">Joinville, SC · Made in Brazil</span>
+
+<span class="ck">TOM DE VOZ:</span>
+<span class="cv">- Direto, autêntico, masculino e urbano
+- Frases curtas com atitude — máx. 3 linhas de copy na legenda principal
+- Técnico quando o produto exige, sem ser pedante
+- Não começar a legenda com emoji. Máx. 1-2 emojis por legenda, no final.
+- NUNCA: linguagem genérica de e-commerce, frases longas, exclamações excessivas</span>
+
+<span class="ck">EXEMPLOS CORRETOS:</span>
+<span class="cv">✓ "Da academia para a rua."
+✓ "Performance real. Estilo de verdade."
+✓ "Tecido que seca antes do treino acabar. Disponível agora."</span>
+
+<span class="ck">EXEMPLOS ERRADOS:</span>
+<span class="cv">✗ "Descubra o incrível mundo da moda esportiva Tookas! 🔥🔥🔥"
+✗ "Seja um campeão com nossas peças exclusivas meu amigo!!"</span>
+
+<span class="ck">PÚBLICO-ALVO:</span>
+<span class="cv">Homens 20–45 anos. Praticantes de esporte ou estilo de vida ativo. Valorizam qualidade e autenticidade.</span>
+
+<span class="ck">HASHTAGS CORE (sempre incluir):</span>
+<span class="cv">#tookas #tookasoficial #vivendoemovimento</span>
+
+<span class="ck">HASHTAGS COMPLEMENTARES (escolher 5-7):</span>
+<span class="cv">#modamasculina #treino #academia #running #treino #streetwear #performancebrasil #madeinbrazil</span></div>
+    </div>
+
+    <!-- Prompt 2 -->
+    <div class="code-block">
+      <div class="code-header">
+        <span class="code-title">System Prompt — Agente Visual (Claude Design / Geração de Arte)</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-body"><span class="ck">IDENTIDADE VISUAL TOOKAS:</span>
+
+<span class="ck">PALETA BASE (sempre presente, nunca abrir mão):</span>
+<span class="cv">Fundo: preto #000000 ou grafite profundo #1A1A1A — NUNCA fundo claro em campanhas
+Texto principal: branco #FFFFFF
+Textos secundários: cinzas #808080, #B0B0B0
+Bordas e divisores: grafite #373737</span>
+
+<span class="ck">ACENTO DE CAMPANHA (escolher UM, NUNCA combinar dois):</span>
+<span class="cv">Amarelo #E8B800 — premium, gifting, público adulto (ex: Dia dos Pais)
+Verde Neon #39FF14 — street, kits, promoções agressivas, público jovem
+Vermelho #E12628 — JJ, artes marciais, performance intensa, lançamentos
+Neutro — sem acento, produto protagonista, estúdio clean</span>
+
+<span class="ck">TIPOGRAFIA:</span>
+<span class="cv">Display/H1/H2: Bebas Neue — UPPERCASE obrigatório, tracking 0.01–0.10em
+Body/UI: Inter — sentence case, peso 300–600, line-height 1.6–1.8</span>
+
+<span class="ck">ESTÉTICA DE PERFORMANCE (para linha de esporte):</span>
+<span class="cv">Ângulos dinâmicos · Atleta em esforço real · Luz dura ou dramática
+Produto em ação · Background: box, academia, asfalto, praia · Ref: Nike, Venum, RVCA</span>
+
+<span class="ck">ESTÉTICA LIFESTYLE/OUTDOOR (para linha casual):</span>
+<span class="cv">Luz natural · Situações reais · Textura de tecido evidente
+Ambiente urbano ou outdoor · Ref: Galápagos Outdoor, Birden</span>
+
+<span class="ck">REGRAS DE COMPOSIÇÃO:</span>
+<span class="cv">- Feed limpo: sem excesso de texto sobre imagem
+- Produto como protagonista: caimento, textura e detalhes visíveis
+- Versátil: mostrar peça no esporte E no casual quando possível
+- Formato Instagram: 1080×1080 (feed), 1080×1350 (retrato), 1080×1920 (stories/reels)
+- Banner site desktop: 1920×600 · mobile: 768×600
+
+NUNCA:
+- Fundo cream, bege ou vintage
+- Logo distorcido ou recolorido
+- Dois acentos de campanha na mesma arte
+- Filtros que alterem as cores reais do produto</span></div>
+    </div>
+
+    <!-- Prompt 3 -->
+    <div class="code-block">
+      <div class="code-header">
+        <span class="code-title">System Prompt — Agente de Estratégia de Conteúdo (Planejamento de Posts)</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-body"><span class="ck">TOOKAS — REGRAS DE CONTEÚDO POR FORMATO:</span>
+
+<span class="ca">REELS:</span>
+<span class="cv">- Função: atrair público novo com produto em ação (não catálogo de fotos)
+- Hook: ação forte nos primeiros 3 segundos (corte, movimento, detalhe de tecido)
+- Edição: cortes rápidos sincronizados ao áudio
+- Narrativa: vestir a peça → ir para o treino → execução → lifestyle
+- Duração ideal: 15–30 segundos
+- CTA: sempre no final, verbal ou sobreposto em texto</span>
+
+<span class="ca">CARROSSEL:</span>
+<span class="cv">- Slide 1: imagem de alto impacto estético — nível campanha
+- Slides 2–4: detalhamento técnico (costura, modelagem, benefícios: UV50+, secagem rápida)
+- Slide 5: versatilidade — peça no esporte vs. casual
+- Último slide: CTA direto — "Disponível no site. Link na bio."</span>
+
+<span class="ca">STORIES:</span>
+<span class="cv">- Bastidores: produção, envios, desenvolvimento de peças (humaniza a marca)
+- Prova social: repostar clientes usando os produtos com interações curtas
+- Conversão: gatilhos de escassez — "Últimas unidades", "Drop exclusivo"
+- Engajamento: enquetes, caixas de perguntas sobre desenvolvimento
+- Frequência mínima: 5 stories/dia</span>
+
+<span class="ca">FEED — FOTO ÚNICA:</span>
+<span class="cv">- Apenas fotografias impecáveis — sem artes poluídas
+- Sem excesso de texto sobreposto à imagem
+- Legenda: máx. 3 linhas de copy + hashtags
+- Curadoria de grid: alternar performance ↔ lifestyle</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 07B DIMENSÕES ══════════ -->
+<section class="section" id="dimensoes">
+  <div class="section-header">
+    <div class="section-num"><div class="section-num-text" style="font-size:22px">7B</div></div>
+    <div class="section-title-area">
+      <div class="section-title">Dimensões Obrigatórias por Formato</div>
+      <div class="section-tag">Digital & IA</div>
+    </div>
+  </div>
+  <div class="section-body">
+
+    <p style="font-size:12.5px;color:var(--mid);margin-bottom:24px;font-weight:300">Toda peça de comunicação deve ser produzida nas dimensões especificadas. Para formatos que têm versão mobile e desktop, <strong style="color:var(--ink)">ambas são obrigatórias</strong> — nunca entregar apenas uma.</p>
+
+    <table class="format-table">
+      <thead>
+        <tr>
+          <th>Formato</th>
+          <th>Dimensões</th>
+          <th>Proporção</th>
+          <th>Observações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Feed Instagram — Versão principal</td>
+          <td><strong>1080 × 1350 px</strong></td>
+          <td>4:5</td>
+          <td>Ocupa mais área no feed. Usar sempre como versão primária.</td>
+        </tr>
+        <tr>
+          <td>Feed Instagram — Versão alternativa</td>
+          <td><strong>1080 × 1440 px</strong></td>
+          <td>3:4</td>
+          <td>Para posts com mais informação vertical. Produzir sempre junto com a 4:5.</td>
+        </tr>
+        <tr>
+          <td>Stories / Reels (capa)</td>
+          <td><strong>1080 × 1920 px</strong></td>
+          <td>9:16</td>
+          <td>Zona segura: manter conteúdo central entre 250px do topo e base.</td>
+        </tr>
+        <tr>
+          <td>Carrossel Instagram</td>
+          <td><strong>1080 × 1350 px</strong></td>
+          <td>4:5 por slide</td>
+          <td>Manter mesma proporção em todos os slides do carrossel.</td>
+        </tr>
+        <tr>
+          <td>Banner Site — Desktop</td>
+          <td><strong>1920 × 600 px</strong></td>
+          <td>16:5</td>
+          <td>Texto e CTA na metade esquerda. Foto de produto na direita.</td>
+        </tr>
+        <tr>
+          <td>Banner Site — Mobile</td>
+          <td><strong>768 × 1100 px</strong></td>
+          <td>~7:10</td>
+          <td>Texto no topo. Produto centralizado. CTA no centro ou rodapé.</td>
+        </tr>
+        <tr>
+          <td>Banner Google Ads / Meta</td>
+          <td><strong>1200 × 628 px</strong></td>
+          <td>1.91:1</td>
+          <td>Formato OG para Facebook/Instagram e Google Display. Evitar texto > 20% da área.</td>
+        </tr>
+        <tr>
+          <td>TikTok / Reels vertical</td>
+          <td><strong>1080 × 1920 px</strong></td>
+          <td>9:16</td>
+          <td>Produto visível nos primeiros 5 segundos. Logo no canto superior.</td>
+        </tr>
+        <tr>
+          <td>Thumbnail YouTube / OG</td>
+          <td><strong>1280 × 720 px</strong></td>
+          <td>16:9</td>
+          <td>Para previews de vídeo e compartilhamentos em link.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:24px;background:var(--code-bg);padding:20px 24px;border-radius:3px">
+      <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#444;margin-bottom:12px">Regra de ouro de produção</div>
+      <div style="font-size:13px;color:#9CA3AF;line-height:1.8;font-weight:300">
+        <span style="color:#E5E7EB;font-weight:500">Feed Instagram:</span> sempre entregar <span style="color:#E5E7EB">1080×1350 + 1080×1440</span><br>
+        <span style="color:#E5E7EB;font-weight:500">Banner site:</span> sempre entregar <span style="color:#E5E7EB">1920×600 (desktop) + 768×1100 (mobile)</span><br>
+        <span style="color:#E5E7EB;font-weight:500">Peças de anúncio:</span> sempre entregar <span style="color:#E5E7EB">1:1 + 4:5 + 9:16 + 1.91:1</span><br>
+        <span style="color:#9CA3AF">Linha casual pode usar fundo cinza estúdio sem overlay preto — único caso excepcional.</span>
+      </div>
+    </div>
+
+    <div class="code-block" style="margin-top:24px">
+      <div class="code-header">
+        <span class="code-title">Prompt IA — Geração de Arte com Dimensões Corretas</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-body"><span class="ck">DIMENSÕES OBRIGATÓRIAS TOOKAS — INCLUIR EM TODOS OS PROMPTS DE GERAÇÃO DE ARTE:</span>
+
+<span class="ca">FEED INSTAGRAM (produzir sempre nas DUAS versões):</span>
+<span class="cv">Versão 1: 1080 × 1350 px (proporção 4:5) — primária, ocupa mais feed
+Versão 2: 1080 × 1440 px (proporção 3:4) — alternativa para mais conteúdo vertical</span>
+
+<span class="ca">STORIES / REELS / TIKTOK:</span>
+<span class="cv">1080 × 1920 px (proporção 9:16)
+Zona segura: manter texto e logo 250px afastados das bordas topo/base</span>
+
+<span class="ca">BANNER SITE (produzir sempre nas DUAS versões):</span>
+<span class="cv">Desktop: 1920 × 600 px — texto/CTA à esquerda, produto à direita
+Mobile: 768 × 1100 px — texto no topo, produto centralizado, CTA no centro</span>
+
+<span class="ca">ANÚNCIO PAGO (produzir todas as versões):</span>
+<span class="cv">Quadrado: 1080 × 1080 px (1:1)
+Retrato: 1080 × 1350 px (4:5)
+Story: 1080 × 1920 px (9:16)
+Banner: 1200 × 628 px (1.91:1)</span>
+
+<span class="ck">LINHA CASUAL — EXCEÇÃO DE FUNDO:</span>
+<span class="cv">Único formato que aceita fundo cinza estúdio (#C8C8C8 a #D8D8D8) sem overlay preto.
+Tipografia em preto. Sem acento de cor. Produto em corpo inteiro, posição natural.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 08 AFILIADOS ══════════ -->
+<section class="section" id="afiliados">
+  <div class="section-header">
+    <div class="section-num"><div class="section-num-text">08</div></div>
+    <div class="section-title-area">
+      <div class="section-title">Programa de Afiliados</div>
+      <div class="section-tag">Digital & IA</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <p style="font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;margin-bottom:24px">Afiliados com 2k–5k seguidores são microinfluenciadores de nicho. O valor está na <strong style="color:var(--ink)">autenticidade e prova social real</strong> — não no alcance. Trate o conteúdo deles como ativo de comunidade.</p>
+    <div>
+      <div class="aff-rule">
+        <div class="aff-n">01</div>
+        <div><div class="aff-title">Foco em uso real, não em campanha</div><div class="aff-desc">O afiliado deve mostrar a peça no contexto real dele — treino, academia, dia a dia. Não peça para replicar o estilo do feed oficial ou fazer campanhas encenadas.</div></div>
+      </div>
+      <div class="aff-rule">
+        <div class="aff-n">02</div>
+        <div><div class="aff-title">Marcar sempre @tookasoficial</div><div class="aff-desc">Em todos os formatos — stories, reels, posts. Marcar no vídeo E na legenda.</div></div>
+      </div>
+      <div class="aff-rule">
+        <div class="aff-n">03</div>
+        <div><div class="aff-title">Curar o que vai ser repostado</div><div class="aff-desc">Reprovear conteúdo de má qualidade de imagem ou que fuja do posicionamento da marca. O conteúdo de afiliado aparece associado à Tookas.</div></div>
+      </div>
+      <div class="aff-rule">
+        <div class="aff-n">04</div>
+        <div><div class="aff-title">Incentivar stories com sticker de produto</div><div class="aff-desc">Stories com sticker de produto são o formato mais convertível para afiliados pequenos. Priorize nas orientações passadas.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 09 TIKTOK ══════════ -->
+<section class="section" id="tiktok">
+  <div class="section-header">
+    <div class="section-num"><div class="section-num-text">09</div></div>
+    <div class="section-title-area">
+      <div class="section-title">TikTok Shop — Estratégia</div>
+      <div class="section-tag">Digital & IA</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="info-grid">
+      <div class="info-cell">
+        <div class="info-cell-label">Primeiros 90 dias — Construir base</div>
+        <div class="info-cell-value">Postar mínimo 3x por semana. Testar: produto em uso, unboxing, comparativo de peça (casual vs esporte). Não forçar venda — primeiro construir audiência e confiança na plataforma.</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-cell-label">Formato TikTok — Native first</div>
+        <div class="info-cell-value">Não repostar reels do Instagram sem adaptar. TikTok tem linguagem própria: mais cru, direto, UGC. Gravar com o espírito da plataforma, não do feed curado do Instagram.</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-cell-label">TikTok Shop — Produto tagueado</div>
+        <div class="info-cell-value">Sempre taguear o produto no vídeo para ativar o botão de compra. Mostrar o produto sendo usado nos <strong>primeiros 5 segundos</strong>. O algoritmo favorece vídeos onde o produto aparece cedo e claramente.</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-cell-label">Métricas de sucesso — TikTok</div>
+        <div class="info-cell-value">Tempo de visualização > 50% · Taxa de clique no produto · Conversão direta no TikTok Shop · Crescimento de seguidores da conta</div>
+      </div>
+    </div>
+
+    <div class="code-block" style="margin-top:24px">
+      <div class="code-header">
+        <span class="code-title">System Prompt — Agente TikTok (Script de Vídeo)</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-body"><span class="ck">TOOKAS TIKTOK — REGRAS DE VÍDEO:</span>
+
+<span class="ck">HOOK (0–5s):</span>
+<span class="cv">- Mostrar o produto claramente nos primeiros 5 segundos
+- Começar com ação, não com texto ou introdução
+- Detalhe de tecido, movimento, ou situação do dia a dia</span>
+
+<span class="ck">LINGUAGEM:</span>
+<span class="cv">- Tom nativo do TikTok: mais cru, direto, UGC
+- Não replicar linguagem formal do Instagram
+- Pode ser mais informal, desde que não perca o DNA da marca</span>
+
+<span class="ck">DURAÇÃO:</span>
+<span class="cv">- Ideal: 15–30 segundos para máximo alcance
+- Aceito até 60s para tutoriais de produto ou demonstrações técnicas</span>
+
+<span class="ck">PRODUTO:</span>
+<span class="cv">- Sempre taguear o produto para ativar o botão de compra do TikTok Shop
+- CTA oral ou em texto: "Link na bio" ou "Clique no produto abaixo"</span>
+
+<span class="ck">NUNCA:</span>
+<span class="cv">- Repostar reels do Instagram sem adaptar
+- Começar o vídeo com logo ou texto introdutório
+- Vídeos longos sem produto visível nos primeiros 5 segundos</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="guide-footer">
+  <div class="gf-brand">TOOKAS</div>
+  <div class="gf-meta">Style Guide 2026 · Versão 3.0<br>Uso interno & Agentes de IA<br>Joinville, SC · Made in Brazil</div>
+</footer>
+
+</main>
+
+<script>
+// Sidebar active on scroll
+const links = document.querySelectorAll('.sidebar-link')
+const sections = ['logo-rules','cores-rules','tipo-rules','voz-rules','formatos','foto-rules','ia-prompts','afiliados','tiktok']
+window.addEventListener('scroll', () => {
+  sections.forEach((id,i) => {
+    const el = document.getElementById(id)
+    if(!el||!links[i]) return
+    const r = el.getBoundingClientRect()
+    if(r.top <= 80 && r.bottom > 80){
+      links.forEach(l=>l.classList.remove('active'))
+      links[i].classList.add('active')
+    }
+  })
+})
+
+// Copy code blocks
+function copyCode(btn){
+  const body = btn.closest('.code-block').querySelector('.code-body')
+  navigator.clipboard.writeText(body.innerText).then(()=>{
+    btn.textContent='Copiado!'
+    btn.classList.add('ok')
+    setTimeout(()=>{btn.textContent='Copiar';btn.classList.remove('ok')},2500)
+  })
+}
+</script>
+</body>
+</html>
