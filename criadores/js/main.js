@@ -53,7 +53,8 @@ function initCalculator() {
     let tierName = 'TOOKAS CREATOR';
     let productVoucher = 300;
 
-    if (followers >= 35000 || sales >= 60) {
+    // Ambassador exige mais de 10 mil seguidores, mesmo com muitas vendas.
+    if (followers > 10000 && (followers >= 35000 || sales >= 60)) {
       tierName = 'TOOKAS AMBASSADOR';
       productVoucher = 1000;
     } else if (followers >= 10000 || sales >= 25) {
@@ -112,6 +113,12 @@ function initFormHandler() {
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
       showToast('Informe um e-mail válido para receber o retorno.', 'error');
+      return;
+    }
+
+    // Ambassador so para quem tem mais de 10 mil seguidores.
+    if (tier === 'Ambassador' && (followers === '1k - 5k' || followers === '5k - 10k')) {
+      showToast('O Plano Ambassador é para quem tem mais de 10 mil seguidores. Escolha o Creator ou o Performance.', 'error');
       return;
     }
 
