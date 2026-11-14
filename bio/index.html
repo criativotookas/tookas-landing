@@ -112,7 +112,7 @@ body.l-atleta .sobre{margin-left:0;text-align:left}
 .video{position:relative;border-radius:var(--raio);overflow:hidden;border:1px solid var(--borda);background:#000;aspect-ratio:9/16;max-height:640px;width:100%;cursor:pointer}
 .video.horizontal{aspect-ratio:16/9}
 .video img,.video video,.video iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
-.video .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.75));border:0;cursor:pointer;color:#fff}
+.video .play{position:absolute;inset:0;display:grid;place-items:end center;padding-bottom:88px;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.75));border:0;cursor:pointer;color:#fff}
 .video .play i{width:68px;height:68px;border-radius:50%;border:2px solid #fff;display:grid;place-items:center;background:rgba(0,0,0,.35)}
 .video .play svg{width:24px;height:24px;margin-left:4px}
 .video .legenda{position:absolute;left:14px;right:14px;bottom:12px;text-align:left;font-size:13px;color:var(--off)}
@@ -206,12 +206,13 @@ const D = {
     { nome: "Bermuda Cargo Endurance-Tech Marinho", preco: "R$ 119,90", parc: "4x de R$ 31,55", off: "-3%", img: IMG("LV9NQHU134", "1793242800"), url: loja("https://www.tookas.com.br/bermuda-tactel-comprida-bolso-cargo-tookas-marinho") },
   ],
   // video: {mp4, poster} ou {youtube: "ID"} ou {vimeo: "ID"}
-  video: { mp4: "video/summer2027_efeito.mp4?v=3", poster: "video/summer2027.jpg?v=2", titulo: "Coleção Summer 2027", texto: "As peças novas do verão em movimento." },
+  video: { mp4: "video/summer2027_efeito.mp4?v=4", poster: "video/summer2027.jpg?v=4", titulo: "Coleção Summer 2027", texto: "As peças novas do verão em movimento." },
   links: [
     { titulo: "Comprar na loja", texto: "Frete para todo o Brasil", url: loja("https://www.tookas.com.br/"), ico: "sacola", destaque: true },
     { titulo: "Grupo VIP Tookas", texto: "Cupons, enquetes e muito mais", url: VIP, ico: "vip" },
     { titulo: "Revender Tookas", texto: "Atacado para lojas e academias", url: WHATS + "?text=" + encodeURIComponent("Olá! Quero revender Tookas na minha loja/academia."), ico: "loja" },
-    { titulo: "Catálogo Summer 2027", texto: "Coleção nova para lojistas", url: "https://aitookas.com.br/catalogo/summer2027/", ico: "catalogo" },
+    // desligado a pedido (14/11/2026): volta trocando oculto para false
+    { oculto: true, titulo: "Catálogo Summer 2027", texto: "Coleção nova para lojistas", url: "https://aitookas.com.br/catalogo/summer2027/", ico: "catalogo" },
     { titulo: "Seja creator Tookas", texto: "Ganhe comissão indicando a marca", url: "https://vem.aitookas.com.br/", ico: "estrela" },
     { titulo: "Falar com a gente", texto: "Dúvidas, trocas e tamanhos", url: WHATS + "?text=" + encodeURIComponent("Olá! Vim pelo Instagram."), ico: "whats" },
   ],
@@ -242,7 +243,7 @@ const topo = (fundo) => `
   </div>
 </header>`;
 const faixa = () => { const t = D.faixa.map(esc).join("<b>/</b>") + "<b>/</b>"; return `<div class="faixa" aria-hidden="true"><div>${t.repeat(4)}</div></div>`; };
-const botoes = (lista) => `<div class="botoes">${lista.map(l => `
+const botoes = (lista) => `<div class="botoes">${lista.filter(l => !l.oculto).map(l => `
   <a class="botao${l.destaque ? " destaque" : ""}" href="${l.url}">
     <span class="ico">${ICO[l.ico]}</span>
     <span><strong>${esc(l.titulo)}</strong><small>${esc(l.texto)}</small></span>
